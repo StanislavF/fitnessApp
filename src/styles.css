@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%; /* necessary */
+    }
+
+body{
+    min-height: 100%;
+    height:auto !important; /* modern Browser */
+    height:100%; /* IE */
+}
