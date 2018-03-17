@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.css']
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LogInComponent implements OnInit {
+export class RegisterInComponent implements OnInit {
 
   constructor(
     private router: Router
@@ -16,8 +16,9 @@ export class LogInComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToRegister() {
-    this.router.navigate(['/register']);
+  goToLogIn(){
+    this.router.navigate(["/log-in"]);
   }
+
 
 }

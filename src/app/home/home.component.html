@@ -2,10 +2,15 @@
   <div class="header">
     <h1>Example Page Header</h1>
   </div>
-  <div class="down-header"></div>
+  <div class="top-nav row">
+    <div class="col-md-2">Account</div>
+    <div class="col-md-2">My Trainers</div>
+    <div class="col-md-2">My Clients</div>
+    <div class="col-md-2">Search Trainer</div>
+  </div>
 
   <div class="row content-side_nav">
-    <div class="sidenav col-md-2 col-lg-1">
+    <div class="sidenav col-md-2">
       <a routerLink="/personal-information">Personal Information</a>
       <a href="/work">IT Experience</a>
       <a href="/education">Education</a>
@@ -13,8 +18,8 @@
       <a href="/hobbies">Hobbies</a>
     </div>
 
-    <div class="content col-md-10 col-lg-11">
-      <router-outlet></router-outlet>
+    <div class="content col-md-10">
+      <!-- <router-outlet></router-outlet> -->
     </div>
   </div>
 </div>
