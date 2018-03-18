@@ -5,7 +5,7 @@ body {
 .register-div{
     border: #536B6F solid 1px;
     margin-left: 25%;
-    margin-top: 2%;
+    margin-top: 1%;
     border-radius: 3%;
     padding: 7px;
     color: #536B6F;
@@ -19,6 +19,15 @@ body {
 .register-div button:hover{
     color:black;
     background-color: #9DB8BD;
+}
+
+.checkboxes{
+    display: block;
+}
+
+.password-error-msg{
+    margin: 2px 10px;
+    color: red;
 }
 
 .buttons{

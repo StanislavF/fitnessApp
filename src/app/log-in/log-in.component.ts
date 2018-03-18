@@ -1,6 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { 
+  FormGroup, 
+  FormControl, 
+  ReactiveFormsModule,
+  FormsModule,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
+
 
 @Component({
   selector: 'app-log-in',
@@ -9,11 +18,17 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent implements OnInit {
 
+  logInForm: FormGroup;
+
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.logInForm = new FormGroup({
+      username: new FormControl,
+      password: new FormControl
+    });
   }
 
   goToRegister() {

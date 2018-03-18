@@ -1,39 +1,53 @@
 <div class="row">
-  <form class="col-md-3 col-sm-6 col-xs-9 register-div">
+  <form [formGroup]="registerForm" class="col-md-3 col-sm-6 col-xs-9 register-div">
     <fieldset>
       <div class="form-group">
         <label>Username</label>
-        <input type="text" class="form-control" required>
+        <input type="text" class="form-control" formControlName="username" required>
       </div>
 
       <div class="form-group">
         <label>First Name</label>
-        <input type="text" class="form-control" required>
+        <input type="text" class="form-control" formControlName="firstName" required>
       </div>
 
       <div class="form-group">
         <label>Last Name</label>
-        <input type="text" class="form-control" required>
+        <input type="text" class="form-control" formControlName="lastName" required>
       </div>
     </fieldset>
 
     <div class="form-group">
       <label>Email</label>
-      <input type="email" class="form-control" required>
+      <input type="email" class="form-control" formControlName="email" required>
     </div>
 
     <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-        <label>Repeat Password</label>
-        <input type="password" class="form-control" >
+      <label>Are you a Trainer</label>
+      <div class="checkboxes">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" [(checked)]="isYesChecked" (change)="swapCheckboxValues()" >Yes</label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" [(checked)]="isNoChecked" (change)="swapCheckboxValues()" >No</label>
+        </div>
       </div>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label><label class="password-error-msg" >{{passowrdsMsg}}</label>
+      <input type="password" class="form-control" formControlName="password" (change)="confirmPassword()" required>
+    </div>
+
+    <div class="form-group">
+      <label>Repeat Password</label>
+      <input type="password" class="form-control" formControlName="passwordConf" (change)="confirmPassword()">
+    </div>
 
     <div class="form-group buttons">
-      <button class="btn">Register</button>
+      <button class="btn" [disabled]="isRegBtnDisabled">Register</button>
       <button class="btn" (click)="goToLogIn()">Log in</button>
     </div>
   </form>
