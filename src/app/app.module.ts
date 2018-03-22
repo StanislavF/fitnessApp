@@ -1,5 +1,5 @@
 import { BrowserModule} from '@angular/platform-browser';
-import { NgModule, Pipe} from '@angular/core';
+import { NgModule, Pipe, ViewChild} from '@angular/core';
 import { AppRoutingModule }     from './app-routing.module';
 import { AlertModule } from 'ngx-bootstrap';
 import { 
