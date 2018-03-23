@@ -11,6 +11,10 @@ import {
   FormBuilder
 } from '@angular/forms';
 
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {AccordionModule} from 'primeng/accordion';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 import { RegisterInComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
@@ -29,7 +33,9 @@ import { LogInComponent } from './log-in/log-in.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AccordionModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

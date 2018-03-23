@@ -1,5 +1,8 @@
+import {AccordionModule} from 'primeng/accordion';
+
 import { NavigationEnum } from './../shared/models/navigationEnum.enum';
 import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
+
 
 @Component({
   selector: 'app-home',
@@ -9,6 +12,7 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/cor
 export class HomeComponent implements OnInit {
 
   public opendPage = NavigationEnum.ACCOUNT;
+  public trainers = [1,2,3,4,5,6,7];
 
   constructor(
     private renderer: Renderer2
