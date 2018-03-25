@@ -11,14 +11,14 @@
 
   <div class="row content-side_nav">
 
-    <div class="sidenav col-md-2" *ngIf="opendPage==0">
+    <div class="sidenav col-md-2" *ngIf="opendPage=='account'">
       <a routerLink="/personal-information">Profile</a>
       <a href="/work">Change Password</a>
       <a href="/education">Change Email</a>
       <a href="/technologies">Logout</a>
     </div>
 
-    <div class="sidenav col-md-2" *ngIf="opendPage==1">
+    <div class="sidenav col-md-2" *ngIf="opendPage=='my-trainers'">
       <p-accordion styleClass="accordion">
         <div *ngFor="let trainer of trainers">
           <p-accordionTab >
@@ -27,22 +27,40 @@
             </p-header>
             <a>Meal Plan</a>
             <a>Program</a>
-            <a>Profile</a>
+            <a routerLink="/home/profile">Profile</a>
           </p-accordionTab>
         </div>
       </p-accordion>
     </div>
 
-    <div class="sidenav col-md-2" *ngIf="opendPage==2">
-      <a routerLink="/personal-information">Clients</a>
+    <div class="sidenav col-md-2" *ngIf="opendPage=='my-clients'">
+      <a routerLink="/personal-information" class="client-requests">Client requests</a>
+
+      <p-accordion styleClass="accordion">
+          <div *ngFor="let trainer of trainers">
+            <p-accordionTab >
+              <p-header>
+                Client {{trainer}}
+              </p-header>
+              <a>Meal Plan</a>
+              <a>Program</a>
+              <a routerLink="/home/profile">Profile</a>
+            </p-accordionTab>
+          </div>
+        </p-accordion>
+
     </div>
 
-    <div class="sidenav col-md-2" *ngIf="opendPage==3">
+    <div class="sidenav col-md-2" *ngIf="opendPage=='search-trainer'">
       <a routerLink="/personal-information">Search</a>
     </div>
 
+    <div class="col-md-2">
+
+    </div>
+
     <div class="content col-md-10">
-      <!-- <router-outlet></router-outlet> -->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

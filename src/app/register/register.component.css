@@ -11,16 +11,6 @@ body {
     color: #536B6F;
 }
 
-.register-div button{
-    color:#FAFAFA;
-    background-color: #536B6F;
-}
-
-.register-div button:hover{
-    color:black;
-    background-color: #9DB8BD;
-}
-
 .checkboxes{
     display: block;
 }

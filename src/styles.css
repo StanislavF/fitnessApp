@@ -8,3 +8,18 @@ body{
     height:auto !important; /* modern Browser */
     height:100%; /* IE */
 }
+
+.row{
+    padding: 0px;
+    margin: 0px;
+}
+
+.my-btn{
+    color:#FAFAFA;
+    background-color: #536B6F;
+}
+
+.my-btn:hover{
+    color:black;
+    background-color: #9DB8BD;
+}

@@ -2,7 +2,7 @@ body {
     background-color: #FAFAFA;
 }
 
-.register-div{
+.logIn-div{
     border: #536B6F solid 1px;
     margin-left: 25%;
     margin-top: 10%;
@@ -11,15 +11,6 @@ body {
     color: #536B6F;
 }
 
-.register-div button{
-    color:#FAFAFA;
-    background-color: #536B6F;
-}
-
-.register-div button:hover{
-    color:black;
-    background-color: #9DB8BD;
-}
 
 .buttons{
     float: right;

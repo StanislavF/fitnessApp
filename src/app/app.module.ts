@@ -19,6 +19,8 @@ import { AppComponent } from './app.component';
 import { RegisterInComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { ProfileComponent } from './home/profile/profile/profile.component';
+import { NavigService } from './shared/services/navig-service.service';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { LogInComponent } from './log-in/log-in.component';
     AppComponent,
     RegisterInComponent,
     HomeComponent,
-    LogInComponent
+    LogInComponent,
+    ProfileComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -37,7 +40,7 @@ import { LogInComponent } from './log-in/log-in.component';
     AccordionModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [NavigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

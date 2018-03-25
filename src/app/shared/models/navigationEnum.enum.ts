@@ -1,6 +1,6 @@
 export enum NavigationEnum {
-        ACCOUNT,
-        MY_TRAINERS,
-        MY_CLIENTS,
-        SEARCH_TRAINER
+        ACCOUNT = "account",
+        MY_TRAINERS = "my-trainers",
+        MY_CLIENTS = "my-clients",
+        SEARCH_TRAINER = "search-trainer"
     }
