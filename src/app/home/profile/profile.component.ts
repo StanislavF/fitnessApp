@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 
 @Component({
   selector: 'app-profile',
@@ -9,6 +10,7 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   public openedPage: any;
+  public isTrainer: boolean;
 
   constructor(
     private route: ActivatedRoute

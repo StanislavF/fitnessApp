@@ -2,8 +2,8 @@
 
   <div class="for-account row" *ngIf="openedPage==='account'">
     <h2 class="col-md-4">Usename Profile</h2>
-    <div class="col-md-5"></div>
-    <button class="col-md-2 btn my-btn">Change fields</button>
+    <div class="col-md-6"></div>
+    <button class="col-md-1 btn my-btn">Change fields</button>
   </div>
 
   <div class="row image-personalInfo">
@@ -12,7 +12,7 @@
       <img class="" #profileImg>
     </div>
 
-    <div class="personal-info col-md-9">
+    <div class="personal-info col-md-3">
       <div>
         <label>First Name:</label>
         <label #firstName></label>
@@ -30,6 +30,16 @@
         <label #sex></label>
       </div>
       <div>
+        <label>E-mail:</label>
+        <label #email></label>
+      </div>
+      <div>
+        <label>Phone:</label>
+        <label #phone></label>
+      </div>
+    </div>
+    <div class="personal-info col-md-3">
+      <div>
         <label>Weight:</label>
         <label #weight></label>
       </div>
@@ -41,17 +51,22 @@
         <label>Goal:</label>
         <label #goal></label>
       </div>
-      <div>
-        <label>E-mail:</label>
-        <label #email></label>
-      </div>
     </div>
 
   </div>
 
-  <div>
-    <label class="is-trainer" #isTrainer>This user is a trainer</label>
+  <div *ngIf="openedPage==='account'; else notAccTrainer">
+    <div class="row">
+      <div class="col-md-10">
+        <label class="is-trainer" #isTrainer>Are you a trainer</label>
+        <p-toggleButton class="is-trainer-btn" onIcon="fa-check-square" offIcon="fa-square" [(ngModel)]="checked"></p-toggleButton>
+      </div>
+      <button class="col-md-1 btn my-btn">Change description</button>
+    </div>
   </div>
+  <ng-template #notAccTrainer>
+    <label class="is-trainer" #isTrainer>This user is a trainer</label>
+  </ng-template>
 
   <div class="col-md-11 user-description">
 

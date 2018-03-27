@@ -75,6 +75,7 @@ body{
 :host >>> .ui-accordion-header a:hover {
     text-decoration: none;
     background: #b1b1b1 !important;
+    color: black !important;
 }
 
 :host >>> .ui-widget-content {
@@ -87,10 +88,13 @@ body{
 
 :host >>> .ui-accordion-content {
     background: #b1b1b1 !important;
+    padding:0 1em;
 }
 
 :host >>> .ui-accordion-content a{
     color: black  !important;
+    font-size:18px !important;
+    padding-left:3em !important;
 }
 
 :host >>> .ui-accordion-content a:hover{
@@ -114,4 +118,12 @@ body{
 :host >>> .ui-state-active p-header {
     color: black;
     font-size: 22px;
+}
+
+:host >>> .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active p-header:hover {
+    background: #536B6F !important;
+}
+
+:host >>> .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active  p-header:hover {
+    color: #FAFAFA !important;
 }

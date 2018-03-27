@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterInComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { ProfileComponent } from './home/profile/profile/profile.component';
+import { ProfileComponent } from './home/profile/profile.component';
  
 const routes: Routes = [
 { path: '', redirectTo: 'log-in', pathMatch: 'full' },
