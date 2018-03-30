@@ -1,3 +1,4 @@
+import { TrainProgramComponent } from './home/train-program/train-program.component';
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterInComponent } from './register/register.component';
@@ -21,11 +22,11 @@ const routes: Routes = [
     {
       path: 'account/profile',
       component: ProfileComponent
+    },
+    {
+      path: 'my-trainers',
+      component: TrainProgramComponent
     }
-    // {
-    //   path: 'my-trainers',
-    //   component: null,
-    // }
   ]
 }
 ];

@@ -1,11 +1,12 @@
-
-
-body{
-    display: flex;
-}
-
 .content-side_nav{
     align-items: stretch;
+    overflow-y: hidden !important;
+}
+
+.content {
+    align-items: stretch;
+    overflow-y: auto;
+    height: -webkit-fill-available;
 }
 
 .sidenav {
@@ -127,3 +128,4 @@ body{
 :host >>> .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active  p-header:hover {
     color: #FAFAFA !important;
 }
+
