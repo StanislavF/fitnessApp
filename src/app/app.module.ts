@@ -18,25 +18,27 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
 
 import { AppComponent } from './app.component';
 import { RegisterInComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { ContentComponent } from './content-holder/content.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { ProfileComponent } from './home/profile/profile.component';
+import { ProfileComponent } from './content-holder/profile/profile.component';
 import { NavigService } from './shared/services/navig-service.service';
-import { TrainProgramComponent } from './home/train-program/train-program.component';
-import { TrainingDayComponent } from './home/train-program/training-day/training-day.component';
-import { TrainingRowComponent } from './home/train-program/training-day/training-row/training-row.component';
+import { TrainProgramComponent } from './content-holder/train-program/train-program.component';
+import { TrainingDayComponent } from './content-holder/train-program/training-day/training-day.component';
+import { TrainingRowComponent } from './content-holder/train-program/training-day/training-row/training-row.component';
+import { HomeComponent } from './content-holder/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterInComponent,
-    HomeComponent,
+    ContentComponent,
     LogInComponent,
     ProfileComponent,
     TrainProgramComponent,
     TrainingDayComponent,
-    TrainingRowComponent
+    TrainingRowComponent,
+    HomeComponent
   ],
   imports: [
     AlertModule.forRoot(),

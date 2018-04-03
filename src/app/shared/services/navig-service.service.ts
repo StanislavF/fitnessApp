@@ -9,7 +9,7 @@ export class NavigService {
   ) { }
 
   navigateToMainPage(page){
-    this.router.navigate(["home/"+page]);
+    this.router.navigate(["app/"+page]);
   }
 
 }
