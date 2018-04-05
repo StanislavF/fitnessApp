@@ -1,0 +1,35 @@
+.field-names{
+    text-align: center;
+    font-size: 13px;
+}
+
+.field-names div{
+
+    padding: 0;
+}
+
+.training-day{
+    width: 100%;
+    min-height: 10em;
+    border-radius: 10px;
+    margin: 14px 0;
+}
+
+.header {
+    height: 3em;
+    border: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.body{
+    border: 1px solid black;
+    min-height: 8em;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 6px 0;
+}
+
+.row{
+    padding:0;
+}

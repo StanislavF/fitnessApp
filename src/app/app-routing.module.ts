@@ -1,3 +1,4 @@
+import { MealPlanComponent } from './content-holder/meal-plan/meal-plan.component';
 import { HomeComponent } from './content-holder/home/home.component';
 import { TrainProgramComponent } from './content-holder/train-program/train-program.component';
 import { NgModule }             from '@angular/core';
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'account/profile', component: ProfileComponent },
     { path: 'my-trainers', component: TrainProgramComponent },
+    { path: 'my-clients', component: MealPlanComponent },
     { path: 'account', redirectTo: 'account/profile', pathMatch: 'full' }
   ]
 

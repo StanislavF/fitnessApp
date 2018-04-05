@@ -1,0 +1,14 @@
+.row div{
+    text-align: center;
+}
+
+label{
+    font-size: 12px;
+}
+
+.comment{
+    border: 1px solid black;
+    width:inherit;
+    text-align: left;
+    padding: 0 2px;
+}

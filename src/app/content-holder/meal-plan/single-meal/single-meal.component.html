@@ -1,0 +1,44 @@
+<div class="training-day">
+  <div class="header">
+  </div>
+
+  <div class="body">
+    <div class="field-names row">
+      <div class="col-md-1">
+        <label>No</label>
+      </div>
+      <div class="col-md-3">
+        <label>Food name</label>
+      </div>
+      <div class="col-md-1">
+        <label>Weight</label>
+      </div>
+      <div class="col-md-1">
+        <label>Calories</label>
+      </div>
+      <div class="col-md-1">
+        <label>Proteins</label>
+      </div>
+      <div class="col-md-1">
+        <label>Carbs</label>
+      </div>
+      <div class="col-md-1">
+        <label>Fats</label>
+      </div>
+      <div class="col-md-3">
+        <label>Comment</label>
+      </div>
+
+
+
+    </div>
+    <div *ngFor="let food of foods">
+      <hr>
+      <app-meal-row [food]="food">
+      </app-meal-row>
+
+    </div>
+  </div>
+
+
+</div>

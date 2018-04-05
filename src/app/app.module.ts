@@ -26,6 +26,9 @@ import { TrainProgramComponent } from './content-holder/train-program/train-prog
 import { TrainingDayComponent } from './content-holder/train-program/training-day/training-day.component';
 import { TrainingRowComponent } from './content-holder/train-program/training-day/training-row/training-row.component';
 import { HomeComponent } from './content-holder/home/home.component';
+import { MealPlanComponent } from './content-holder/meal-plan/meal-plan.component';
+import { SingleMealComponent } from './content-holder/meal-plan/single-meal/single-meal.component';
+import { MealRowComponent } from './content-holder/meal-plan/single-meal/meal-row/meal-row.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { HomeComponent } from './content-holder/home/home.component';
     TrainProgramComponent,
     TrainingDayComponent,
     TrainingRowComponent,
-    HomeComponent
+    HomeComponent,
+    MealPlanComponent,
+    SingleMealComponent,
+    MealRowComponent
   ],
   imports: [
     AlertModule.forRoot(),
