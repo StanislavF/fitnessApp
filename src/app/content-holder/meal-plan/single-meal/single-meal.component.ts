@@ -1,5 +1,6 @@
 import { Food } from './../../../shared/models/food.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SingleMeal } from '../../../shared/models/single-meal.model';
 
 @Component({
   selector: 'app-single-meal',
@@ -8,54 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleMealComponent implements OnInit {
 
-  public foods: Food[];
+  @Input() singleMeal: SingleMeal;
 
   constructor() { }
 
   ngOnInit() {
 
-    this.foods = [
-      {
-        foodNo: "1",
-        foodName: "2",
-        foodWeight: "3",
-        calories: 20,
-        proteins: 20,
-        carbs: 12,
-        fats: 12,
-        comment: "test"
-      },
-      {
-        foodNo: "1",
-        foodName: "2",
-        foodWeight: "3",
-        calories: 20,
-        proteins: 20,
-        carbs: 12,
-        fats: 12,
-        comment: "test"
-      },
-      {
-        foodNo: "1",
-        foodName: "2",
-        foodWeight: "3",
-        calories: 20,
-        proteins: 20,
-        carbs: 12,
-        fats: 12,
-        comment: "test"
-      },
-      {
-        foodNo: "1",
-        foodName: "2",
-        foodWeight: "3",
-        calories: 20,
-        proteins: 20,
-        carbs: 12,
-        fats: 12,
-        comment: "test"
-      }
-    ];
+   
 
   }
 

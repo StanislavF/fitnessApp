@@ -1,5 +1,7 @@
-<div class="training-day">
+<div class="single-meal">
   <div class="header">
+    <label>{{singleMeal.smNo}}.</label>
+    <label>{{singleMeal.smTitle}}</label>
   </div>
 
   <div class="body">
@@ -14,10 +16,10 @@
         <label>Weight</label>
       </div>
       <div class="col-md-1">
-        <label>Calories</label>
+        <label>Cals</label>
       </div>
       <div class="col-md-1">
-        <label>Proteins</label>
+        <label>Prots</label>
       </div>
       <div class="col-md-1">
         <label>Carbs</label>
@@ -32,11 +34,32 @@
 
 
     </div>
-    <div *ngFor="let food of foods">
+    <div *ngFor="let food of singleMeal.foods">
       <hr>
       <app-meal-row [food]="food">
       </app-meal-row>
 
+    </div>
+
+    <div class="row day-macros">
+      <div class="col-md-5">
+        <label>Calories and macros for the day</label>
+      </div>
+      <div class="col-md-1">
+        <label>3000</label>
+      </div>
+      <div class="col-md-1">
+        <label>140</label>
+      </div>
+      <div class="col-md-1">
+        <label>302</label>
+      </div>
+      <div class="col-md-1">
+        <label>102</label>
+      </div>
+      <div class="col-md-1">
+
+      </div>
     </div>
   </div>
 

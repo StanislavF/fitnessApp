@@ -1,14 +1,19 @@
+hr {
+    margin-top:0;
+    margin-bottom: 8px;;
+}
+
 .field-names{
     text-align: center;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .field-names div{
-
+    font-weight: bold;
     padding: 0;
 }
 
-.training-day{
+.single-meal{
     width: 100%;
     min-height: 10em;
     border-radius: 10px;
@@ -16,10 +21,17 @@
 }
 
 .header {
-    height: 3em;
+    padding: 6px;
+    font-weight: bold;
     border: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    font-size: 22px;
+}
+
+.header label{
+    font-size: 22px;
+
 }
 
 .body{
@@ -28,6 +40,13 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 6px 0;
+}
+
+.day-macros{
+    border-top: 2px solid black;
+    text-align: center;
+    padding-top: 7px !important;
+    font-weight: bold;
 }
 
 .row{

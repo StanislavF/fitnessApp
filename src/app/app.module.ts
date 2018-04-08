@@ -29,6 +29,8 @@ import { HomeComponent } from './content-holder/home/home.component';
 import { MealPlanComponent } from './content-holder/meal-plan/meal-plan.component';
 import { SingleMealComponent } from './content-holder/meal-plan/single-meal/single-meal.component';
 import { MealRowComponent } from './content-holder/meal-plan/single-meal/meal-row/meal-row.component';
+import { MyClientsComponent } from './content-holder/my-clients/my-clients.component';
+import { MyTrainersComponent } from './content-holder/my-trainers/my-trainers.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { MealRowComponent } from './content-holder/meal-plan/single-meal/meal-ro
     HomeComponent,
     MealPlanComponent,
     SingleMealComponent,
-    MealRowComponent
+    MealRowComponent,
+    MyClientsComponent,
+    MyTrainersComponent
   ],
   imports: [
     AlertModule.forRoot(),

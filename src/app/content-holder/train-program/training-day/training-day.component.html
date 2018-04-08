@@ -1,5 +1,7 @@
 <div class="training-day">
   <div class="header">
+    <label>{{trainingDay.tdNo}}.</label>
+    <label>{{trainingDay.tdTitle}}</label>
   </div>
 
   <div class="body">
@@ -26,8 +28,11 @@
 
 
     </div>
-    <app-training-row *ngFor="let exercise of exercises" [exercise]="exercise">
-    </app-training-row>
+    <div *ngFor="let exercise of trainingDay.exercises">
+      <hr>
+      <app-training-row [exercise]="exercise">
+      </app-training-row>
+    </div>
   </div>
 
 

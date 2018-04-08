@@ -12,3 +12,7 @@ label{
     text-align: left;
     padding: 0 2px;
 }
+
+.comment:hover{
+    cursor: text;
+}

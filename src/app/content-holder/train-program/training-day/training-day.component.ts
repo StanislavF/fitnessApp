@@ -1,5 +1,6 @@
 import { Exercise } from './../../../shared/models/exercise.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TrainingDay } from '../../../shared/models/training-day.model';
 
 @Component({
   selector: 'app-training-day',
@@ -8,63 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingDayComponent implements OnInit {
 
-  public exercises: Exercise[];
+  @Input() trainingDay: TrainingDay;
 
   constructor() { }
 
   ngOnInit() {
 
-    this.exercises = [
-      {
-        exerciseNo: "1",
-        exerciseName: "2",
-        sets: "3",
-        reps: "4",
-        weight: "5",
-        comment: "6"
-      },
-      {
-        exerciseNo: "1",
-        exerciseName: "2",
-        sets: "3",
-        reps: "4",
-        weight: "5",
-        comment: "6"
-      },
-      {
-        exerciseNo: "1",
-        exerciseName: "2",
-        sets: "3",
-        reps: "4",
-        weight: "5",
-        comment: "6"
-      },
-      {
-        exerciseNo: "1",
-        exerciseName: "2",
-        sets: "3",
-        reps: "4",
-        weight: "5",
-        comment: "6"
-      },
-      {
-        exerciseNo: "1",
-        exerciseName: "2",
-        sets: "3",
-        reps: "4",
-        weight: "5",
-        comment: "6"
-      },
-      {
-        exerciseNo: "1",
-        exerciseName: "2",
-        sets: "3",
-        reps: "4",
-        weight: "5",
-        comment: "6"
-      }
-
-    ];
   }
 
 }

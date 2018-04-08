@@ -19,16 +19,16 @@
       <a href="/technologies">Logout</a>
     </div>
 
-    <div class="sidenav col-md-2" *ngIf="opendPage=='my-trainers'" >
+    <div class="sidenav col-md-2" *ngIf="opendPage=='my-trainers'">
       <p-accordion styleClass="accordion">
         <div *ngFor="let trainer of trainers">
-          <p-accordionTab >
+          <p-accordionTab>
             <p-header>
               Trainer {{trainer}}
             </p-header>
-            <a>Meal Plan</a>
-            <a>Program</a>
-            <a routerLink="/home/profile">Profile</a>
+            <a routerLink="/app/my-trainers/meal-plan">Meal Plan</a>
+            <a routerLink="/app/my-trainers/training-program">Training Program</a>
+            <a routerLink="/app/my-trainers/profile">Profile</a>
           </p-accordionTab>
         </div>
       </p-accordion>
@@ -38,17 +38,17 @@
       <a routerLink="/personal-information" class="client-requests">Client requests</a>
 
       <p-accordion styleClass="accordion">
-          <div *ngFor="let trainer of trainers">
-            <p-accordionTab >
-              <p-header>
-                Client {{trainer}}
-              </p-header>
-              <a>Meal Plan</a>
-              <a>Program</a>
-              <a routerLink="/home/profile">Profile</a>
-            </p-accordionTab>
-          </div>
-        </p-accordion>
+        <div *ngFor="let trainer of trainers">
+          <p-accordionTab>
+            <p-header>
+              Client {{trainer}}
+            </p-header>
+            <a routerLink="/app/my-clients/meal-plan">Meal Plan</a>
+            <a routerLink="/app/my-clients/training-program">Training Program</a>
+            <a routerLink="/app/my-clients/profile">Profile</a>
+          </p-accordionTab>
+        </div>
+      </p-accordion>
 
     </div>
 
@@ -56,7 +56,7 @@
       <a routerLink="/personal-information">Search</a>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-2" *ngIf="opendPage !='home'">
 
     </div>
 
