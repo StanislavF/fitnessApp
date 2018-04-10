@@ -2,6 +2,10 @@
   <div class="header">
     <label>{{trainingDay.tdNo}}.</label>
     <label>{{trainingDay.tdTitle}}</label>
+    <div *ngIf="isTrainer">
+      <button class="btn my-btn">Change</button>
+      <button class="btn my-btn">Delete</button>
+    </div>
   </div>
 
   <div class="body">
@@ -24,14 +28,14 @@
       <div class="col-md-4">
         <label>Comment</label>
       </div>
-
-
-
     </div>
-    <div *ngFor="let exercise of trainingDay.exercises">
-      <hr>
-      <app-training-row [exercise]="exercise">
-      </app-training-row>
+
+    <div>
+      <div *ngFor="let exercise of trainingDay.exercises">
+        <hr>
+        <app-training-row [exercise]="exercise">
+        </app-training-row>
+      </div>
     </div>
   </div>
 

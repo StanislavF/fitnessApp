@@ -29,6 +29,10 @@ hr {
     font-size: 22px;
 }
 
+.header div {
+    float: right;
+}
+
 .body{
     border: 1px solid black;
     min-height: 8em;
