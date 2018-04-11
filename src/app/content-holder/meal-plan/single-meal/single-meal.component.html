@@ -2,6 +2,10 @@
   <div class="header">
     <label>{{singleMeal.smNo}}.</label>
     <label>{{singleMeal.smTitle}}</label>
+    <div *ngIf="isTrainer">
+      <button class="btn my-btn" (click)="openModal()">Change</button>
+      <button class="btn my-btn">Delete</button>
+    </div>
   </div>
 
   <div class="body">

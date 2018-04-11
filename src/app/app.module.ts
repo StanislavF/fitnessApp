@@ -2,6 +2,7 @@ import { BrowserModule} from '@angular/platform-browser';
 import { NgModule, Pipe, ViewChild} from '@angular/core';
 import { AppRoutingModule }     from './app-routing.module';
 import { AlertModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { 
   FormGroup, 
   FormControl, 
@@ -31,6 +32,8 @@ import { SingleMealComponent } from './content-holder/meal-plan/single-meal/sing
 import { MealRowComponent } from './content-holder/meal-plan/single-meal/meal-row/meal-row.component';
 import { MyClientsComponent } from './content-holder/my-clients/my-clients.component';
 import { MyTrainersComponent } from './content-holder/my-trainers/my-trainers.component';
+import { ModalSingleMealComponent } from './content-holder/meal-plan/modal-single-meal/modal-single-meal.component';
+import { ModalSingleMealRowComponent } from './content-holder/meal-plan/modal-single-meal/modal-single-meal-row/modal-single-meal-row.component';
 
 
 @NgModule({
@@ -48,7 +51,9 @@ import { MyTrainersComponent } from './content-holder/my-trainers/my-trainers.co
     SingleMealComponent,
     MealRowComponent,
     MyClientsComponent,
-    MyTrainersComponent
+    MyTrainersComponent,
+    ModalSingleMealComponent,
+    ModalSingleMealRowComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -58,9 +63,14 @@ import { MyTrainersComponent } from './content-holder/my-trainers/my-trainers.co
     FormsModule,
     AccordionModule,
     BrowserAnimationsModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    ModalModule.forRoot()
   ],
   providers: [NavigService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ModalSingleMealComponent,
+    ModalSingleMealRowComponent
+  ]
 })
 export class AppModule { }
