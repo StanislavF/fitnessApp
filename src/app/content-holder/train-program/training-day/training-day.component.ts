@@ -28,4 +28,5 @@ export class TrainingDayComponent implements OnInit {
     }
   }
 
+
 }

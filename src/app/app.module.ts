@@ -1,3 +1,4 @@
+import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal.service';
 import { BrowserModule} from '@angular/platform-browser';
 import { NgModule, Pipe, ViewChild} from '@angular/core';
 import { AppRoutingModule }     from './app-routing.module';
@@ -66,7 +67,10 @@ import { ModalSingleMealRowComponent } from './content-holder/meal-plan/modal-si
     ToggleButtonModule,
     ModalModule.forRoot()
   ],
-  providers: [NavigService],
+  providers: [
+    NavigService,
+    MealPlanModalService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     ModalSingleMealComponent,

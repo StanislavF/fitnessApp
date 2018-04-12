@@ -6,5 +6,67 @@
   </div>
 </div>
 <div class="modal-body">
-  This is a modal.
+  <div>
+    <div class="field-names row">
+      <div class="col-md-1">
+        <label>No</label>
+      </div>
+      <div class="col-md-3">
+        <label>Food name</label>
+      </div>
+      <div class="col-md-2">
+        <label>Weight</label>
+      </div>
+      <div class="col-md-2">
+        <label>Cals</label>
+      </div>
+      <div class="col-md-1">
+        <label>Prots</label>
+      </div>
+      <div class="col-md-1">
+        <label>Carbs</label>
+      </div>
+      <div class="col-md-1">
+        <label>Fats</label>
+      </div>
+    </div>
+
+    <div class="foods">
+      <hr>
+      <app-modal-single-meal-row></app-modal-single-meal-row>
+      <hr>
+      <app-modal-single-meal-row></app-modal-single-meal-row>
+      <hr>
+      <app-modal-single-meal-row></app-modal-single-meal-row>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <button class="btn my-btn add-btn col-md-2">Add Food</button>
+    <div class="col-md-5"></div>
+  </div>
+</div>
+<div class="modal-footer">
+
+  <div class="row">
+    <div class="col-md-6 day-macros-label">
+      <label>Calories and Macros for the day</label>
+    </div>
+    <div class="col-md-2">
+      <input #calories>
+    </div>
+    <div class="col-md-1">
+      <input #proteins>
+    </div>
+    <div class="col-md-1">
+      <input #carbs>
+    </div>
+    <div class="col-md-1">
+      <input #fats>
+    </div>
+    <button class="btn my-btn col-md-1">Calc</button>
+  </div>
+
 </div>

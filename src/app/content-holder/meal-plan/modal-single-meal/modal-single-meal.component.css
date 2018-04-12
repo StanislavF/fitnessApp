@@ -5,3 +5,26 @@
 .modal-dialog {
     max-width: 600px !important;
 }
+
+.field-names{
+    text-align: center;
+    font-size: 16px;
+}
+
+.field-names div{
+    font-weight: bold;
+    padding: 0;
+}
+
+.modal-footer input{
+    width:inherit;
+}
+
+.modal-footer button{
+    padding:0;
+}
+
+.day-macros-label{
+    text-align: center;
+    font-weight: bold;
+}

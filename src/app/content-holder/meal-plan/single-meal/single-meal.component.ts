@@ -1,8 +1,10 @@
+import { MealPlanModalService } from './../meal-plan-modal.service';
 import { Router } from '@angular/router';
 import { ModalSingleMealComponent } from './../modal-single-meal/modal-single-meal.component';
 import { Food } from './../../../shared/models/food.model';
 import { Component, OnInit, Input} from '@angular/core';
 import { SingleMeal } from '../../../shared/models/single-meal.model';
+
 
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -14,14 +16,12 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 })
 export class SingleMealComponent implements OnInit {
 
-  @Input() singleMeal: SingleMeal;
-  bsModalRef: BsModalRef;
-  
+  @Input() singleMeal: SingleMeal;  
   public isTrainer: boolean;
 
   constructor(
-    private modalService: BsModalService,
-    private router: Router  
+    private router: Router ,
+    private modalService: MealPlanModalService 
   ) { }
 
   ngOnInit() {
@@ -35,9 +35,9 @@ export class SingleMealComponent implements OnInit {
     }
   }
 
-  openModal() {
-    this.bsModalRef = this.modalService.show(ModalSingleMealComponent,Object.assign({}, { class: 'modal-lg' }));
-    //this.bsModalRef.content.closeBtnName = 'Close';
+  openModal(){
+    this.modalService.openModal();
   }
+
 
 }

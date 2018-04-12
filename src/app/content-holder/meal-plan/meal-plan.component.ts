@@ -1,3 +1,4 @@
+import { MealPlanModalService } from './meal-plan-modal.service';
 import { Component, OnInit } from '@angular/core';
 import { SingleMeal } from '../../shared/models/single-meal.model';
 
@@ -10,7 +11,9 @@ export class MealPlanComponent implements OnInit {
 
   public singleMeals: SingleMeal[];
 
-  constructor() { }
+  constructor(
+    private modalService: MealPlanModalService 
+  ) { }
 
   ngOnInit() {
 
@@ -66,6 +69,10 @@ export class MealPlanComponent implements OnInit {
         ]
       }
     ];
+  }
+
+  openModal() {
+    this.modalService.openModal();
   }
 
 }
