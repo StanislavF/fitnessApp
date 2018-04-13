@@ -36,7 +36,7 @@ export class SingleMealComponent implements OnInit {
   }
 
   openModal(){
-    this.modalService.openModal();
+    this.modalService.openModal(this.singleMeal);
   }
 
 

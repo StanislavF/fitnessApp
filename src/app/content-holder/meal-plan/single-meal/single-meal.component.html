@@ -9,6 +9,7 @@
   </div>
 
   <div class="body">
+    
     <div class="field-names row">
       <div class="col-md-1">
         <label>No</label>
@@ -34,10 +35,8 @@
       <div class="col-md-3">
         <label>Comment</label>
       </div>
-
-
-
     </div>
+
     <div *ngFor="let food of singleMeal.foods">
       <hr>
       <app-meal-row [food]="food">

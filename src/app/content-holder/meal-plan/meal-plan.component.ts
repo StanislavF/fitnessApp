@@ -72,7 +72,7 @@ export class MealPlanComponent implements OnInit {
   }
 
   openModal() {
-    this.modalService.openModal();
+    this.modalService.openModal(null);
   }
 
 }

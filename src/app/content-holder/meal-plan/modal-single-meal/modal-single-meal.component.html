@@ -1,8 +1,12 @@
 <div class="modal-header">
   <h4 class="modal-title pull-left">Modal</h4>
+  <div class="pull-left">
+    <input placeholder="No" [(ngModel)]="singleMealCopy.smNo">
+    <input placeholder="Title" [(ngModel)]="singleMealCopy.smTitle">
+  </div>
   <div class="pull-right">
-    <button type="button" class="btn my-btn " aria-label="Save" (click)="bsModalRef.hide()"> Save </button>
-    <button type="button" class="btn my-btn " aria-label="Close" (click)="bsModalRef.hide()">Cancel</button>
+    <button type="button" class="btn my-btn " aria-label="Save" (click)="hideModal()"> Save </button>
+    <button type="button" class="btn my-btn " aria-label="Close" (click)="hideModal()">Cancel</button>
   </div>
 </div>
 <div class="modal-body">
@@ -32,19 +36,18 @@
     </div>
 
     <div class="foods">
-      <hr>
-      <app-modal-single-meal-row></app-modal-single-meal-row>
-      <hr>
-      <app-modal-single-meal-row></app-modal-single-meal-row>
-      <hr>
-      <app-modal-single-meal-row></app-modal-single-meal-row>
+      <div *ngFor="let food of foods; let i = index">
+        <hr>
+        <app-modal-single-meal-row [(foods)]="foods" [index]="i"></app-modal-single-meal-row>
+      </div>
     </div>
+
   </div>
 
   <hr>
   <div class="row">
     <div class="col-md-5"></div>
-    <button class="btn my-btn add-btn col-md-2">Add Food</button>
+    <button class="btn my-btn add-btn col-md-2" (click)="addNewFoodRow()"><i class="fa fa-plus"></i></button>
     <div class="col-md-5"></div>
   </div>
 </div>
@@ -55,18 +58,19 @@
       <label>Calories and Macros for the day</label>
     </div>
     <div class="col-md-2">
-      <input #calories>
+      <input #calories [(ngModel)]="singleMealCopy.smCalories">
     </div>
     <div class="col-md-1">
-      <input #proteins>
+      <input #proteins [(ngModel)]="singleMealCopy.smProteins">
     </div>
     <div class="col-md-1">
-      <input #carbs>
+      <input #carbs [(ngModel)]="singleMealCopy.smCarbs">
     </div>
     <div class="col-md-1">
-      <input #fats>
+      <input #fats [(ngModel)]="singleMealCopy.smFats">
     </div>
-    <button class="btn my-btn col-md-1">Calc</button>
+    <button class="btn my-btn calc-btn col-md-1" (click)="calculateDailyMacros()"><i class="fa fa-calculator"></i></button>
+
   </div>
 
 </div>
