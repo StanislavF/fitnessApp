@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <div class="pull-left">
+    <input placeholder="No" [(ngModel)]="trainingDayCopy.tdNo">
+    <input placeholder="Title" [(ngModel)]="trainingDayCopy.tdTitle">
+  </div>
+  <div class="pull-right">
+    <button type="button" class="btn my-btn " aria-label="Save" (click)="hideModal()"> Save </button>
+    <button type="button" class="btn my-btn " aria-label="Close" (click)="hideModal()">Cancel</button>
+  </div>
+</div>
+<div class="modal-body">
+  <div>
+    <div class="field-names row">
+      <div class="col-md-1">
+        <label>No</label>
+      </div>
+      <div class="col-md-3">
+        <label>Food name</label>
+      </div>
+      <div class="col-md-2">
+        <label>Weight</label>
+      </div>
+      <div class="col-md-2">
+        <label>Cals</label>
+      </div>
+      <div class="col-md-1">
+        <label>Prots</label>
+      </div>
+      <div class="col-md-1">
+        <label>Carbs</label>
+      </div>
+      <div class="col-md-1">
+        <label>Fats</label>
+      </div>
+    </div>
+
+    <div class="exercises">
+      <div *ngFor="let exercise of exercises; let i = index">
+        <hr>
+        <app-modal-training-row [(exercises)]="exercises" [index]="i"></app-modal-training-row>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <button class="btn my-btn add-btn col-md-2" (click)="addNewExerciseRow()"><i class="fa fa-plus"></i></button>
+    <div class="col-md-5"></div>
+  </div>
+</div>

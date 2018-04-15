@@ -35,6 +35,9 @@ import { MyClientsComponent } from './content-holder/my-clients/my-clients.compo
 import { MyTrainersComponent } from './content-holder/my-trainers/my-trainers.component';
 import { ModalSingleMealComponent } from './content-holder/meal-plan/modal-single-meal/modal-single-meal.component';
 import { ModalSingleMealRowComponent } from './content-holder/meal-plan/modal-single-meal/modal-single-meal-row/modal-single-meal-row.component';
+import { ModalTrainingDayComponent } from './content-holder/train-program/modal-training-day/modal-training-day.component';
+import { ModalTrainingRowComponent } from './content-holder/train-program/modal-training-day/modal-training-row/modal-training-row.component';
+import { TrainProgramModalService } from './content-holder/train-program/train-program-modal.service';
 
 
 @NgModule({
@@ -54,7 +57,9 @@ import { ModalSingleMealRowComponent } from './content-holder/meal-plan/modal-si
     MyClientsComponent,
     MyTrainersComponent,
     ModalSingleMealComponent,
-    ModalSingleMealRowComponent
+    ModalSingleMealRowComponent,
+    ModalTrainingDayComponent,
+    ModalTrainingRowComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -69,12 +74,15 @@ import { ModalSingleMealRowComponent } from './content-holder/meal-plan/modal-si
   ],
   providers: [
     NavigService,
-    MealPlanModalService
+    MealPlanModalService,
+    TrainProgramModalService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
     ModalSingleMealComponent,
-    ModalSingleMealRowComponent
+    ModalSingleMealRowComponent,
+    ModalTrainingRowComponent,
+    ModalTrainingDayComponent
   ]
 })
 export class AppModule { }

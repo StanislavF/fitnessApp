@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainingDayComponent } from './training-day/training-day.component';
 import { TrainingDay } from '../../shared/models/training-day.model';
+import { TrainProgramModalService } from './train-program-modal.service';
 
 @Component({
   selector: 'app-train-program',
@@ -10,8 +11,11 @@ import { TrainingDay } from '../../shared/models/training-day.model';
 export class TrainProgramComponent implements OnInit {
 
   public trainingDays: TrainingDay[];
+  public isTrainer: boolean;
 
-  constructor() { }
+  constructor(
+    private modalService: TrainProgramModalService
+  ) { }
 
   ngOnInit() {
 
@@ -71,6 +75,10 @@ export class TrainProgramComponent implements OnInit {
         ]
       }
     ];
+  }
+
+  openModal(){
+    this.modalService.openModal(null);
   }
 
 }

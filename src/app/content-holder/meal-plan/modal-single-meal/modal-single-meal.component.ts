@@ -58,7 +58,7 @@ export class ModalSingleMealComponent implements OnInit {
     });
   }
 
-  saveSongleMeal(){
+  saveSingleMeal(){
     this.singleMealCopy.foods=this.foods;
     this.action;
   }

@@ -2,6 +2,7 @@ import { Exercise } from './../../../shared/models/exercise.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { TrainingDay } from '../../../shared/models/training-day.model';
 import { Router } from '@angular/router';
+import { TrainProgramModalService } from '../train-program-modal.service';
 
 @Component({
   selector: 'app-training-day',
@@ -14,7 +15,8 @@ export class TrainingDayComponent implements OnInit {
   public isTrainer: boolean;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private modalService: TrainProgramModalService
   ) { }
 
   ngOnInit() {
@@ -26,6 +28,10 @@ export class TrainingDayComponent implements OnInit {
     } else {
       this.isTrainer=false;
     }
+  }
+
+  openModal(){
+    this.modalService.openModal(this.trainingDay);
   }
 
 

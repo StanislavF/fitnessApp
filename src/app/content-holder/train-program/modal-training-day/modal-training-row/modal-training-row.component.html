@@ -1,0 +1,20 @@
+<div class="row training-row">
+  <div class="col-md-1">
+    <input #exerciseNo [(ngModel)]="exercises[index].exerciseNo" >
+  </div>
+  <div class="col-md-4">
+    <input #exerciseName [(ngModel)]="exercises[index].exerciseName">
+  </div>
+  <div class="col-md-2">
+    <input #sets [(ngModel)]="exercises[index].sets">
+  </div>
+  <div class="col-md-2">
+    <input #reps [(ngModel)]="exercises[index].reps">
+  </div>
+  <div class="col-md-2">
+    <input #weight [(ngModel)]="exercises[index].weight">
+  </div>
+
+  <button class="btn my-btn col-md-1" (click)="deleteExerciseRow()"><i class="fa fa-trash"></i></button>
+  
+</div>

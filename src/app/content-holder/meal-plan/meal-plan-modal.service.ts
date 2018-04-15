@@ -22,13 +22,6 @@ export class MealPlanModalService {
         singleMeal: singleMeal
       }
     });
-    // if (singleMeal != null) {
-    //   this.bsModalRef.content.action = ActionEnum.UPDATE;
-    //   this.bsModalRef.content.singleMeal = singleMeal;
-    //   this.bsModalRef.content.foods = singleMeal.foods;
-    // } else {
-    //   this.bsModalRef.content.action = ActionEnum.CREATE;
-    // }
   }
 
 }
