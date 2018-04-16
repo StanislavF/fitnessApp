@@ -16,6 +16,7 @@
     background-color: #97999C;
     padding-top: 20px;
     z-index: 1;
+    overflow: auto;
 }
 
 .sidenav a {
@@ -129,3 +130,31 @@
     color: #FAFAFA !important;
 }
 
+.search-form{
+    text-align: center;
+}
+
+.search-form label {
+    color: #FAFAFA;
+}
+
+.title-label {
+    font-size: 18px;
+}
+
+.trainer-row{
+    vertical-align: middle;
+}
+
+.search-form  input{
+    margin: 1em 1em;
+    width: 80%;
+}
+
+.search-form  p-dropdown{
+    margin: 1em 1em;
+}
+
+.search-form a{
+    margin-top:1em;
+}

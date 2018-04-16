@@ -4,6 +4,8 @@ import { NgModule, Pipe, ViewChild} from '@angular/core';
 import { AppRoutingModule }     from './app-routing.module';
 import { AlertModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
+
+
 import { 
   FormGroup, 
   FormControl, 
@@ -17,6 +19,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {AccordionModule} from 'primeng/accordion';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
 import { RegisterInComponent } from './register/register.component';
@@ -38,6 +41,7 @@ import { ModalSingleMealRowComponent } from './content-holder/meal-plan/modal-si
 import { ModalTrainingDayComponent } from './content-holder/train-program/modal-training-day/modal-training-day.component';
 import { ModalTrainingRowComponent } from './content-holder/train-program/modal-training-day/modal-training-row/modal-training-row.component';
 import { TrainProgramModalService } from './content-holder/train-program/train-program-modal.service';
+import { SearchComponent } from './content-holder/search/search.component';
 
 
 @NgModule({
@@ -59,7 +63,8 @@ import { TrainProgramModalService } from './content-holder/train-program/train-p
     ModalSingleMealComponent,
     ModalSingleMealRowComponent,
     ModalTrainingDayComponent,
-    ModalTrainingRowComponent
+    ModalTrainingRowComponent,
+    SearchComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -70,6 +75,7 @@ import { TrainProgramModalService } from './content-holder/train-program/train-p
     AccordionModule,
     BrowserAnimationsModule,
     ToggleButtonModule,
+    DropdownModule,
     ModalModule.forRoot()
   ],
   providers: [

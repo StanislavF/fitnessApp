@@ -1,3 +1,4 @@
+import { SearchComponent } from './content-holder/search/search.component';
 import { MealPlanComponent } from './content-holder/meal-plan/meal-plan.component';
 import { HomeComponent } from './content-holder/home/home.component';
 import { TrainProgramComponent } from './content-holder/train-program/train-program.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
     { path: 'my-clients', component: MyClientsComponent },
     { path: 'my-clients/training-program', component: TrainProgramComponent },
     { path: 'my-clients/meal-plan', component: MealPlanComponent },
-    { path: 'my-clients/profile', component: ProfileComponent }
+    { path: 'my-clients/profile', component: ProfileComponent },
+    { path: 'search', component: SearchComponent }
   ]
 
 },

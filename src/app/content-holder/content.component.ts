@@ -1,5 +1,7 @@
+import { SexSearchEnum } from './../shared/models/enums/sexSearchEnum.enum';
 import { ActivatedRoute, Router } from '@angular/router';
 import {AccordionModule} from 'primeng/accordion';
+import {SelectItem} from 'primeng/api';
 
 import { NavigationEnum } from './../shared/models/navigationEnum.enum';
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
@@ -14,6 +16,11 @@ import { NavigService } from '../shared/services/navig-service.service';
 export class ContentComponent implements OnInit {
 
   public opendPage;
+
+  public dropdownOptions: SelectItem[];
+  public dropdownSelectedOption: SexSearchEnum;
+  public isSearchedUserTrainer: Boolean;
+
   public trainers = [1,2,3,4,5,6,7];
 
   constructor(
@@ -21,7 +28,14 @@ export class ContentComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
     
-  ) { }
+  ) {
+    this.dropdownOptions = [
+      {label:SexSearchEnum.BOTH, value: SexSearchEnum.BOTH},
+      {label:SexSearchEnum.FEMALE, value: SexSearchEnum.FEMALE},
+      {label:SexSearchEnum.MALE, value: SexSearchEnum.MALE}
+    ]
+
+   }
 
   ngOnInit() {
     let url = this.router.url;
@@ -44,7 +58,7 @@ export class ContentComponent implements OnInit {
   }
 
   searchTrainerClicked(){
-    this.opendPage = NavigationEnum.SEARCH_TRAINER;
+    this.opendPage = NavigationEnum.SEARCH;
     this.navigator.navigateToMainPage(this.opendPage);
   }
 

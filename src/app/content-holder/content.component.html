@@ -6,7 +6,7 @@
     <div class="col-md-2" (click)="homeClicked()">Home</div>
     <div class="col-md-2" (click)="myTrainersClicked()">My Trainers</div>
     <div class="col-md-2" (click)="myClientsClicked()">My Clients</div>
-    <div class="col-md-2" (click)="searchTrainerClicked()">Search Trainer</div>
+    <div class="col-md-2" (click)="searchTrainerClicked()">Search</div>
     <div class="col-md-2" (click)="accountClicked()">Account</div>
   </div>
 
@@ -52,8 +52,26 @@
 
     </div>
 
-    <div class="sidenav col-md-2" *ngIf="opendPage=='search-trainer'">
-      <a routerLink="/personal-information">Search</a>
+    <div class="sidenav col-md-2" *ngIf="opendPage=='search'">
+
+      <form  class="search-form">
+        <label class="title-label">Enter your search critera</label>
+
+        <input class="form-control" #username placeholder="Username">
+        <div class=" trainer-row">
+          <label class="col-md-5">Trainer:</label>
+          <p-toggleButton class="col-md-5" onIcon="fa-check-square" offIcon="fa-square"></p-toggleButton>
+        </div>
+        <input class="form-control" #firstname placeholder="First Name">
+        <input class="form-control" #lastname placeholder="Last Name">
+        <input class="form-control" #fromAge placeholder="From Age">
+        <input class="form-control" #toAge placeholder="To Age">
+        <div>
+          <label>Sex:</label>
+          <p-dropdown [options]="dropdownOptions" ></p-dropdown>
+        </div>
+        <a routerLink="/personal-information">Search</a>
+      </form>
     </div>
 
     <div class="col-md-2" *ngIf="opendPage !='home'">
