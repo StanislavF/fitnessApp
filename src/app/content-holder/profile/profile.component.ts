@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { User } from './../../shared/models/user.model';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 
@@ -11,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   public openedPage: any;
   public isTrainer: boolean;
+  @Input() user: User;
 
   constructor(
     private route: ActivatedRoute

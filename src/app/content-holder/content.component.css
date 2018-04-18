@@ -17,6 +17,7 @@
     padding-top: 20px;
     z-index: 1;
     overflow: auto;
+    padding-bottom: 8%;
 }
 
 .sidenav a {
@@ -157,4 +158,10 @@
 
 .search-form a{
     margin-top:1em;
+}
+
+:host >>> .ui-button {
+    color:black !important;
+    background-color: #FAFAFA !important;
+    border: 1px solid black !important;
 }

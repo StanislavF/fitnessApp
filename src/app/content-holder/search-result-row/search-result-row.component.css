@@ -1,0 +1,58 @@
+.row{
+    margin:0;
+    padding:0;
+}
+
+.search-result-row{
+    width: 100%;
+    margin-top: 1em;
+}
+
+.header {
+    border: 1px solid black;
+    height: 7em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header :hover {
+    cursor: pointer;
+}
+
+.username-only{
+    font-size: 48px;
+    padding:0.2em 0.5em;
+}
+
+.closed-header-data{
+    padding:0.2em 0.5em;
+}
+
+.closed-header-data .username{
+    font-size: 32px;
+}
+
+.closed-header-data .is-trainer {
+    font-size: 19px;
+    margin-left:0.6em;
+    color: gray;
+}
+
+.closed-header-data .row label{
+    font-size: 19px;
+    margin-right:0.6em;
+}
+
+.client-request-buttons{
+    float: right;
+    padding:0.4em 0.4em;
+}
+.body {
+    border: 1px solid black;
+    padding-bottom: 1em;
+}
+
+.bottomBorder{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

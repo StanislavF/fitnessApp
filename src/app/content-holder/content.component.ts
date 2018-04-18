@@ -1,9 +1,10 @@
+import { UtilsService } from './../shared/services/utils-service.service';
 import { SexSearchEnum } from './../shared/models/enums/sexSearchEnum.enum';
 import { ActivatedRoute, Router } from '@angular/router';
 import {AccordionModule} from 'primeng/accordion';
 import {SelectItem} from 'primeng/api';
 
-import { NavigationEnum } from './../shared/models/navigationEnum.enum';
+import { NavigationEnum } from './../shared/models/enums/navigationEnum.enum';
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { NavigService } from '../shared/services/navig-service.service';
 
@@ -26,7 +27,7 @@ export class ContentComponent implements OnInit {
   constructor(
     private navigator: NavigService,
     private router: Router,
-    private route: ActivatedRoute
+    private utilsService: UtilsService
     
   ) {
     this.dropdownOptions = [
@@ -39,7 +40,8 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     let url = this.router.url;
-    this.opendPage = this.extractPageFromURL(url);
+    this.opendPage = this.utilsService.extractPageFromURL(url);
+    this.homeClicked();
   }
 
   homeClicked(){
@@ -65,11 +67,5 @@ export class ContentComponent implements OnInit {
   accountClicked(){
     this.opendPage = NavigationEnum.ACCOUNT;
     this.navigator.navigateToMainPage(this.opendPage);
-  }
-
-  extractPageFromURL(url: String){
-    let urlParts = url.split("/");
-
-    return urlParts[2];
   }
 }

@@ -1,0 +1,35 @@
+<div class="search-result-row">
+
+  <div class="header" (click)="openBody()" [ngClass]="{'bottomBorder':!isBodyOpened}">
+
+    <div *ngIf="isBodyOpened">
+      <label class="username-only">Username</label>
+      <div class="client-request-buttons" *ngIf="opendPage=='my-clients'">
+        <button class="btn my-btn">Accept</button>
+        <button class="btn my-btn">Reject</button>
+      </div>
+    </div>
+
+    <div class="closed-header-data" *ngIf="!isBodyOpened">
+      <div>
+        <label class="username">Username</label>
+        <label class="is-trainer">(Trainer)</label>
+        <div class="client-request-buttons" *ngIf="opendPage=='my-clients'">
+          <button class="btn my-btn">Accept</button>
+          <button class="btn my-btn">Reject</button>
+        </div>
+      </div>
+      <div class="row">
+        <label>First Name</label>
+        <label>Last Name</label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="body bottomBorder" *ngIf="isBodyOpened">
+    <app-profile></app-profile>
+  </div>
+
+
+</div>

@@ -1,4 +1,4 @@
-import { ActionEnum } from './../../../shared/models/actionEnum.enum';
+import { ActionEnum } from './../../../shared/models/enums/actionEnum.enum';
 import { SingleMeal } from './../../../shared/models/single-meal.model';
 import { element } from 'protractor';
 import { Food } from './../../../shared/models/food.model';

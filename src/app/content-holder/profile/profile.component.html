@@ -1,7 +1,8 @@
 <div class="container">
 
+  <h2 class="col-md-4 for-account" *ngIf="openedPage!='account' && openedPage!='search'">Usename Profile</h2>
   <div class="for-account row" *ngIf="openedPage==='account'">
-    <h2 class="col-md-4">Usename Profile</h2>
+    <h2 class="col-md-4">{{user.username}} Profile</h2>
     <div class="col-md-6"></div>
     <button class="col-md-1 btn my-btn">Change fields</button>
   </div>
@@ -15,41 +16,41 @@
     <div class="personal-info col-md-3">
       <div>
         <label>First Name:</label>
-        <label #firstName></label>
+        <label #firstName>{{user.firstName}}</label>
       </div>
       <div>
         <label>Last Name:</label>
-        <label #lastName></label>
+        <label #lastName>{{user.lastName}}</label>
       </div>
       <div>
         <label>Age:</label>
-        <label #age></label>
+        <label #age>{{user.age}}</label>
       </div>
       <div>
         <label>Sex:</label>
-        <label #sex></label>
+        <label #sex>{{user.sex}}</label>
       </div>
       <div>
         <label>E-mail:</label>
-        <label #email></label>
+        <label #email>{{user.email}}</label>
       </div>
       <div>
         <label>Phone:</label>
-        <label #phone></label>
+        <label #phone>{{user.phone}}</label>
       </div>
     </div>
     <div class="personal-info col-md-3">
       <div>
         <label>Weight:</label>
-        <label #weight></label>
+        <label #weight>{{user.weight}}</label>
       </div>
       <div>
         <label>Height:</label>
-        <label #height></label>
+        <label #height>{{user.height}}</label>
       </div>
       <div>
         <label>Goal:</label>
-        <label #goal></label>
+        <label #goal>{{user.goal}}</label>
       </div>
     </div>
 
@@ -69,7 +70,7 @@
   </ng-template>
 
   <div class="col-md-11 user-description">
-
+    {{user.description}}
   </div>
 
 </div>

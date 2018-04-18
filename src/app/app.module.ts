@@ -1,3 +1,4 @@
+import { UtilsService } from './shared/services/utils-service.service';
 import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal.service';
 import { BrowserModule} from '@angular/platform-browser';
 import { NgModule, Pipe, ViewChild} from '@angular/core';
@@ -42,6 +43,8 @@ import { ModalTrainingDayComponent } from './content-holder/train-program/modal-
 import { ModalTrainingRowComponent } from './content-holder/train-program/modal-training-day/modal-training-row/modal-training-row.component';
 import { TrainProgramModalService } from './content-holder/train-program/train-program-modal.service';
 import { SearchComponent } from './content-holder/search/search.component';
+import { SearchResultRowComponent } from './content-holder/search-result-row/search-result-row.component';
+import { ClientRequestsComponent } from './content-holder/client-requests/client-requests.component';
 
 
 @NgModule({
@@ -64,7 +67,9 @@ import { SearchComponent } from './content-holder/search/search.component';
     ModalSingleMealRowComponent,
     ModalTrainingDayComponent,
     ModalTrainingRowComponent,
-    SearchComponent
+    SearchComponent,
+    SearchResultRowComponent,
+    ClientRequestsComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -81,7 +86,8 @@ import { SearchComponent } from './content-holder/search/search.component';
   providers: [
     NavigService,
     MealPlanModalService,
-    TrainProgramModalService
+    TrainProgramModalService,
+    UtilsService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
