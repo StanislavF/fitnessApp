@@ -5,7 +5,7 @@ import { NgModule, Pipe, ViewChild} from '@angular/core';
 import { AppRoutingModule }     from './app-routing.module';
 import { AlertModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
 
 import { 
   FormGroup, 
@@ -81,7 +81,8 @@ import { ClientRequestsComponent } from './content-holder/client-requests/client
     BrowserAnimationsModule,
     ToggleButtonModule,
     DropdownModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     NavigService,

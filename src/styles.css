@@ -97,3 +97,28 @@ loader {
       transform: rotate(360deg);
     }
   }
+
+  /* Datepicker override */
+  .theme-green .bs-datepicker-body table td span.selected,
+  .theme-green .bs-datepicker-body table td.selected span,
+  .theme-green .bs-datepicker-body table td span[class*="select-"]:after,
+  .theme-green .bs-datepicker-body table td[class*="select-"] span:after {
+    background-color: inherit !important; 
+    color: inherit;
+}
+  
+
+  .theme-green .bs-datepicker-body table .is-highlighted{
+    background-color: inherit !important; 
+    color: inherit;
+  }
+
+  .theme-green .bs-datepicker-body table tr:hover{
+    background-color: #a1a1a1 !important; 
+    color: #fff;
+  } 
+
+  .theme-green .bs-datepicker-body table tr:hover span{
+    color: #fff;
+  } 
+  
