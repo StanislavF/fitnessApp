@@ -114,11 +114,10 @@ loader {
   }
 
   .theme-green .bs-datepicker-body table tr:hover{
-    background-color: #a1a1a1 !important; 
-    color: #fff;
+    background-color: #e9edf0 !important; 
   } 
 
-  .theme-green .bs-datepicker-body table tr:hover span{
-    color: #fff;
+  .theme-green .bs-datepicker-body table tr >>> span.selected{
+    background-color: #aaff11 !important; 
   } 
   
