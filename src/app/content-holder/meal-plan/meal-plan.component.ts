@@ -5,7 +5,7 @@ import { SingleMeal } from '../../shared/models/single-meal.model';
 @Component({
   selector: 'app-meal-plan',
   templateUrl: './meal-plan.component.html',
-  styleUrls: ['./meal-plan.component.css']
+  styleUrls: ['./meal-plan.component.scss']
 })
 export class MealPlanComponent implements OnInit {
 

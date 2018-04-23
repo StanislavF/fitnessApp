@@ -4,7 +4,7 @@ import { Exercise } from '../../../../shared/models/exercise.model';
 @Component({
   selector: 'app-modal-training-row',
   templateUrl: './modal-training-row.component.html',
-  styleUrls: ['./modal-training-row.component.css']
+  styleUrls: ['./modal-training-row.component.scss']
 })
 export class ModalTrainingRowComponent implements OnInit {
 

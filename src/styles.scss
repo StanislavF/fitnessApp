@@ -117,7 +117,77 @@ loader {
     background-color: #e9edf0 !important; 
   } 
 
-  .theme-green .bs-datepicker-body table tr >>> span.selected{
-    background-color: #aaff11 !important; 
-  } 
+  .theme-green .bs-datepicker-body table tr +
+    .theme-green .bs-datepicker-body table tr span.selected {
+        background-color: #aaff11 !important; 
+    } 
   
+
+
+
+.ui-accordion{
+    background: #97999C !important;
+}
+
+.ui-accordion-header {
+    background: #97999C !important;
+}
+
+.ui-accordion-header a {
+    color: #FAFAFA  !important;
+    font-size: 20px !important;
+}
+
+.ui-accordion-header a:hover {
+    text-decoration: none !important;
+    background: #b1b1b1 !important;
+    color: black !important;
+}
+
+.ui-widget-content {
+    background: #b1b1b1 !important;
+}
+
+.ui-widget-content a{
+    color: black  !important;
+}
+
+.ui-accordion-content {
+    background: #b1b1b1 !important;
+    padding:0 1em !important;
+}
+
+.ui-accordion-content a{
+    color: black  !important;
+    font-size:18px !important;
+    padding-left:3em !important;
+}
+
+.ui-accordion-content a:hover{
+    background: #536B6F !important;
+    color: #FAFAFA !important;
+}
+
+.ui-state-default {
+    border: none !important;
+}
+
+.ui-state-active {
+    background: #b1b1b1 !important;
+    color: black !important;
+}
+
+.ui-state-active .ui-accordion-toggle-icon{
+    color: black !important;
+}
+
+.ui-state-active p-header {
+    color: black !important;
+    font-size: 24px !important;
+}
+
+.ui-button {
+    color:black !important;
+    background-color: #FAFAFA !important;
+    border: 1px solid black !important;
+}

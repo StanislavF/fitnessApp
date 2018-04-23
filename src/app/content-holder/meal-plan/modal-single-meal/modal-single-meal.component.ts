@@ -9,7 +9,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 @Component({
   selector: 'app-modal-single-meal',
   templateUrl: './modal-single-meal.component.html',
-  styleUrls: ['./modal-single-meal.component.css']
+  styleUrls: ['./modal-single-meal.component.scss']
 })
 export class ModalSingleMealComponent implements OnInit {
 

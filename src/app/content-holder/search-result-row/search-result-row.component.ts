@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-search-result-row',
   templateUrl: './search-result-row.component.html',
-  styleUrls: ['./search-result-row.component.css']
+  styleUrls: ['./search-result-row.component.scss']
 })
 export class SearchResultRowComponent implements OnInit {
 

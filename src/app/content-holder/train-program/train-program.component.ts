@@ -6,7 +6,7 @@ import { TrainProgramModalService } from './train-program-modal.service';
 @Component({
   selector: 'app-train-program',
   templateUrl: './train-program.component.html',
-  styleUrls: ['./train-program.component.css']
+  styleUrls: ['./train-program.component.scss']
 })
 export class TrainProgramComponent implements OnInit {
 

@@ -1,0 +1,96 @@
+.content-side_nav{
+    align-items: stretch;
+    overflow-y: hidden !important;
+}
+
+.content {
+    align-items: stretch;
+    overflow-y: auto;
+    height: -webkit-fill-available;
+}
+
+.sidenav {
+    height: 100%;
+    position: fixed;
+    min-height: 100%;
+    background-color: #97999C;
+    padding-top: 20px;
+    z-index: 1;
+    overflow: auto;
+    padding-bottom: 8%;
+}
+
+.sidenav a {
+    padding: 12px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #FAFAFA;
+    display: block;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.sidenav a:hover {
+    color: black;
+    background-color: #b1b1b1;
+}
+
+.sidenav .client-requests{
+    text-align: center;
+}
+
+.header {
+    background-color: #FAFAFA;
+    text-align: center;
+    height: 10%;
+    color: #536B6F;
+}
+.top-nav {
+    background-color: #536B6F;
+    height: 2.5em;
+}
+
+.top-nav div {
+    padding: 6px;
+    z-index: 1;
+    text-align: center;
+    color: #FAFAFA;
+}
+
+.top-nav div:hover {
+    background-color: #9DB8BD;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+.search-form{
+    text-align: center;
+}
+
+.search-form label {
+    color: #FAFAFA;
+}
+
+.title-label {
+    font-size: 18px;
+}
+
+.trainer-row{
+    vertical-align: middle;
+}
+
+.search-form  input{
+    margin: 1em 1em;
+    width: 80%;
+}
+
+.search-form  p-dropdown{
+    margin: 1em 1em;
+}
+
+.search-form a{
+    margin-top:1em;
+}
+

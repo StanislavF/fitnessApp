@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'app-log-in',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterInComponent implements OnInit {
 

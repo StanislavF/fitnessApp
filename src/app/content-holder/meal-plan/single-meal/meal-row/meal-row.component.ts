@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-meal-row',
   templateUrl: './meal-row.component.html',
-  styleUrls: ['./meal-row.component.css']
+  styleUrls: ['./meal-row.component.scss']
 })
 export class MealRowComponent implements OnInit {
 

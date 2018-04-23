@@ -12,7 +12,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-single-meal',
   templateUrl: './single-meal.component.html',
-  styleUrls: ['./single-meal.component.css']
+  styleUrls: ['./single-meal.component.scss']
 })
 export class SingleMealComponent implements OnInit {
 

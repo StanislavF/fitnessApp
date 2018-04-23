@@ -19,6 +19,7 @@ const routes: Routes = [
 { 
   path: 'app', 
   component: ContentComponent,
+  
   children: [
     { path: 'home', component: HomeComponent },
     { path: 'account', redirectTo: 'account/profile', pathMatch: 'full' },

@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-training-row',
   templateUrl: './training-row.component.html',
-  styleUrls: ['./training-row.component.css']
+  styleUrls: ['./training-row.component.scss']
 })
 export class TrainingRowComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import { BsModalRef } from 'ngx-bootstrap';
 @Component({
   selector: 'app-modal-training-day',
   templateUrl: './modal-training-day.component.html',
-  styleUrls: ['./modal-training-day.component.css']
+  styleUrls: ['./modal-training-day.component.scss']
 })
 export class ModalTrainingDayComponent implements OnInit {
 

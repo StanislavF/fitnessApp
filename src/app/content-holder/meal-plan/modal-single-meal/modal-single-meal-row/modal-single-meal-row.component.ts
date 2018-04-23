@@ -4,7 +4,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-modal-single-meal-row',
   templateUrl: './modal-single-meal-row.component.html',
-  styleUrls: ['./modal-single-meal-row.component.css']
+  styleUrls: ['./modal-single-meal-row.component.scss']
 })
 export class ModalSingleMealRowComponent implements OnInit {
 
