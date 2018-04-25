@@ -45,6 +45,7 @@ import { TrainProgramModalService } from './content-holder/train-program/train-p
 import { SearchComponent } from './content-holder/search/search.component';
 import { SearchResultRowComponent } from './content-holder/search-result-row/search-result-row.component';
 import { ClientRequestsComponent } from './content-holder/client-requests/client-requests.component';
+import { DatepickerComponent } from './content-holder/datepicker/datepicker.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { ClientRequestsComponent } from './content-holder/client-requests/client
     ModalTrainingRowComponent,
     SearchComponent,
     SearchResultRowComponent,
-    ClientRequestsComponent
+    ClientRequestsComponent,
+    DatepickerComponent
   ],
   imports: [
     AlertModule.forRoot(),

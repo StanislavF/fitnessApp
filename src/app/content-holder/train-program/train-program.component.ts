@@ -13,6 +13,8 @@ export class TrainProgramComponent implements OnInit {
   public trainingDays: TrainingDay[];
   public isTrainer: boolean;
 
+  public date: String;
+
   constructor(
     private modalService: TrainProgramModalService
   ) { }
@@ -79,6 +81,10 @@ export class TrainProgramComponent implements OnInit {
 
   openModal(){
     this.modalService.openModal(null);
+  }
+
+  onDateChange(date: String) {
+    this.date = date;
   }
 
 }

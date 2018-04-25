@@ -1,6 +1,7 @@
 import { MealPlanModalService } from './meal-plan-modal.service';
 import { Component, OnInit } from '@angular/core';
 import { SingleMeal } from '../../shared/models/single-meal.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-meal-plan',
@@ -10,14 +11,17 @@ import { SingleMeal } from '../../shared/models/single-meal.model';
 export class MealPlanComponent implements OnInit {
 
   public singleMeals: SingleMeal[];
+  public date: String;
 
   constructor(
-    private modalService: MealPlanModalService 
-  ) { }
+    private modalService: MealPlanModalService
+  ) {
+
+  }
 
   ngOnInit() {
 
-    this.singleMeals=[
+    this.singleMeals = [
       {
         smNo: 1,
         smTitle: "Meal 1",
@@ -25,7 +29,7 @@ export class MealPlanComponent implements OnInit {
         smCarbs: 120,
         smFats: 302,
         smProteins: 102,
-        foods:   [
+        foods: [
           {
             foodNo: "1",
             foodName: "2",
@@ -74,5 +78,10 @@ export class MealPlanComponent implements OnInit {
   openModal() {
     this.modalService.openModal(null);
   }
+
+  onDateChange(date: String) {
+    this.date = date;
+  }
+
 
 }

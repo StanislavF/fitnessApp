@@ -4,18 +4,7 @@
 
   <div class="body">
 
-
-    <div class="row">
-      <div class="col-xs-12 col-md-5 col-lg-4 form-group">
-        <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dpYMD="bsDatepicker" bsDatepicker formControlName="myDateYMD"
-          [bsConfig]="{ dateInputFormat: 'YYYY-ww'}">
-      </div>
-      <div class="col-xs-12 col-12 col-md-3 form-group">
-        <button class="btn btn-success" (click)="dpYMD.toggle()" [attr.aria-expanded]="dpYMD.isOpen">Date Picker</button>
-      </div>
-    </div>
-
-
+    <app-datepicker (onDateChange)="onDateChange($event)"></app-datepicker>
 
     <div *ngFor="let singleMeal of singleMeals">
       <app-single-meal [singleMeal]="singleMeal"></app-single-meal>
@@ -23,7 +12,7 @@
 
     <div class="add-button-div row">
       <div class="col-md-5"></div>
-      <button class="col-md-2 btn my-btn" (click)="openModal()">Add</button>
+      <button class="col-md-2 btn my-btn" (click)="openModal()">{{date}}</button>
       <div class="col-md-5"></div>
     </div>
 
