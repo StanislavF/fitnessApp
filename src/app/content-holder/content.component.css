@@ -57,9 +57,10 @@
     color: #FAFAFA;
 }
 
-.top-nav div:hover {
+.top-nav div:hover,
+.top-nav-clicked {
     background-color: #9DB8BD;
-    color: black;
+    color: black !important;
     cursor: pointer;
 }
 
@@ -73,6 +74,7 @@
 
 :host >>> .ui-accordion-header a {
     color: #FAFAFA  !important;
+    font-size: 20px;
 }
 
 :host >>> .ui-accordion-header a:hover {
@@ -96,7 +98,7 @@
 
 :host >>> .ui-accordion-content a{
     color: black  !important;
-    font-size:18px !important;
+    font-size:20px !important;
     padding-left:3em !important;
 }
 
@@ -120,7 +122,7 @@
 
 :host >>> .ui-state-active p-header {
     color: black;
-    font-size: 22px;
+    font-size: 26px;
 }
 
 :host >>> .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active p-header:hover {

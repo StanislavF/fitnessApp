@@ -16,7 +16,7 @@ import { NavigService } from '../shared/services/navig-service.service';
 })
 export class ContentComponent implements OnInit {
 
-  public opendPage;
+  public opendPage: String;
 
   public dropdownOptions: SelectItem[];
   public dropdownSelectedOption: SexSearchEnum;
