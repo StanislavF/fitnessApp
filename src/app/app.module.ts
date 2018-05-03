@@ -1,7 +1,3 @@
-import { TrainingHttpService } from './shared/services/training-http.service';
-import { MealHttpService } from './shared/services/meal-http.service';
-import { UtilsService } from './shared/services/utils-service.service';
-import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal.service';
 import { BrowserModule} from '@angular/platform-browser';
 import { NgModule, Pipe, ViewChild} from '@angular/core';
 import { AppRoutingModule }     from './app-routing.module';
@@ -49,7 +45,11 @@ import { SearchComponent } from './content-holder/search/search.component';
 import { SearchResultRowComponent } from './content-holder/search-result-row/search-result-row.component';
 import { ClientRequestsComponent } from './content-holder/client-requests/client-requests.component';
 import { DatepickerComponent } from './content-holder/datepicker/datepicker.component';
-
+import { UserHttpService } from './shared/services/http-services/user-http.service';
+import { TrainingHttpService } from './shared/services/http-services/training-http.service';
+import { MealHttpService } from './shared/services/http-services/meal-http.service';
+import { UtilsService } from './shared/services/utils-service.service';
+import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal.service';
 
 @NgModule({
   declarations: [
@@ -96,7 +96,8 @@ import { DatepickerComponent } from './content-holder/datepicker/datepicker.comp
     TrainProgramModalService,
     UtilsService,
     MealHttpService,
-    TrainingHttpService
+    TrainingHttpService,
+    UserHttpService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

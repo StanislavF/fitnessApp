@@ -1,4 +1,4 @@
-import { TrainingDay } from './../models/training-day.model';
+import { TrainingDay } from './../../models/training-day.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 

@@ -1,4 +1,4 @@
-import { SingleMeal } from './../models/single-meal.model';
+import { SingleMeal } from './../../models/single-meal.model';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
