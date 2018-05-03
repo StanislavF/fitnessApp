@@ -1,3 +1,4 @@
+import { TrainingHttpService } from './shared/services/training-http.service';
 import { MealHttpService } from './shared/services/meal-http.service';
 import { UtilsService } from './shared/services/utils-service.service';
 import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal.service';
@@ -94,7 +95,8 @@ import { DatepickerComponent } from './content-holder/datepicker/datepicker.comp
     MealPlanModalService,
     TrainProgramModalService,
     UtilsService,
-    MealHttpService
+    MealHttpService,
+    TrainingHttpService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
