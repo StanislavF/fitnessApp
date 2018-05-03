@@ -1,3 +1,4 @@
+import { MealHttpService } from './shared/services/meal-http.service';
 import { UtilsService } from './shared/services/utils-service.service';
 import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal.service';
 import { BrowserModule} from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {AccordionModule} from 'primeng/accordion';
@@ -84,13 +86,15 @@ import { DatepickerComponent } from './content-holder/datepicker/datepicker.comp
     ToggleButtonModule,
     DropdownModule,
     ModalModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     NavigService,
     MealPlanModalService,
     TrainProgramModalService,
-    UtilsService
+    UtilsService,
+    MealHttpService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
