@@ -1,3 +1,4 @@
+import { LogInData } from './../../models/log-in-data.model';
 import { User } from './../../models/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
@@ -23,7 +24,7 @@ export class UserHttpService {
 
   }
 
-  logIn(logInData){
+  logIn(logInData: LogInData){
      let body = JSON.stringify(logInData);
 
      return this.http.post(this.host + "logIn", body, this.httpOptions)

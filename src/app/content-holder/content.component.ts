@@ -20,7 +20,9 @@ export class ContentComponent implements OnInit {
 
   private loggedUser: string;
   public opendPage: String;
+
   public trainersClientsArr: User[];
+  public clickedTrainerClientIndex;
 
   public dropdownOptions: SelectItem[];
   public dropdownSelectedOption: SexSearchEnum;
@@ -86,4 +88,8 @@ export class ContentComponent implements OnInit {
     this.opendPage = NavigationEnum.ACCOUNT;
     this.navigator.navigateToMainPage(this.opendPage);
   }
+
+  onTabOpen(clickedElement) {
+    this.clickedTrainerClientIndex = clickedElement.index;
+}
 }

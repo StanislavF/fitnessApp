@@ -20,7 +20,7 @@
     </div>
 
     <div class="sidenav col-md-2" *ngIf="opendPage=='my-trainers'">
-      <p-accordion styleClass="accordion">
+      <p-accordion styleClass="accordion"  (onOpen)="onTrainerClicked($event)">
         <div *ngFor="let trainer of trainers">
           <p-accordionTab>
             <p-header>
@@ -37,7 +37,7 @@
     <div class="sidenav col-md-2" *ngIf="opendPage=='my-clients'">
       <a routerLink="/app/my-clients/clients-requests" class="client-requests">Client requests</a>
 
-      <p-accordion styleClass="accordion">
+      <p-accordion styleClass="accordion" (onOpen)="onClientClicked($event)">
         <div *ngFor="let trainer of trainers">
           <p-accordionTab>
             <p-header>
@@ -49,7 +49,6 @@
           </p-accordionTab>
         </div>
       </p-accordion>
-
     </div>
 
     <div class="sidenav col-md-2" *ngIf="opendPage=='search'">

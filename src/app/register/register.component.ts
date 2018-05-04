@@ -1,3 +1,5 @@
+import { User } from './../shared/models/user.model';
+import { UserHttpService } from './../shared/services/http-services/user-http.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { 
@@ -23,7 +25,8 @@ export class RegisterInComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private userHttpService: UserHttpService
   ) { }
   
 
@@ -65,6 +68,23 @@ export class RegisterInComponent implements OnInit {
 
   enableRegBtn(){
     this.isRegBtnDisabled=false;
+  }
+
+  register(){
+
+    let user: User = new User();
+    user.username = this.registerForm.get('username').value;
+    user.firstName = this.registerForm.get('firstName').value;
+    user.lastName = this.registerForm.get('lastName').value;
+    user.email = this.registerForm.get('email').value;
+    user.password = this.registerForm.get('password').value;
+    user.isTrainer = this.isYesChecked;
+
+    this.userHttpService.register(user).subscribe(
+      data => {
+        this.goToLogIn();
+      }
+    );
   }
 
 

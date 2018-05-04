@@ -14,4 +14,5 @@ export class User {
     goal: GoalEnum;
     description: String;
     image: File;
+    isTrainer: boolean;
 }
