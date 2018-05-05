@@ -2,6 +2,7 @@ import { LogInData } from './../../models/log-in-data.model';
 import { User } from './../../models/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { SearchData } from '../../models/search-data.model';
 
 
 @Injectable()
@@ -16,36 +17,49 @@ export class UserHttpService {
     this.host = "http://localhost:8080";
   }
 
-  register(user: User){
-     
+  register(user: User) {
+
     let body = JSON.stringify(user);
 
-    return this.http.post(this.host + "register", body, this.httpOptions);
+    return this.http.post(this.host + "/register", body, {
+      headers: { 'Content-Type': 'application/json' },
+      responseType: 'text'
+    });
 
   }
 
-  logIn(logInData: LogInData){
-     let body = JSON.stringify(logInData);
+  logIn(logInData: LogInData) {
+    let body = JSON.stringify(logInData);
 
-     return this.http.post(this.host + "logIn", body, this.httpOptions)
+    return this.http.post(this.host + "/log-in", body, {
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 
 
-  getAllClients(trainerUsername: string){
+  getAllClients(trainerUsername: string) {
 
     let params = new HttpParams()
-    .set("trainerUsername", trainerUsername);
+      .set("trainerUsername", trainerUsername);
 
-    return this.http.get(this.host + "getClients", {params})
+    return this.http.get(this.host + "getClients", { params })
   }
 
-  getAllTrainers(clientUsername: string){
+  getAllTrainers(clientUsername: string) {
 
     let params = new HttpParams()
-    .set("clientUsername", clientUsername);
+      .set("clientUsername", clientUsername);
 
-    return this.http.get(this.host + "getTrainers", {params})
+    return this.http.get(this.host + "getTrainers", { params })
 
+  }
+
+  searchUser(searchData: SearchData) {
+    let body = JSON.stringify(searchData);
+
+    return this.http.post(this.host + "/search-user", body, {
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 
 }

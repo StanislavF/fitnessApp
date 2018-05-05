@@ -158,8 +158,9 @@
     margin: 1em 1em;
 }
 
-.search-form a{
+.search-btn{
     margin-top:1em;
+    width: 75%;
 }
 
 :host >>> .ui-button {

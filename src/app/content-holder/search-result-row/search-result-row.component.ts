@@ -1,6 +1,7 @@
 import { UtilsService } from './../../shared/services/utils-service.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchUser } from '../../shared/models/search-user.model';
 
 @Component({
   selector: 'app-search-result-row',
@@ -11,6 +12,7 @@ export class SearchResultRowComponent implements OnInit {
 
   public isBodyOpened: boolean;
   public opendPage: String;
+  @Input() searchUser: SearchUser;
 
   constructor(
     private router: Router,

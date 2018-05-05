@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchUser } from '../../shared/models/search-user.model';
+import { SearchContentService } from '../search-content-service.service';
 
 @Component({
   selector: 'app-search',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  public listSearchUsers: SearchUser[];
+
+  constructor(
+    private searchResultService: SearchContentService
+  ) { 
+    this.listSearchUsers = this.searchResultService.searchResult;
+  }
 
   ngOnInit() {
   }

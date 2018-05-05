@@ -50,6 +50,7 @@ import { TrainingHttpService } from './shared/services/http-services/training-ht
 import { MealHttpService } from './shared/services/http-services/meal-http.service';
 import { UtilsService } from './shared/services/utils-service.service';
 import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal.service';
+import { SearchContentService } from './content-holder/search-content-service.service';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal
     UtilsService,
     MealHttpService,
     TrainingHttpService,
-    UserHttpService
+    UserHttpService,
+    SearchContentService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

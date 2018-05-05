@@ -83,6 +83,9 @@ export class RegisterInComponent implements OnInit {
     this.userHttpService.register(user).subscribe(
       data => {
         this.goToLogIn();
+      },
+      err => {
+        console.assert(err)
       }
     );
   }

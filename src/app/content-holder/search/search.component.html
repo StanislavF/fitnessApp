@@ -1,4 +1,7 @@
 <div class="content">
-  <app-search-result-row></app-search-result-row>
-  <app-search-result-row></app-search-result-row>
+  <div>
+    <app-search-result-row *ngFor="let searchUser of searchResultService.searchResult" [searchUser]="searchUser">
+    </app-search-result-row>
+  </div>
+
 </div>

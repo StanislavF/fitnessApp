@@ -3,14 +3,16 @@ import { UserHttpService } from './../shared/services/http-services/user-http.se
 import { Component, OnInit, Pipe } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { 
-  FormGroup, 
-  FormControl, 
+import {
+  FormGroup,
+  FormControl,
   ReactiveFormsModule,
   FormsModule,
   Validators,
   FormBuilder
 } from '@angular/forms';
+import { NavigService } from '../shared/services/navig-service.service';
+import { NavigationEnum } from '../shared/models/enums/navigationEnum.enum';
 
 
 @Component({
@@ -24,7 +26,8 @@ export class LogInComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userHttpService: UserHttpService
+    private userHttpService: UserHttpService,
+    private navigService: NavigService
   ) { }
 
   ngOnInit() {
@@ -38,8 +41,8 @@ export class LogInComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
-  logIn(){
-    
+  logIn() {
+
     let logInData = new LogInData();
     logInData.username = this.logInForm.get("username").value;
     logInData.password = this.logInForm.get("password").value;
@@ -48,6 +51,8 @@ export class LogInComponent implements OnInit {
       (data: LogInData) => {
         localStorage.setItem("username", data.username);
         localStorage.setItem("isTrainer", String(data.isTrainer));
+
+        this.navigService.navigateToMainPage(NavigationEnum.HOME);
       }
     );
   }

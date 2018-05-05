@@ -1,5 +1,5 @@
 <div class="row">
-  <form [formGroup]="registerForm" class="col-md-3 col-sm-6 col-xs-9 register-div">
+  <form [formGroup]="registerForm" (ngSubmit)="register()" class="col-md-3 col-sm-6 col-xs-9 register-div">
     <fieldset>
       <div class="form-group">
         <label>Username</label>
@@ -47,8 +47,8 @@
     </div>
 
     <div class="form-group buttons">
-      <button class="btn my-btn" [disabled]="isRegBtnDisabled || registerForm.invalid">Register</button>
-      <button class="btn my-btn" (click)="goToLogIn()">Log in</button>
+      <button class="btn my-btn" type="submit" [disabled]="isRegBtnDisabled || registerForm.invalid">Register</button>
+      <button class="btn my-btn" type="button" (click)="goToLogIn()">Log in</button>
     </div>
   </form>
 </div>

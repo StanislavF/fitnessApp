@@ -3,7 +3,7 @@
   <div class="header" (click)="openBody()" [ngClass]="{'bottomBorder':!isBodyOpened}">
 
     <div *ngIf="isBodyOpened">
-      <label class="username-only">Username</label>
+      <label class="username-only">{{searchUser.username}}</label>
       <div class="client-request-buttons" *ngIf="opendPage=='my-clients'">
         <button class="btn my-btn">Accept</button>
         <button class="btn my-btn">Reject</button>
@@ -12,16 +12,16 @@
 
     <div class="closed-header-data" *ngIf="!isBodyOpened">
       <div>
-        <label class="username">Username</label>
-        <label class="is-trainer">(Trainer)</label>
+        <label class="username">{{searchUser.username}}</label>
+        <label class="is-trainer" *ngIf="searchUser.isTrainer">(Trainer)</label>
         <div class="client-request-buttons" *ngIf="opendPage=='my-clients'">
           <button class="btn my-btn">Accept</button>
           <button class="btn my-btn">Reject</button>
         </div>
       </div>
       <div class="row">
-        <label>First Name</label>
-        <label>Last Name</label>
+        <label>{{searchUser.firstName}}</label>
+        <label>{{searchUser.lastName}}</label>
       </div>
     </div>
 

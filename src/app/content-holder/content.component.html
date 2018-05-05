@@ -53,23 +53,23 @@
 
     <div class="sidenav col-md-2" *ngIf="opendPage=='search'">
 
-      <form  class="search-form">
-        <label class="title-label">Enter your search critera</label>
+      <form  class="search-form" [formGroup]="searchForm" (ngSubmit)="search()">
+        <label class="title-label" form>Enter your search critera</label>
 
-        <input class="form-control" #username placeholder="Username">
+        <input class="form-control" #username formControlName="username" placeholder="Username">
         <div class=" trainer-row">
           <label class="col-md-5">Trainer:</label>
-          <p-toggleButton class="col-md-5" onIcon="fa-check-square" offIcon="fa-square"></p-toggleButton>
+          <p-toggleButton formControlName="isTrainer" class="col-md-5" onIcon="fa-check-square" offIcon="fa-square"></p-toggleButton>
         </div>
-        <input class="form-control" #firstname placeholder="First Name">
-        <input class="form-control" #lastname placeholder="Last Name">
-        <input class="form-control" #fromAge placeholder="From Age">
-        <input class="form-control" #toAge placeholder="To Age">
+        <input class="form-control" #firstname formControlName="firstname" placeholder="First Name">
+        <input class="form-control" #lastname formControlName="lastname" placeholder="Last Name">
+        <input class="form-control" #fromAge formControlName="fromAge" placeholder="From Age">
+        <input class="form-control" #toAge formControlName="toAge" placeholder="To Age">
         <div>
           <label>Sex:</label>
-          <p-dropdown [options]="dropdownOptions" ></p-dropdown>
+          <p-dropdown formControlName="sex" [options]="dropdownOptions" ></p-dropdown>
         </div>
-        <a routerLink="/personal-information">Search</a>
+        <button class="btn my-btn search-btn" type="submit">Search</button>
       </form>
     </div>
 
