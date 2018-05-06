@@ -59,15 +59,15 @@
         <input class="form-control" #username formControlName="username" placeholder="Username">
         <div class=" trainer-row">
           <label class="col-md-5">Trainer:</label>
-          <p-toggleButton formControlName="isTrainer" class="col-md-5" onIcon="fa-check-square" offIcon="fa-square"></p-toggleButton>
+          <p-dropdown [(ngModel)]="dropdownSelectedIsTrainerOption" [ngModelOptions]="{standalone: true}" [options]="dropdownOptionsTrainer" ></p-dropdown>
         </div>
-        <input class="form-control" #firstname formControlName="firstname" placeholder="First Name">
-        <input class="form-control" #lastname formControlName="lastname" placeholder="Last Name">
+        <input class="form-control" #firstname formControlName="firstName" placeholder="First Name">
+        <input class="form-control" #lastname formControlName="lastName" placeholder="Last Name">
         <input class="form-control" #fromAge formControlName="fromAge" placeholder="From Age">
         <input class="form-control" #toAge formControlName="toAge" placeholder="To Age">
         <div>
           <label>Sex:</label>
-          <p-dropdown formControlName="sex" [options]="dropdownOptions" ></p-dropdown>
+          <p-dropdown [(ngModel)]="dropdownSelectedSexOption" [ngModelOptions]="{standalone: true}" [options]="dropdownOptionsSex" ></p-dropdown>
         </div>
         <button class="btn my-btn search-btn" type="submit">Search</button>
       </form>

@@ -62,4 +62,12 @@ export class UserHttpService {
     });
   }
 
+  requestUserForTrainer(clientUsername: string, trainerUsername: string) {
+    let params = new HttpParams()
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername);
+
+    return this.http.get(this.host + "/request-trainer", { params });
+  }
+
 }

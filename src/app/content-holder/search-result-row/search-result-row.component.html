@@ -8,6 +8,9 @@
         <button class="btn my-btn">Accept</button>
         <button class="btn my-btn">Reject</button>
       </div>
+      <div class="client-request-buttons" *ngIf="searchUser.isTrainer">
+        <button class="btn my-btn" (click)="requestTrainer()" >Request Trainer</button>
+      </div>
     </div>
 
     <div class="closed-header-data" *ngIf="!isBodyOpened">
@@ -17,6 +20,9 @@
         <div class="client-request-buttons" *ngIf="opendPage=='my-clients'">
           <button class="btn my-btn">Accept</button>
           <button class="btn my-btn">Reject</button>
+        </div>
+        <div class="client-request-buttons" *ngIf="searchUser.isTrainer">
+          <button class="btn my-btn" (click)="requestTrainer()" >Request Trainer</button>
         </div>
       </div>
       <div class="row">

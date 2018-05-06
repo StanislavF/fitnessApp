@@ -1,6 +1,6 @@
 export class SearchUser {
-    username: String;
-    firstName: String;
-    lastName: String;
+    username: string;
+    firstName: string;
+    lastName: string;
     isTrainer: boolean;
 }

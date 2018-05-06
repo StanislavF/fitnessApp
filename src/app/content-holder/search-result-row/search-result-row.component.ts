@@ -2,6 +2,7 @@ import { UtilsService } from './../../shared/services/utils-service.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { SearchUser } from '../../shared/models/search-user.model';
+import { UserHttpService } from '../../shared/services/http-services/user-http.service';
 
 @Component({
   selector: 'app-search-result-row',
@@ -16,7 +17,8 @@ export class SearchResultRowComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private utilsService: UtilsService
+    private utilsService: UtilsService,
+    private userHttpService: UserHttpService
   ) {
     this.isBodyOpened = false;
   }
@@ -32,5 +34,15 @@ export class SearchResultRowComponent implements OnInit {
     } else {
       this.isBodyOpened = false;
     }
+  }
+
+  requestTrainer() {
+
+    this.userHttpService.requestUserForTrainer(localStorage.getItem("username"), this.searchUser.username)
+      .subscribe(
+        data => {
+          window.alert(data);
+        }
+      );
   }
 }

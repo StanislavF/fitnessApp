@@ -13,6 +13,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { SearchData } from '../shared/models/search-data.model';
 import { SearchContentService } from './search-content-service.service';
 import { SearchUser } from '../shared/models/search-user.model';
+import { isTrainerSearchEnum } from '../shared/models/enums/isTrainerSearchEnum.enum';
 
 
 @Component({
@@ -29,9 +30,10 @@ export class ContentComponent implements OnInit {
   public trainersClientsArr: User[];
   public clickedTrainerClientIndex;
 
-  public dropdownOptions: SelectItem[];
-  public dropdownSelectedOption: SexSearchEnum;
-  public isSearchedUserTrainer: Boolean;
+  public dropdownOptionsSex: SelectItem[];
+  public dropdownSelectedSexOption: string;
+  public dropdownOptionsTrainer: SelectItem[];
+  public dropdownSelectedIsTrainerOption: string;
   public searchForm: FormGroup;
   private areAllSearchInputsNull: boolean;
 
@@ -44,10 +46,15 @@ export class ContentComponent implements OnInit {
     private userHttpService: UserHttpService,
     private searchContentService: SearchContentService
   ) {
-    this.dropdownOptions = [
+    this.dropdownOptionsSex = [
       { label: SexSearchEnum.BOTH, value: SexSearchEnum.BOTH },
       { label: SexSearchEnum.FEMALE, value: SexSearchEnum.FEMALE },
       { label: SexSearchEnum.MALE, value: SexSearchEnum.MALE }
+    ]
+    this.dropdownOptionsTrainer = [
+      { label: isTrainerSearchEnum.BOTH, value: isTrainerSearchEnum.BOTH },
+      { label: isTrainerSearchEnum.TRUE, value: isTrainerSearchEnum.TRUE },
+      { label: isTrainerSearchEnum.FALSE, value: isTrainerSearchEnum.FALSE }
     ]
 
     this.areAllSearchInputsNull = true;
@@ -61,8 +68,8 @@ export class ContentComponent implements OnInit {
 
     this.searchForm = new FormGroup({
       username: new FormControl,
-      firstname: new FormControl,
-      lastname: new FormControl,
+      firstName: new FormControl,
+      lastName: new FormControl,
       fromAge: new FormControl,
       toAge: new FormControl,
       isTrainer: new FormControl,
@@ -113,36 +120,44 @@ export class ContentComponent implements OnInit {
     this.clickedTrainerClientIndex = clickedElement.index;
   }
 
+  //ToDO check if areAllSearchInputsNull shpuld be set to null herex
   search() {
 
     let searchData = new SearchData();
 
-    if (this.searchForm.get("username") != null) {
+    if (this.searchForm.get("username").value != null
+      && this.searchForm.get("username").value.trim() != "") {
       searchData.username = this.searchForm.get("username").value;
       this.areAllSearchInputsNull = false;
     }
-    if (this.searchForm.get("firstName") != null) {
+    if (this.searchForm.get("firstName").value != null
+      && this.searchForm.get("firstName").value.trim() != "") {
       searchData.firstName = this.searchForm.get("firstName").value;
       this.areAllSearchInputsNull = false;
     }
-    if (this.searchForm.get("lastName") != null) {
+    if (this.searchForm.get("lastName").value != null
+      && this.searchForm.get("lastName").value.trim() != "") {
       searchData.lastName = this.searchForm.get("lastName").value;
       this.areAllSearchInputsNull = false;
     }
-    if (this.searchForm.get("fromAge") != null) {
+    if (this.searchForm.get("fromAge").value != null
+      && this.searchForm.get("fromAge").value.trim() != "") {
       searchData.fromAge = this.searchForm.get("fromAge").value;
       this.areAllSearchInputsNull = false;
     }
-    if (this.searchForm.get("toAge") != null) {
+    if (this.searchForm.get("toAge").value != null
+      && this.searchForm.get("toAge").value.trim() != "") {
       searchData.toAge = this.searchForm.get("toAge").value;
       this.areAllSearchInputsNull = false;
     }
-    if (this.searchForm.get("isTrainer") != null) {
-      searchData.isTrainer = this.searchForm.get("isTrainer").value;
+    if (this.dropdownSelectedIsTrainerOption != undefined
+      && this.dropdownSelectedIsTrainerOption != isTrainerSearchEnum.BOTH) {
+      searchData.isTrainer = (this.dropdownSelectedIsTrainerOption === isTrainerSearchEnum.TRUE);
       this.areAllSearchInputsNull = false;
     }
-    if (this.searchForm.get("sex") != null) {
-      searchData.sex = this.searchForm.get("sex").value;
+    if (this.dropdownSelectedSexOption != undefined
+      && this.dropdownSelectedSexOption != SexSearchEnum.BOTH) {
+      searchData.sex = this.dropdownSelectedSexOption;
       this.areAllSearchInputsNull = false;
     }
 
@@ -155,6 +170,6 @@ export class ContentComponent implements OnInit {
         this.searchContentService.searchResult = data;
         this.navigator.navigateToMainPage(NavigationEnum.SEARCH);
       }
-    )
+    );
   }
 }

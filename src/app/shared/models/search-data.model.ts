@@ -6,5 +6,5 @@ export class SearchData {
     lastName: string;
     fromAge: number;
     toAge: number;
-    sex: SexSearchEnum;
+    sex: string;
 }
