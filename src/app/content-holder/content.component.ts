@@ -14,13 +14,14 @@ import { SearchData } from '../shared/models/search-data.model';
 import { SearchContentService } from './search-content-service.service';
 import { SearchUser } from '../shared/models/search-user.model';
 import { isTrainerSearchEnum } from '../shared/models/enums/isTrainerSearchEnum.enum';
+import { ClientRequestService } from './client-requests.service';
 
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css'],
-  providers: []
+  providers: [ClientRequestService]
 })
 export class ContentComponent implements OnInit {
 
@@ -44,7 +45,8 @@ export class ContentComponent implements OnInit {
     private router: Router,
     private utilsService: UtilsService,
     private userHttpService: UserHttpService,
-    private searchContentService: SearchContentService
+    private searchContentService: SearchContentService,
+    private clientRequestService: ClientRequestService
   ) {
     this.dropdownOptionsSex = [
       { label: SexSearchEnum.BOTH, value: SexSearchEnum.BOTH },
@@ -169,6 +171,15 @@ export class ContentComponent implements OnInit {
       (data: SearchUser[]) => {
         this.searchContentService.searchResult = data;
         this.navigator.navigateToMainPage(NavigationEnum.SEARCH);
+      }
+    );
+  }
+
+  getClientRequests(){
+    this.userHttpService.getClientRequests(localStorage.getItem("username")).subscribe(
+      (data: SearchUser[]) => {
+        this.clientRequestService.clientRequests=data;
+        this.navigator.navigateToClientRequests();
       }
     );
   }

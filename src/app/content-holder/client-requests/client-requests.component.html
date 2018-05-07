@@ -1,4 +1,7 @@
 <div class="content">
-  <app-search-result-row></app-search-result-row>
-  <app-search-result-row></app-search-result-row>
+  <div>
+    <app-search-result-row *ngFor="let searchUser of clientRequestService.clientRequests" 
+        [searchUser]="searchUser" (onRequestAccOrRej)="onRequestAccOrRej($event)">
+    </app-search-result-row>
+  </div>
 </div>

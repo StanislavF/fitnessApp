@@ -1,6 +1,6 @@
 import { UtilsService } from './../../shared/services/utils-service.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SearchUser } from '../../shared/models/search-user.model';
 import { UserHttpService } from '../../shared/services/http-services/user-http.service';
 
@@ -14,6 +14,7 @@ export class SearchResultRowComponent implements OnInit {
   public isBodyOpened: boolean;
   public opendPage: String;
   @Input() searchUser: SearchUser;
+  @Output() onRequestAccOrRej: EventEmitter<SearchUser>;
 
   constructor(
     private router: Router,
@@ -21,6 +22,7 @@ export class SearchResultRowComponent implements OnInit {
     private userHttpService: UserHttpService
   ) {
     this.isBodyOpened = false;
+    this.onRequestAccOrRej = new EventEmitter();
   }
 
   ngOnInit() {
@@ -38,11 +40,48 @@ export class SearchResultRowComponent implements OnInit {
 
   requestTrainer() {
 
+    event.stopPropagation();
+
     this.userHttpService.requestUserForTrainer(localStorage.getItem("username"), this.searchUser.username)
       .subscribe(
         data => {
-          window.alert(data);
+          alert("Already" + data);
+        },
+        error => {
+          alert(error);
         }
       );
   }
+
+  acceptClient(event) {
+    event.stopPropagation();
+
+    this.userHttpService.acceptClientRequest(this.searchUser.username, localStorage.getItem("username"))
+      .subscribe(
+        data => {
+          this.onRequestAccOrRej.emit(this.searchUser);
+          alert(data);
+        },
+        error => {
+          alert(error);
+        }
+      );
+  }
+
+  rejectClient(event) {
+    event.stopPropagation();
+
+    this.userHttpService.rejectClientRequest(this.searchUser.username, localStorage.getItem("username"))
+      .subscribe(
+        data => {
+          this.onRequestAccOrRej.emit(this.searchUser);
+          alert(data);
+        },
+        error => {
+          alert(error);
+        }
+      );
+  }
+
+
 }

@@ -35,7 +35,7 @@
     </div>
 
     <div class="sidenav col-md-2" *ngIf="opendPage=='my-clients'">
-      <a routerLink="/app/my-clients/clients-requests" class="client-requests">Client requests</a>
+      <a [routerLink]="" (click)="getClientRequests()" class="client-requests">Client requests</a>
 
       <p-accordion styleClass="accordion" (onOpen)="onClientClicked($event)">
         <div *ngFor="let trainer of trainers">

@@ -1,6 +1,6 @@
 import { LogInData } from './../../models/log-in-data.model';
 import { User } from './../../models/user.model';
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { SearchData } from '../../models/search-data.model';
 
@@ -67,7 +67,39 @@ export class UserHttpService {
       .set("clientUsername", clientUsername)
       .set("trainerUsername", trainerUsername);
 
-    return this.http.get(this.host + "/request-trainer", { params });
+    return this.http.get(this.host + "/request-trainer", { 
+      params ,
+      responseType: 'text'
+    });
+  }
+
+  getClientRequests(trainerUsername: any){
+    let params = new HttpParams()
+      .set("trainerUsername", trainerUsername);
+
+      return this.http.get(this.host + "/get-client-requests", { params });
+  }
+
+  acceptClientRequest(clientUsername: string, trainerUsername: string) {
+    let params = new HttpParams()
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername);
+
+    return this.http.put(this.host + "/accept-client-request", null, {
+      responseType: 'text',
+      params: params
+    });
+  }
+
+  rejectClientRequest(clientUsername: string, trainerUsername: string) {
+    let params = new HttpParams()
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername);
+
+    return this.http.put(this.host + "/reject-client-request", null, {
+      responseType: 'text',
+      params: params
+    });
   }
 
 }

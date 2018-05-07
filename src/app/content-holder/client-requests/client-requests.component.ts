@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientRequestService } from '../client-requests.service';
+import { SearchUser } from '../../shared/models/search-user.model';
 
 @Component({
   selector: 'app-client-requests',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientRequestsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public clientRequestService: ClientRequestService
+  ) { }
 
   ngOnInit() {
+  }
+
+  onRequestAccOrRej(searchUser: SearchUser){
+    let index = this.clientRequestService.clientRequests.indexOf(searchUser);
+    this.clientRequestService.clientRequests.splice(index,1);
   }
 
 }

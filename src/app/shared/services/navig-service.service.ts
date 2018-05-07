@@ -12,4 +12,8 @@ export class NavigService {
     this.router.navigate(["app/"+page]);
   }
 
+  navigateToClientRequests(){
+    this.router.navigate(["/app/my-clients/clients-requests"]);
+  }
+
 }

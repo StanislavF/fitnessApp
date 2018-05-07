@@ -5,11 +5,11 @@
     <div *ngIf="isBodyOpened">
       <label class="username-only">{{searchUser.username}}</label>
       <div class="client-request-buttons" *ngIf="opendPage=='my-clients'">
-        <button class="btn my-btn">Accept</button>
-        <button class="btn my-btn">Reject</button>
+        <button class="btn my-btn" (click)="acceptClient($event)">Accept</button>
+        <button class="btn my-btn" (click)="rejectClient($event)">Reject</button>
       </div>
-      <div class="client-request-buttons" *ngIf="searchUser.isTrainer">
-        <button class="btn my-btn" (click)="requestTrainer()" >Request Trainer</button>
+      <div class="client-request-buttons" *ngIf="searchUser.isTrainer && opendPage!='my-clients'">
+        <button class="btn my-btn" (click)="requestTrainer($event)" >Request Trainer</button>
       </div>
     </div>
 
@@ -18,11 +18,11 @@
         <label class="username">{{searchUser.username}}</label>
         <label class="is-trainer" *ngIf="searchUser.isTrainer">(Trainer)</label>
         <div class="client-request-buttons" *ngIf="opendPage=='my-clients'">
-          <button class="btn my-btn">Accept</button>
-          <button class="btn my-btn">Reject</button>
+          <button class="btn my-btn" (click)="acceptClient($event)">Accept</button>
+          <button class="btn my-btn" (click)="rejectClient($event)">Reject</button>
         </div>
-        <div class="client-request-buttons" *ngIf="searchUser.isTrainer">
-          <button class="btn my-btn" (click)="requestTrainer()" >Request Trainer</button>
+        <div class="client-request-buttons" *ngIf="searchUser.isTrainer && opendPage!='my-clients'">
+          <button class="btn my-btn" (click)="requestTrainer($event)" >Request Trainer</button>
         </div>
       </div>
       <div class="row">

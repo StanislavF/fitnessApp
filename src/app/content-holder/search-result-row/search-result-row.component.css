@@ -1,3 +1,7 @@
+button {
+    z-index: 1;
+}
+
 .row{
     margin:0;
     padding:0;
@@ -46,6 +50,7 @@
 .client-request-buttons{
     float: right;
     padding:0.4em 0.4em;
+    z-index: 1;
 }
 .body {
     border: 1px solid black;
