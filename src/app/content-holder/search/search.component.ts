@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
   public listSearchUsers: SearchUser[];
 
   constructor(
-    private searchResultService: SearchContentService
+    public searchResultService: SearchContentService
   ) { 
     this.listSearchUsers = this.searchResultService.searchResult;
   }

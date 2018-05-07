@@ -20,15 +20,15 @@
     </div>
 
     <div class="sidenav col-md-2" *ngIf="opendPage=='my-trainers'">
-      <p-accordion styleClass="accordion"  (onOpen)="onTrainerClicked($event)">
-        <div *ngFor="let trainer of trainers">
+      <p-accordion styleClass="accordion"  (onOpen)="onTabOpen($event)">
+        <div *ngFor="let trainer of trainersClientsArr">
           <p-accordionTab>
             <p-header>
-              Trainer {{trainer}}
+              {{trainer}}
             </p-header>
             <a routerLink="/app/my-trainers/meal-plan">Meal Plan</a>
             <a routerLink="/app/my-trainers/training-program">Training Program</a>
-            <a routerLink="/app/my-trainers/profile">Profile</a>
+            <a [routerLink]="['/app/my-trainers/profile',trainer]">Profile</a>
           </p-accordionTab>
         </div>
       </p-accordion>
@@ -37,15 +37,15 @@
     <div class="sidenav col-md-2" *ngIf="opendPage=='my-clients'">
       <a [routerLink]="" (click)="getClientRequests()" class="client-requests">Client requests</a>
 
-      <p-accordion styleClass="accordion" (onOpen)="onClientClicked($event)">
-        <div *ngFor="let trainer of trainers">
+      <p-accordion styleClass="accordion" (onOpen)="onTabOpen($event)">
+        <div *ngFor="let client of trainersClientsArr">
           <p-accordionTab>
             <p-header>
-              Client {{trainer}}
+              {{client}}
             </p-header>
             <a routerLink="/app/my-clients/meal-plan">Meal Plan</a>
             <a routerLink="/app/my-clients/training-program">Training Program</a>
-            <a routerLink="/app/my-clients/profile">Profile</a>
+            <a [routerLink]="['/app/my-clients/profile',client]">Profile</a>
           </p-accordionTab>
         </div>
       </p-accordion>

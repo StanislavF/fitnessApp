@@ -11,6 +11,8 @@ import { LogInComponent } from './log-in/log-in.component';
 import { ProfileComponent } from './content-holder/profile/profile.component';
 import { MyTrainersComponent } from './content-holder/my-trainers/my-trainers.component';
 import { MyClientsComponent } from './content-holder/my-clients/my-clients.component';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { AccountComponent } from './content-holder/account/account.component';
  
 const routes: Routes = [
 { path: '', redirectTo: 'log-in', pathMatch: 'full' },
@@ -19,19 +21,20 @@ const routes: Routes = [
 { 
   path: 'app', 
   component: ContentComponent,
+  canActivateChild: [AuthGuard],
   children: [
     { path: 'home', component: HomeComponent },
     { path: 'account', redirectTo: 'account/profile', pathMatch: 'full' },
-    { path: 'account/profile', component: ProfileComponent },
+    { path: 'account/profile', component: AccountComponent },
     { path: 'my-trainers', component: MyTrainersComponent },
     { path: 'my-trainers/training-program', component: TrainProgramComponent },
     { path: 'my-trainers/meal-plan', component: MealPlanComponent },
-    { path: 'my-trainers/profile', component: ProfileComponent },
+    { path: 'my-trainers/profile/:username', component: AccountComponent },
     { path: 'my-clients', component: MyClientsComponent },
     { path: 'my-clients/clients-requests', component: ClientRequestsComponent },
     { path: 'my-clients/training-program', component: TrainProgramComponent },
     { path: 'my-clients/meal-plan', component: MealPlanComponent },
-    { path: 'my-clients/profile', component: ProfileComponent },
+    { path: 'my-clients/profile/:username', component: AccountComponent },
     { path: 'search', component: SearchComponent }
   ]
 

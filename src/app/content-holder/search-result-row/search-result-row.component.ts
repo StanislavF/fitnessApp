@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SearchUser } from '../../shared/models/search-user.model';
 import { UserHttpService } from '../../shared/services/http-services/user-http.service';
+import { User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-search-result-row',
@@ -15,6 +16,7 @@ export class SearchResultRowComponent implements OnInit {
   public opendPage: String;
   @Input() searchUser: SearchUser;
   @Output() onRequestAccOrRej: EventEmitter<SearchUser>;
+  public user: User;
 
   constructor(
     private router: Router,
@@ -23,6 +25,7 @@ export class SearchResultRowComponent implements OnInit {
   ) {
     this.isBodyOpened = false;
     this.onRequestAccOrRej = new EventEmitter();
+    this.user = null;
   }
 
   ngOnInit() {
@@ -32,7 +35,18 @@ export class SearchResultRowComponent implements OnInit {
 
   openBody() {
     if (this.isBodyOpened == false) {
-      this.isBodyOpened = true;
+      if(this.user==null){
+        this.userHttpService.getUserData(this.searchUser.username).subscribe(
+          (data: User) => {
+            this.user = data;
+            this.isBodyOpened = true;
+          },
+          error => {
+            console.error(error);
+          }
+        );
+      }
+      
     } else {
       this.isBodyOpened = false;
     }

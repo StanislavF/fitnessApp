@@ -51,6 +51,8 @@ import { MealHttpService } from './shared/services/http-services/meal-http.servi
 import { UtilsService } from './shared/services/utils-service.service';
 import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal.service';
 import { SearchContentService } from './content-holder/search-content-service.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { AccountComponent } from './content-holder/account/account.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,8 @@ import { SearchContentService } from './content-holder/search-content-service.se
     SearchComponent,
     SearchResultRowComponent,
     ClientRequestsComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    AccountComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -99,7 +102,8 @@ import { SearchContentService } from './content-holder/search-content-service.se
     MealHttpService,
     TrainingHttpService,
     UserHttpService,
-    SearchContentService
+    SearchContentService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [

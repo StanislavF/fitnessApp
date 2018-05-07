@@ -42,7 +42,7 @@ export class UserHttpService {
     let params = new HttpParams()
       .set("trainerUsername", trainerUsername);
 
-    return this.http.get(this.host + "getClients", { params })
+    return this.http.get(this.host + "/get-clients", { params })
   }
 
   getAllTrainers(clientUsername: string) {
@@ -50,7 +50,7 @@ export class UserHttpService {
     let params = new HttpParams()
       .set("clientUsername", clientUsername);
 
-    return this.http.get(this.host + "getTrainers", { params })
+    return this.http.get(this.host + "/get-trainers", { params })
 
   }
 
@@ -100,6 +100,13 @@ export class UserHttpService {
       responseType: 'text',
       params: params
     });
+  }
+
+  getUserData(username){
+    let params = new HttpParams()
+    .set("username", username);
+
+    return this.http.get(this.host + "/get-user-data", {params});
   }
 
 }

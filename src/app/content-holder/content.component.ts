@@ -38,8 +38,6 @@ export class ContentComponent implements OnInit {
   public searchForm: FormGroup;
   private areAllSearchInputsNull: boolean;
 
-  public trainers = [1, 2, 3, 4, 5, 6, 7];
-
   constructor(
     private navigator: NavigService,
     private router: Router,
@@ -60,7 +58,7 @@ export class ContentComponent implements OnInit {
     ]
 
     this.areAllSearchInputsNull = true;
-
+    this.loggedUser = localStorage.getItem("username");
   }
 
   ngOnInit() {
@@ -85,6 +83,7 @@ export class ContentComponent implements OnInit {
   }
 
   myTrainersClicked() {
+
     this.opendPage = NavigationEnum.MY_TRAINERS;
     this.navigator.navigateToMainPage(this.opendPage);
 
@@ -96,7 +95,8 @@ export class ContentComponent implements OnInit {
     );
   }
 
-  myClientsClicked() {
+  myClientsClicked() { 
+
     this.opendPage = NavigationEnum.MY_CLIENTS;
     this.navigator.navigateToMainPage(this.opendPage);
 
