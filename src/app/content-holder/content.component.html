@@ -5,7 +5,7 @@
   <div class="top-nav row">
     <div class="col-md-2" (click)="homeClicked()" [ngClass]="{'top-nav-clicked':opendPage=='home'}">Home</div>
     <div class="col-md-2" (click)="myTrainersClicked()" [ngClass]="{'top-nav-clicked':opendPage=='my-trainers'}">My Trainers</div>
-    <div class="col-md-2" (click)="myClientsClicked()" [ngClass]="{'top-nav-clicked':opendPage=='my-clients'}">My Clients</div>
+    <div *ngIf="isLoggedUserTrainer" class="col-md-2" (click)="myClientsClicked()" [ngClass]="{'top-nav-clicked':opendPage=='my-clients'}">My Clients</div>
     <div class="col-md-2" (click)="searchTrainerClicked()" [ngClass]="{'top-nav-clicked':opendPage=='search'}">Search</div>
     <div class="col-md-2" (click)="accountClicked()" [ngClass]="{'top-nav-clicked':opendPage=='account'}">Account</div>
   </div>

@@ -53,6 +53,7 @@ import { MealPlanModalService } from './content-holder/meal-plan/meal-plan-modal
 import { SearchContentService } from './content-holder/search-content-service.service';
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { AccountComponent } from './content-holder/account/account.component';
+import { ModalProfileComponent } from './content-holder/profile/modal-profile/modal-profile.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { AccountComponent } from './content-holder/account/account.component';
     SearchResultRowComponent,
     ClientRequestsComponent,
     DatepickerComponent,
-    AccountComponent
+    AccountComponent,
+    ModalProfileComponent
   ],
   imports: [
     AlertModule.forRoot(),

@@ -4,7 +4,7 @@
   <div class="for-account row" *ngIf="openedPage==='account'">
     <h2 class="col-md-4">{{user.username}} Profile</h2>
     <div class="col-md-6"></div>
-    <button class="col-md-1 btn my-btn">Change fields</button>
+    <button class="col-md-1 btn my-btn">Change data</button>
   </div>
 
   <div class="row image-personalInfo">
@@ -59,14 +59,15 @@
   <div *ngIf="openedPage==='account'; else notAccTrainer">
     <div class="row">
       <div class="col-md-10">
-        <label class="is-trainer" #isTrainer>Are you a trainer</label>
-        <p-toggleButton class="is-trainer-btn" onIcon="fa-check-square" offIcon="fa-square" [(ngModel)]="checked"></p-toggleButton>
+        <label *ngIf="user.isTrainer" class="is-trainer" #isTrainer>You have chosen to be a trainer</label>
+        <label *ngIf="!user.isTrainer" class="is-trainer" #isTrainer>You have chosen not to be a trainer</label>
+        <!-- <p-toggleButton class="is-trainer-btn" onIcon="fa-check-square" offIcon="fa-square" [(ngModel)]="checked"></p-toggleButton> -->
       </div>
-      <button class="col-md-1 btn my-btn">Change description</button>
     </div>
   </div>
   <ng-template #notAccTrainer>
-    <label class="is-trainer" #isTrainer>This user is a trainer</label>
+    <label *ngIf="user.isTrainer" class="is-trainer" #isTrainer>This user is a trainer</label>
+    <label *ngIf="!user.isTrainer" class="is-trainer" #isTrainer>This user is not a trainer</label>
   </ng-template>
 
   <div class="col-md-11 user-description">

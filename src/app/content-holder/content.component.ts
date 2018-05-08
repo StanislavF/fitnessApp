@@ -27,6 +27,7 @@ export class ContentComponent implements OnInit {
 
   private loggedUser: string;
   public opendPage: String;
+  public isLoggedUserTrainer: boolean;
 
   public trainersClientsArr: User[];
   public clickedTrainerClientIndex;
@@ -59,6 +60,7 @@ export class ContentComponent implements OnInit {
 
     this.areAllSearchInputsNull = true;
     this.loggedUser = localStorage.getItem("username");
+    this.isLoggedUserTrainer = localStorage.getItem("isTrainer") == "true";
   }
 
   ngOnInit() {
