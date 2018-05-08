@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../../shared/models/user.model';
+import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-modal-profile',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalProfileComponent implements OnInit {
 
-  constructor() { }
+  public user: User;
+
+  constructor(
+    public bsModalRef: BsModalRef
+  ) { }
 
   ngOnInit() {
   }
+
+  hideModal() {
+    this.bsModalRef.hide();
+  }
+
 
 }

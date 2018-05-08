@@ -32,35 +32,6 @@ h2{
 }
 
 
-:host >>> .ui-togglebutton {
-    margin-left: 7px;
-}
-
-:host >>> .ui-state-default {
-    color:black !important;
-    background-color: #FAFAFA !important;
-    border: 1px solid black !important;
-}
-
-:host >>> .ui-state-default:hover {
-    color:#FAFAFA !important;
-    background-color: #536B6F !important;
-    border: 1px solid #FAFAFA !important;
-}
-
-:host >>> .ui-state-active {
-    color:#FAFAFA !important;
-    background-color: #536B6F !important;
-    border: 1px solid #FAFAFA !important;
-}
-
-:host >>> .ui-state-active:hover {
-    color:black !important;
-    background-color: #FAFAFA !important;
-    border: 1px solid black !important;
-}
-
-
 .user-description{
     border: 1px solid black;
     margin-top:14px;

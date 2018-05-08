@@ -1,3 +1,88 @@
-<p>
-  modal-profile works!
-</p>
+<div class="modal-header">
+  <div class="pull-left"></div>
+  <div class="pull-right">
+    <button type="button" class="btn my-btn " aria-label="Save" (click)="hideModal()"> Save </button>
+    <button type="button" class="btn my-btn " aria-label="Close" (click)="hideModal()">Cancel</button>
+  </div>
+</div>
+<div class="modal-body">
+
+  <div class="row image-personalInfo">
+
+    <div class="col-md-3 profile-img">
+      <img class="" #profileImg>
+    </div>
+
+    <div class="personal-info col-md-4">
+      <div>
+        <div class="row">
+          <label class="col-md-6">First Name:</label>
+          <input #firstName class="col-md-6" [(ngModel)]="user.firstName">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label class="col-md-6">Last Name:</label>
+          <input #lastName class="col-md-6" [(ngModel)]="user.lastName">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label class="col-md-6">Age:</label>
+          <input #age class="col-md-6" [(ngModel)]="user.age">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label class="col-md-6">Sex:</label>
+          <input #sex class="col-md-6" [(ngModel)]="user.sex">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label class="col-md-6">E-mail:</label>
+          <input #email class="col-md-6" [(ngModel)]="user.email">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label class="col-md-6">Phone:</label>
+          <input #phone class="col-md-6" [(ngModel)]="user.phone">
+        </div>
+      </div>
+    </div>
+
+    <div class="personal-info col-md-4">
+      <div>
+        <div class="row">
+          <label class="col-md-6">Weight:</label>
+          <input #weight class="col-md-6" [(ngModel)]="user.weight">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label class="col-md-6">Height:</label>
+          <input #height class="col-md-6" [(ngModel)]="user.height">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label class="col-md-6">Goal:</label>
+          <input #goal class="col-md-6" [(ngModel)]="user.goal">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div clss="isTrainerPart">
+    <label class="is-trainer" #isTrainer>Are you a trainer</label>
+    <p-toggleButton class="is-trainer-btn" onIcon="fa-check-square" offIcon="fa-square" [(ngModel)]="checked"></p-toggleButton>
+  </div>
+
+  <div class="col-md-12 user-description" [(ngModel)]="user.description" contenteditable="true">
+
+  </div>
+
+
+</div>

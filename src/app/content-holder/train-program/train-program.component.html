@@ -4,16 +4,14 @@
 
   <div class="body">
 
-    <app-datepicker (onDateChange)="onDateChange($event)"></app-datepicker>
-
     <div *ngFor="let trainingDay of trainingDays">
       <app-training-day [trainingDay]="trainingDay"></app-training-day>
     </div>
   </div>
 
-  <div class="add-button-div row">
+  <div class="add-button-div row" *ngIf="">
     <div class="col-md-5"></div>
-    <button class="col-md-2 btn my-btn" (click)="openModal()">{{date}}</button>
+    <button class="col-md-2 btn my-btn" (click)="openModal()">Add</button>
     <div class="col-md-5"></div>
   </div>
 

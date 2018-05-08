@@ -18,6 +18,13 @@ export class AccountComponent implements OnInit {
     private route: ActivatedRoute
   ) {
 
+
+    
+  }
+
+  ngOnInit() {
+
+
     this.route.paramMap.subscribe(
       (data: ParamMap) => {
         this.username = data.get('username') != null
@@ -28,13 +35,6 @@ export class AccountComponent implements OnInit {
 
       }
     );
-
-    
-  }
-
-  ngOnInit() {
-
-
 
   }
 
