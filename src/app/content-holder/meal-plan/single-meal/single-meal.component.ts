@@ -1,3 +1,4 @@
+import { UtilsService } from './../../../shared/services/utils-service.service';
 import { MealPlanModalService } from './../meal-plan-modal.service';
 import { Router } from '@angular/router';
 import { ModalSingleMealComponent } from './../modal-single-meal/modal-single-meal.component';
@@ -21,18 +22,16 @@ export class SingleMealComponent implements OnInit {
 
   constructor(
     private router: Router ,
-    private modalService: MealPlanModalService 
-  ) { }
+    private modalService: MealPlanModalService
+  ) { 
+    this.isTrainer=localStorage.getItem("isTrainer") == "true";
+  }
 
   ngOnInit() {
     let url = this.router.url;
-    let urlParts = url.split("/");
 
-    if(urlParts[2]==="my-clients"){
-      this.isTrainer=true;
-    } else {
-      this.isTrainer=false;
-    }
+
+
   }
 
   openModal(){

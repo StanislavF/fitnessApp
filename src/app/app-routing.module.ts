@@ -27,13 +27,13 @@ const routes: Routes = [
     { path: 'account', redirectTo: 'account/profile', pathMatch: 'full' },
     { path: 'account/profile', component: AccountComponent },
     { path: 'my-trainers', component: MyTrainersComponent },
-    { path: 'my-trainers/training-program', component: TrainProgramComponent },
-    { path: 'my-trainers/meal-plan', component: MealPlanComponent },
+    { path: 'my-trainers/training-program/:username', component: TrainProgramComponent },
+    { path: 'my-trainers/meal-plan/:username', component: MealPlanComponent },
     { path: 'my-trainers/profile/:username', component: AccountComponent },
     { path: 'my-clients', component: MyClientsComponent },
     { path: 'my-clients/clients-requests', component: ClientRequestsComponent },
-    { path: 'my-clients/training-program', component: TrainProgramComponent },
-    { path: 'my-clients/meal-plan', component: MealPlanComponent },
+    { path: 'my-clients/training-program/:username', component: TrainProgramComponent },
+    { path: 'my-clients/meal-plan/:username', component: MealPlanComponent },
     { path: 'my-clients/profile/:username', component: AccountComponent },
     { path: 'search', component: SearchComponent }
   ]

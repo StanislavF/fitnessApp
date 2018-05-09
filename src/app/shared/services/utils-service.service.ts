@@ -18,4 +18,10 @@ export class UtilsService {
     return urlParts[2];
   }
 
+  isMyClientsClicked(url: String){
+    let urlParts = url.split("/");
+
+    return urlParts[2] == "my-clients";
+  }
+
 }
