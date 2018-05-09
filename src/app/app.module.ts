@@ -54,6 +54,7 @@ import { SearchContentService } from './content-holder/search-content-service.se
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { AccountComponent } from './content-holder/account/account.component';
 import { ModalProfileComponent } from './content-holder/profile/modal-profile/modal-profile.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -105,14 +106,16 @@ import { ModalProfileComponent } from './content-holder/profile/modal-profile/mo
     TrainingHttpService,
     UserHttpService,
     SearchContentService,
-    AuthGuard
+    AuthGuard,
+    DatePipe
   ],
   bootstrap: [AppComponent],
   entryComponents: [
     ModalSingleMealComponent,
     ModalSingleMealRowComponent,
     ModalTrainingRowComponent,
-    ModalTrainingDayComponent
+    ModalTrainingDayComponent,
+    ModalProfileComponent
   ]
 })
 export class AppModule { }

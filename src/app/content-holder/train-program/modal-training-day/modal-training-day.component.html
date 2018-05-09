@@ -1,10 +1,10 @@
 <div class="modal-header">
   <div class="pull-left">
-    <input placeholder="No" [(ngModel)]="trainingDayCopy.tdNo">
-    <input placeholder="Title" [(ngModel)]="trainingDayCopy.tdTitle">
+    <input placeholder="No" [(ngModel)]="trainingDayCopy.no">
+    <input placeholder="Title" [(ngModel)]="trainingDayCopy.title">
   </div>
   <div class="pull-right">
-    <button type="button" class="btn my-btn " aria-label="Save" (click)="hideModal()"> Save </button>
+    <button type="button" class="btn my-btn " aria-label="Save" (click)="saveTrainingDay()"> Save </button>
     <button type="button" class="btn my-btn " aria-label="Close" (click)="hideModal()">Cancel</button>
   </div>
 </div>

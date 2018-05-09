@@ -13,12 +13,14 @@ export class TrainProgramModalService {
   ) { }
 
 
-  openModal(trainingDay: TrainingDay) {
+  openModal(trainingDay: TrainingDay, clientUsername: string, dateFromDatepicker: string) {
     this.bsModalRef = this.modalService.show(ModalTrainingDayComponent, { 
       class: 'modal-lg', 
       backdrop: "static" , 
       initialState: {
-        trainingDay: trainingDay
+        trainingDay: trainingDay,
+        clientUsername: clientUsername,
+        dateFromDatepicker
       }
     });
   }

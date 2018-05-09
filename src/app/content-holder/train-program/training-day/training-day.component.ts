@@ -1,4 +1,4 @@
-import { Exercise } from './../../../shared/models/exercise.model';
+import { ExerciseRow } from './../../../shared/models/exercise-row.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { TrainingDay } from '../../../shared/models/training-day.model';
 import { Router } from '@angular/router';
@@ -12,6 +12,9 @@ import { TrainProgramModalService } from '../train-program-modal.service';
 export class TrainingDayComponent implements OnInit {
 
   @Input() trainingDay: TrainingDay;
+  @Input() clickedUsername: string;
+  @Input() dateFromDatepicker: string;
+
   public isTrainer: boolean;
 
   constructor(
@@ -31,7 +34,7 @@ export class TrainingDayComponent implements OnInit {
   }
 
   openModal(){
-    this.modalService.openModal(this.trainingDay);
+    this.modalService.openModal(this.trainingDay, this.clickedUsername, this.dateFromDatepicker);
   }
 
 

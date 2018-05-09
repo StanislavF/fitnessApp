@@ -26,8 +26,8 @@
             <p-header>
               {{trainer}}
             </p-header>
-            <a routerLink="['/app/my-trainers/meal-plan', trainer]">Meal Plan</a>
-            <a routerLink="['/app/my-trainers/training-program', trainer]">Training Program</a>
+            <a [routerLink]="['/app/my-trainers/meal-plan', trainer]">Meal Plan</a>
+            <a [routerLink]="['/app/my-trainers/training-program', trainer]">Training Program</a>
             <a [routerLink]="['/app/my-trainers/profile',trainer]">Profile</a>
           </p-accordionTab>
         </div>
@@ -43,8 +43,8 @@
             <p-header>
               {{client}}
             </p-header>
-            <a routerLink="['/app/my-clients/meal-plan', client]">Meal Plan</a>
-            <a routerLink="['/app/my-clients/training-program', client]">Training Program</a>
+            <a [routerLink]="['/app/my-clients/meal-plan', client]">Meal Plan</a>
+            <a [routerLink]="['/app/my-clients/training-program', client]">Training Program</a>
             <a [routerLink]="['/app/my-clients/profile', client]">Profile</a>
           </p-accordionTab>
         </div>

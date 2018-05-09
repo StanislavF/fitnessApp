@@ -25,14 +25,21 @@ export class TrainingHttpService {
       .set("clientUsername", clientUsername)
       .set("trainerUsername", trainerUsername);
 
-    return this.http.get(this.host + 'trainingDay/get', { params });
+    return this.http.get(this.host + '/training-day/get', { params });
   }
 
-  createSingleMeal(trainingDay: TrainingDay) {
+  createTrainingDay(trainingDay: TrainingDay, clientUsername:string, trainerUsername: string) {
 
     let body = JSON.stringify(trainingDay);
 
-    return this.http.post(this.host + "trainingDay/create", body, this.httpOptions);
+    let params = new HttpParams()
+    .set("clientUsername", clientUsername)
+    .set("trainerUsername", trainerUsername);
+
+    return this.http.post(this.host + "/training-day/create", body, {
+      headers: { 'Content-Type': 'application/json' },
+      params: params
+    });
   }
 
   createComment(comment: string) {

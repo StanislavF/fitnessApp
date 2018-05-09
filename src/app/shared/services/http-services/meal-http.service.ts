@@ -25,7 +25,7 @@ export class MealHttpService {
       .set("clientUsername", clientUsername)
       .set("trainerUsername", trainerUsername);
 
-    return this.http.get(this.host + 'trainingDay/get', { params });
+    return this.http.get(this.host + '/single-meal/get', { params });
   }
 
   createSingleMeal(singleMeal: SingleMeal) {

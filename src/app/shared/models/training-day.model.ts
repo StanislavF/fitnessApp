@@ -1,7 +1,8 @@
-import { Exercise } from "./exercise.model";
+import { ExerciseRow } from "./exercise-row.model";
 
 export class TrainingDay {
-    tdNo: number;
-    tdTitle: string;
-    exercises: Exercise[];
+    no: number;
+    title: string;
+    date: string;
+    exerciseRows: ExerciseRow[];
 }

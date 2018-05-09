@@ -1,7 +1,7 @@
 <div class="training-day">
   <div class="header">
-    <label>{{trainingDay.tdNo}}.</label>
-    <label>{{trainingDay.tdTitle}}</label>
+    <label>{{trainingDay.no}}.</label>
+    <label>{{trainingDay.title}}</label>
     <div *ngIf="isTrainer">
       <button class="btn my-btn" (click)="openModal()">Change</button>
       <button class="btn my-btn">Delete</button>
@@ -31,7 +31,7 @@
     </div>
 
     <div>
-      <div *ngFor="let exercise of trainingDay.exercises">
+      <div *ngFor="let exercise of trainingDay.exerciseRows">
         <hr>
         <app-training-row [exercise]="exercise">
         </app-training-row>

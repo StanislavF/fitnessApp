@@ -18,6 +18,7 @@ export class MealPlanComponent implements OnInit {
   public date: string;
   public isMyClientsclicked: boolean;
   private username: string;
+  private datePipe: DatePipe;
 
   constructor(
     private modalService: MealPlanModalService,
@@ -26,7 +27,9 @@ export class MealPlanComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
+    this.datePipe = new DatePipe("en-US");
     this.isMyClientsclicked = this.utilsService.isMyClientsClicked(this.router.url);
+    this.date = this.datePipe.transform(new Date(), "yyyy-ww");
   }
 
   ngOnInit() {
@@ -107,7 +110,11 @@ export class MealPlanComponent implements OnInit {
   }
 
   getSingleMeals(date: string, clientUsername: string, trainerUsername: string){
-    this.mealHttpService.getSingleMeals(date, clientUsername, trainerUsername);  
+    this.mealHttpService.getSingleMeals(date, clientUsername, trainerUsername).subscribe(
+      (data: SingleMeal[]) => {
+        this.singleMeals = data;
+      }
+    );  
   }
 
 

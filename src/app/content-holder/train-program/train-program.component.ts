@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrainingDayComponent } from './training-day/training-day.component';
 import { TrainingDay } from '../../shared/models/training-day.model';
 import { TrainProgramModalService } from './train-program-modal.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-train-program',
@@ -25,8 +26,14 @@ export class TrainProgramComponent implements OnInit {
     private utilsService: UtilsService,
     private trainingHttpService: TrainingHttpService,
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private datePipe: DatePipe
+  ) { 
+    this.datePipe = new DatePipe("en-US");
+    this.isTrainer=localStorage.getItem("isTrainer") == "true";
+    this.isMyClientsclicked = this.utilsService.isMyClientsClicked(this.router.url);
+    this.date = this.datePipe.transform(new Date(), "yyyy-ww");
+  }
 
   ngOnInit() {
 
@@ -40,67 +47,10 @@ export class TrainProgramComponent implements OnInit {
         }
       }
     );
-
-    // this.trainingDays = [
-    //   {
-    //     tdNo: 1,
-    //     tdTitle: "Training A",
-    //     exercises: [
-    //       {
-    //         exerciseNo: "1",
-    //         exerciseName: "2",
-    //         sets: "3",
-    //         reps: "4",
-    //         weight: "5",
-    //         comment: "6"
-    //       },
-    //       {
-    //         exerciseNo: "1",
-    //         exerciseName: "2",
-    //         sets: "3",
-    //         reps: "4",
-    //         weight: "5",
-    //         comment: "6"
-    //       },
-    //       {
-    //         exerciseNo: "1",
-    //         exerciseName: "2",
-    //         sets: "3",
-    //         reps: "4",
-    //         weight: "5",
-    //         comment: "6"
-    //       },
-    //       {
-    //         exerciseNo: "1",
-    //         exerciseName: "2",
-    //         sets: "3",
-    //         reps: "4",
-    //         weight: "5",
-    //         comment: "6"
-    //       },
-    //       {
-    //         exerciseNo: "1",
-    //         exerciseName: "2",
-    //         sets: "3",
-    //         reps: "4",
-    //         weight: "5",
-    //         comment: "6"
-    //       },
-    //       {
-    //         exerciseNo: "1",
-    //         exerciseName: "2",
-    //         sets: "3",
-    //         reps: "4",
-    //         weight: "5",
-    //         comment: "6"
-    //       }
-    //     ]
-    //   }
-    // ];
   }
 
   openModal(){
-    this.modalService.openModal(null);
+    this.modalService.openModal(null, this.username, this.date);
   }
 
   onDateChange(date: string) {

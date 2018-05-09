@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Exercise } from '../../../../shared/models/exercise.model';
+import { ExerciseRow } from '../../../../shared/models/exercise-row.model';
 
 @Component({
   selector: 'app-modal-training-row',
@@ -9,7 +10,7 @@ import { Exercise } from '../../../../shared/models/exercise.model';
 export class ModalTrainingRowComponent implements OnInit {
 
 
-  @Input() exercises:Exercise[];
+  @Input() exercises:ExerciseRow[];
   @Input() index;
   @Output() exerciesChange: EventEmitter<any>;
 
