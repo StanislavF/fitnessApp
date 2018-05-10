@@ -29,9 +29,9 @@
     </div>
 
     <div class="exercises">
-      <div *ngFor="let exercise of exercises; let i = index">
+      <div *ngFor="let exerciseRow of exerciseRows; let i = index">
         <hr>
-        <app-modal-training-row [(exercises)]="exercises" [index]="i"></app-modal-training-row>
+        <app-modal-training-row [(exerciseRows)]="exerciseRows" [index]="i"></app-modal-training-row>
       </div>
     </div>
 

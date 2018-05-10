@@ -1,4 +1,4 @@
-import { Exercise } from './../../../../shared/models/exercise.model';
+import { ExerciseRow } from './../../../../shared/models/exercise-row.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TrainingRowComponent implements OnInit {
 
-  @Input() exercise: Exercise;
+  @Input() exerciseRow: ExerciseRow;
 
   constructor() { }
 

@@ -1,3 +1,4 @@
+import { Food } from './../../../shared/models/food.model';
 import { ActionEnum } from './../../../shared/models/enums/actionEnum.enum';
 import { SingleMeal } from './../../../shared/models/single-meal.model';
 import { element } from 'protractor';
@@ -39,7 +40,9 @@ export class ModalSingleMealComponent implements OnInit {
   }
 
   addNewFoodRow() {
-    this.addFoodRow(new FoodRow());
+    let foodRow = new FoodRow();
+    foodRow.food = new Food();
+    this.addFoodRow(foodRow);
   }
 
   calculateDailyMacros() {

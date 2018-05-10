@@ -10,7 +10,7 @@ import { ExerciseRow } from '../../../../shared/models/exercise-row.model';
 export class ModalTrainingRowComponent implements OnInit {
 
 
-  @Input() exercises:ExerciseRow[];
+  @Input() exerciseRows:ExerciseRow[];
   @Input() index;
   @Output() exerciesChange: EventEmitter<any>;
 
@@ -22,8 +22,8 @@ export class ModalTrainingRowComponent implements OnInit {
   }
 
   deleteExerciseRow(){
-    this.exercises.splice(this.index,1);
-    this.exerciesChange.emit(this.exercises);
+    this.exerciseRows.splice(this.index,1);
+    this.exerciesChange.emit(this.exerciseRows);
   }
 
 }

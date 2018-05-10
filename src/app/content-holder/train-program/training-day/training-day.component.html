@@ -31,9 +31,9 @@
     </div>
 
     <div>
-      <div *ngFor="let exercise of trainingDay.exerciseRows">
+      <div *ngFor="let exerciseRow of trainingDay.exerciseRows">
         <hr>
-        <app-training-row [exercise]="exercise">
+        <app-training-row [exerciseRow]="exerciseRow">
         </app-training-row>
       </div>
     </div>

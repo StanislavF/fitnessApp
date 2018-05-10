@@ -19,26 +19,26 @@ export class ModalTrainingDayComponent implements OnInit {
   private trainerUsername: string;
 
   public trainingDayCopy: TrainingDay;
-  public exercises: ExerciseRow[];
+  public exerciseRows: ExerciseRow[];
 
   constructor(
     public bsModalRef: BsModalRef,
     private trainingHttpService: TrainingHttpService
   ) {
     this.trainingDayCopy = new TrainingDay();
-    this.exercises = new Array();
+    this.exerciseRows = new Array();
     this.trainerUsername = localStorage.getItem("username");
   }
 
   ngOnInit() {
     if (this.trainingDay != undefined) {
       Object.assign(this.trainingDayCopy, this.trainingDay);
-      Object.assign(this.exercises, this.trainingDay.exerciseRows);
+      Object.assign(this.exerciseRows, this.trainingDay.exerciseRows);
     }
   }
 
-  addExerciseRow(exercise: ExerciseRow) {
-    this.exercises.push(exercise);
+  addExerciseRow(exerciseRow: ExerciseRow) {
+    this.exerciseRows.push(exerciseRow);
   }
 
   addNewExerciseRow() {
@@ -49,7 +49,7 @@ export class ModalTrainingDayComponent implements OnInit {
 
   saveTrainingDay() {
 
-    this.trainingDayCopy.exerciseRows = this.exercises;
+    this.trainingDayCopy.exerciseRows = this.exerciseRows;
     this.trainingDayCopy.date = this.dateFromDatepicker;
 
     if (this.trainingDayCopy.id == null || this.trainingDayCopy.id == null) {

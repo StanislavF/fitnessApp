@@ -1,24 +1,24 @@
 <div class="row">
   <div class="col-md-1">
-    <input #foodNo [(ngModel)]="foods[index].no">
+    <input #foodNo [(ngModel)]="foodRows[index].no">
   </div>
   <div class="col-md-3">
-    <input #foodName [(ngModel)]="foods[index].food.name">
+    <input #foodName [(ngModel)]="foodRows[index].food.name">
   </div>
   <div class="col-md-2">
-    <input #foodWeight [(ngModel)]="foods[index].weight">
+    <input #foodWeight [(ngModel)]="foodRows[index].weight">
   </div>
   <div class="col-md-2">
-    <input #calories [(ngModel)]="foods[index].calories">
+    <input #calories [(ngModel)]="foodRows[index].calories">
   </div>
   <div class="col-md-1">
-    <input #proteins [(ngModel)]="foods[index].proteins">
+    <input #proteins [(ngModel)]="foodRows[index].proteins">
   </div>
   <div class="col-md-1">
-    <input #carbs [(ngModel)]="foods[index].carbs">
+    <input #carbs [(ngModel)]="foodRows[index].carbs">
   </div>
   <div class="col-md-1">
-    <input #fats [(ngModel)]="foods[index].fats">
+    <input #fats [(ngModel)]="foodRows[index].fats">
   </div>
 
   <button class="btn my-btn col-md-1" (click)="deleteFoodRow()"><i class="fa fa-trash"></i></button>
