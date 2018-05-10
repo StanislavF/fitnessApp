@@ -28,24 +28,51 @@ export class MealHttpService {
     return this.http.get(this.host + '/single-meal/get', { params });
   }
 
-  createSingleMeal(singleMeal: SingleMeal) {
+  createSingleMeal(singleMeal: SingleMeal, clientUsername: string, trainerUsername: string) {
 
     let body = JSON.stringify(singleMeal);
 
-    return this.http.post(this.host + "singleMeal/create", body, this.httpOptions);
+    let params = new HttpParams()
+    .set("clientUsername", clientUsername)
+    .set("trainerUsername", trainerUsername);
+
+    return this.http.post(this.host + "/single-meal/create", body, {
+      headers: { 'Content-Type': 'application/json' },
+      params: params
+    });
   }
 
-  createComment(comment: string) {
+  createComment(comment: string, foodRowId: number, clientUsername: string) {
 
-    let params = new HttpParams().set("comment", comment)
+    let params = new HttpParams()
+      .set("comment", comment)
+      .set("foodRowId", String(foodRowId))
+      .set("clientUsername", clientUsername);
 
     return this.http.post(this.host + "singleMeal/create-comment", params)
   }
 
-  updateSingleMeal(singleMeal: SingleMeal) {
+  updateSingleMeal(singleMeal: SingleMeal, oldSingleMealId:number, clientUsername: string, trainerUsername: string) {
     let body = JSON.stringify(singleMeal);
 
-    return this.http.put(this.host + "singleMeal/update", body, this.httpOptions);
+    let params = new HttpParams()
+    .set("clientUsername", clientUsername)
+    .set("trainerUsername", trainerUsername)
+    .set("oldSingleMealId", String(oldSingleMealId));
+
+
+    return this.http.put(this.host + "/single-meal/update", body,  {
+      headers: { 'Content-Type': 'application/json' },
+      params: params
+    });
+  }
+
+  deleteSingleMeal(singleMealId: number){
+    
+    let params = new HttpParams()
+    .set("singleMealId", String(singleMealId));
+
+    return this.http.delete(this.host + "/single-meal/delete", {params})
   }
 
 }

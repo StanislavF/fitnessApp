@@ -2,7 +2,7 @@ import { UtilsService } from './../../../shared/services/utils-service.service';
 import { MealPlanModalService } from './../meal-plan-modal.service';
 import { Router } from '@angular/router';
 import { ModalSingleMealComponent } from './../modal-single-meal/modal-single-meal.component';
-import { Food } from './../../../shared/models/food.model';
+import { FoodRow } from './../../../shared/models/food-row.model';
 import { Component, OnInit, Input} from '@angular/core';
 import { SingleMeal } from '../../../shared/models/single-meal.model';
 

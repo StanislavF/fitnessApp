@@ -1,4 +1,4 @@
-import { Food } from './../../../../shared/models/food.model';
+import { FoodRow } from './../../../../shared/models/food-row.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -8,20 +8,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ModalSingleMealRowComponent implements OnInit {
 
-  @Input() foods:Food[];
+  @Input() foodRows:FoodRow[];
   @Input() index;
-  @Output() foodsChange: EventEmitter<any>;
+  @Output() foodRowsChange: EventEmitter<any>;
 
   constructor() { 
-    this.foodsChange = new EventEmitter();
+    this.foodRowsChange = new EventEmitter();
   }
 
   ngOnInit() {
   }
 
   deleteFoodRow(){
-    this.foods.splice(this.index,1);
-    this.foodsChange.emit(this.foods)
+    this.foodRows.splice(this.index,1);
+    this.foodRowsChange.emit(this.foodRows)
   }
 
 }

@@ -1,11 +1,12 @@
-import { Food } from "./food.model";
+import { FoodRow } from "./food-row.model";
 
 export class SingleMeal {
-    smNo: number;
-    smTitle: string;
-    foods: Food[];
-    smCalories: number;
-    smProteins: number;
-    smCarbs: number;
-    smFats: number;
+    id: number;
+    no: number;
+    title: string;
+    foodRows: FoodRow[];
+    calories: number;
+    proteins: number;
+    carbs: number;
+    fats: number;
 }

@@ -1,7 +1,7 @@
 <div class="single-meal">
   <div class="header">
-    <label>{{singleMeal.smNo}}.</label>
-    <label>{{singleMeal.smTitle}}</label>
+    <label>{{singleMeal.no}}.</label>
+    <label>{{singleMeal.title}}</label>
     <div *ngIf="isTrainer">
       <button class="btn my-btn" (click)="openModal()">Change</button>
       <button class="btn my-btn">Delete</button>
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div *ngFor="let food of singleMeal.foods">
+    <div *ngFor="let food of singleMeal.foodRows">
       <hr>
       <app-meal-row [food]="food">
       </app-meal-row>

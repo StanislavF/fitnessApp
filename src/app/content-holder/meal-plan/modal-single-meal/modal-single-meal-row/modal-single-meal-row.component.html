@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-md-1">
-    <input #foodNo [(ngModel)]="foods[index].foodNo">
+    <input #foodNo [(ngModel)]="foods[index].no">
   </div>
   <div class="col-md-3">
-    <input #foodName [(ngModel)]="foods[index].foodName">
+    <input #foodName [(ngModel)]="foods[index].food.name">
   </div>
   <div class="col-md-2">
-    <input #foodWeight [(ngModel)]="foods[index].foodWeight">
+    <input #foodWeight [(ngModel)]="foods[index].weight">
   </div>
   <div class="col-md-2">
     <input #calories [(ngModel)]="foods[index].calories">
