@@ -28,7 +28,7 @@ export class ModalTrainingDayComponent implements OnInit {
     this.trainingDayCopy = new TrainingDay();
     this.exercises = new Array();
     this.trainerUsername = localStorage.getItem("username");
-   }
+  }
 
   ngOnInit() {
     if (this.trainingDay != undefined) {
@@ -47,15 +47,24 @@ export class ModalTrainingDayComponent implements OnInit {
     this.addExerciseRow(exerciseRow);
   }
 
-  saveTrainingDay(){
+  saveTrainingDay() {
+
     this.trainingDayCopy.exerciseRows = this.exercises;
     this.trainingDayCopy.date = this.dateFromDatepicker;
 
-    this.trainingHttpService.createTrainingDay(this.trainingDayCopy, this.clientUsername, this.trainerUsername).subscribe(
-      data => {
-        this.hideModal();
-      }
-    );
+    if (this.trainingDayCopy.id == null || this.trainingDayCopy.id == null) {
+      this.trainingHttpService.createTrainingDay(this.trainingDayCopy, this.clientUsername, this.trainerUsername).subscribe(
+        data => {
+          this.hideModal();
+        }
+      );
+    } else {
+      this.trainingHttpService.updateSingleMeal(this.trainingDayCopy, this.trainingDayCopy.id, this.clientUsername, this.trainerUsername).subscribe(
+        data => {
+          this.hideModal();
+        }
+      );
+    }
   }
 
   hideModal() {

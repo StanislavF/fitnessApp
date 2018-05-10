@@ -7,7 +7,7 @@
     <app-datepicker (onDateChange)="onDateChange($event)"></app-datepicker>
 
     <div *ngFor="let trainingDay of trainingDays">
-      <app-training-day [trainingDay]="trainingDay"></app-training-day>
+      <app-training-day [trainingDay]="trainingDay" [clickedUsername]="username" [dateFromDatepicker]="date" ></app-training-day>
     </div>
   </div>
 

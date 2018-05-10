@@ -28,13 +28,13 @@ export class TrainingHttpService {
     return this.http.get(this.host + '/training-day/get', { params });
   }
 
-  createTrainingDay(trainingDay: TrainingDay, clientUsername:string, trainerUsername: string) {
+  createTrainingDay(trainingDay: TrainingDay, clientUsername: string, trainerUsername: string) {
 
     let body = JSON.stringify(trainingDay);
 
     let params = new HttpParams()
-    .set("clientUsername", clientUsername)
-    .set("trainerUsername", trainerUsername);
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername);
 
     return this.http.post(this.host + "/training-day/create", body, {
       headers: { 'Content-Type': 'application/json' },
@@ -49,10 +49,20 @@ export class TrainingHttpService {
     return this.http.post(this.host + "trainingDay/create-comment", params)
   }
 
-  updateSingleMeal(trainingDay: TrainingDay) {
+  updateSingleMeal(trainingDay: TrainingDay, oldTrainingDayId: number,
+    clientUsername: string, trainerUsername: string) {
+
     let body = JSON.stringify(trainingDay);
 
-    return this.http.put(this.host + "trainingDay/update", body, this.httpOptions);
+    let params = new HttpParams()
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername)
+      .set("oldTrainingDayId", String(oldTrainingDayId));
+
+    return this.http.put(this.host + "/training-day/update", body, {
+      headers: { 'Content-Type': 'application/json' },
+      params: params
+    });
   }
 
 }
