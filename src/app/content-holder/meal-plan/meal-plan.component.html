@@ -7,7 +7,7 @@
     <app-datepicker (onDateChange)="onDateChange($event)"></app-datepicker>
 
     <div *ngFor="let singleMeal of singleMeals">
-      <app-single-meal [singleMeal]="singleMeal"></app-single-meal>
+      <app-single-meal [singleMeal]="singleMeal" [clickedUsername]="username" [dateFromDatepicker]="date"></app-single-meal>
     </div>
 
     <div class="add-button-div row">

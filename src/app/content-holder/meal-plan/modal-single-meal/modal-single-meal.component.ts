@@ -1,3 +1,4 @@
+import { MealHttpService } from './../../../shared/services/http-services/meal-http.service';
 import { Food } from './../../../shared/models/food.model';
 import { ActionEnum } from './../../../shared/models/enums/actionEnum.enum';
 import { SingleMeal } from './../../../shared/models/single-meal.model';
@@ -15,6 +16,10 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 export class ModalSingleMealComponent implements OnInit {
 
   public singleMeal: SingleMeal;
+  private clientUsername: string;
+  private dateFromDatepicker: string;
+
+  private trainerUsername: string;
 
   public singleMealCopy: SingleMeal;
   public foodRows: FoodRow[];
@@ -22,10 +27,12 @@ export class ModalSingleMealComponent implements OnInit {
   action: ActionEnum;
 
   constructor(
-    public bsModalRef: BsModalRef
+    public bsModalRef: BsModalRef,
+    private mealHttpService: MealHttpService
   ) {
     this.singleMealCopy = new SingleMeal();
     this.foodRows = new Array();
+    this.trainerUsername = localStorage.getItem("username");
   }
 
   ngOnInit() {
@@ -63,7 +70,22 @@ export class ModalSingleMealComponent implements OnInit {
 
   saveSingleMeal(){
     this.singleMealCopy.foodRows=this.foodRows;
-    this.action;
+    this.singleMealCopy.date = this.dateFromDatepicker;
+
+    if (this.singleMeal.id == null || this.singleMeal.id == undefined) {
+      this.mealHttpService.createSingleMeal(this.singleMealCopy, this.clientUsername, this.trainerUsername).subscribe(
+        data => {
+          this.hideModal();
+        }
+      );
+    } else {
+      this.mealHttpService.updateSingleMeal(this.singleMealCopy, this.singleMealCopy.id, this.clientUsername, this.trainerUsername).subscribe(
+        data => {
+          this.hideModal();
+        }
+      );
+    }
+
   }
 
   hideModal() {

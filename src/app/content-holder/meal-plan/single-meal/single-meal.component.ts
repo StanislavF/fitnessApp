@@ -1,3 +1,4 @@
+import { MealHttpService } from './../../../shared/services/http-services/meal-http.service';
 import { UtilsService } from './../../../shared/services/utils-service.service';
 import { MealPlanModalService } from './../meal-plan-modal.service';
 import { Router } from '@angular/router';
@@ -18,25 +19,31 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 export class SingleMealComponent implements OnInit {
 
   @Input() singleMeal: SingleMeal;  
+  @Input() clickedUsername: string;
+  @Input() dateFromDatepicker: string;
+
+
   public isTrainer: boolean;
 
   constructor(
     private router: Router ,
-    private modalService: MealPlanModalService
+    private modalService: MealPlanModalService,
+    private mealHttpService: MealHttpService
   ) { 
     this.isTrainer=localStorage.getItem("isTrainer") == "true";
   }
 
   ngOnInit() {
     let url = this.router.url;
-
-
-
   }
 
   openModal(){
-    this.modalService.openModal(this.singleMeal);
+    this.modalService.openModal(this.singleMeal, this.clickedUsername, this.dateFromDatepicker);
   }
 
+  deleteSingleMeal(){
+
+    this.mealHttpService.deleteSingleMeal(this.singleMeal.id);
+  }
 
 }

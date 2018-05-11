@@ -14,7 +14,7 @@ export class MealPlanModalService {
     private modalService: BsModalService
   ) { }
 
-  openModal(singleMeal: SingleMeal) {
+  openModal(singleMeal: SingleMeal, clientUsername: string, dateFromDatepicker: string) {
     this.bsModalRef = this.modalService.show(ModalSingleMealComponent, { 
       class: 'modal-lg', 
       backdrop: "static" , 
