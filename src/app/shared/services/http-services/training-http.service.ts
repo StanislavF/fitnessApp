@@ -35,6 +35,7 @@ export class TrainingHttpService {
       .set("trainerUsername", trainerUsername);
 
     return this.http.post(this.host + "/training-day/create", body, {
+      responseType: "text", 
       headers: { 'Content-Type': 'application/json' },
       params: params
     });
@@ -43,14 +44,17 @@ export class TrainingHttpService {
   createComment(comment: string, exerciseRowId: number, clientUsername: string) {
 
     let params = new HttpParams()
-      .set("comment", comment)
       .set("exerciseRowId", String(exerciseRowId))
+      .set("comment", comment)
       .set("clientUsername", clientUsername);
 
-    return this.http.post(this.host + "/training-day/create-comment", params)
+    return this.http.put(this.host + "/training-day/comment/create", null, {
+      responseType: "text", 
+      params: params
+    });
   }
 
-  updateSingleMeal(trainingDay: TrainingDay, oldTrainingDayId: number,
+  updateTrainingDay(trainingDay: TrainingDay, oldTrainingDayId: number,
     clientUsername: string, trainerUsername: string) {
 
     let body = JSON.stringify(trainingDay);
@@ -61,17 +65,23 @@ export class TrainingHttpService {
       .set("oldTrainingDayId", String(oldTrainingDayId));
 
     return this.http.put(this.host + "/training-day/update", body, {
+      responseType: "text", 
       headers: { 'Content-Type': 'application/json' },
       params: params
     });
   }
 
-  deleteSingleMeal(trainingDayId: number) {
+  deleteTrainingDay(trainingDayId: number, clientUsername: string, trainerUsername: string) {
 
     let params = new HttpParams()
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername)
       .set("trainingDayId", String(trainingDayId));
 
-    return this.http.delete(this.host + "/training-day/delete", { params })
+    return this.http.delete(this.host + "/training-day/delete", {
+      responseType: "text", 
+      params
+    })
   }
 
 }

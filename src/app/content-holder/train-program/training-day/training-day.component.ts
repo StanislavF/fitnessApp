@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TrainingDay } from '../../../shared/models/training-day.model';
 import { Router } from '@angular/router';
 import { TrainProgramModalService } from '../train-program-modal.service';
+import { TrainingHttpService } from '../../../shared/services/http-services/training-http.service';
+import { UtilsService } from '../../../shared/services/utils-service.service';
 
 @Component({
   selector: 'app-training-day',
@@ -15,27 +17,32 @@ export class TrainingDayComponent implements OnInit {
   @Input() clickedUsername: string;
   @Input() dateFromDatepicker: string;
 
-  public isTrainer: boolean;
+  public isMyClientsClicked: boolean;
 
   constructor(
     private router: Router,
-    private modalService: TrainProgramModalService
+    private modalService: TrainProgramModalService,
+    private trainingHttService: TrainingHttpService,
+    private utilsService: UtilsService
   ) { }
 
   ngOnInit() {
-    let url = this.router.url;
-    let urlParts = url.split("/");
-
-    if(urlParts[2]==="my-clients"){
-      this.isTrainer=true;
-    } else {
-      this.isTrainer=false;
-    }
+    this.isMyClientsClicked = this.utilsService.isMyClientsClicked(this.router.url);
   }
 
   openModal(){
     this.modalService.openModal(this.trainingDay, this.clickedUsername, this.dateFromDatepicker);
   }
 
+  deleteTrainingDay(){
+    let clientUsername = this.clickedUsername;
+    let trainerUsername = localStorage.getItem("username");
+
+    this.trainingHttService.deleteTrainingDay(this.trainingDay.id, clientUsername, trainerUsername).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
+  }
 
 }

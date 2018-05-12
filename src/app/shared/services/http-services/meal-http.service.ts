@@ -37,6 +37,7 @@ export class MealHttpService {
     .set("trainerUsername", trainerUsername);
 
     return this.http.post(this.host + "/single-meal/create", body, {
+      responseType: "text",       
       headers: { 'Content-Type': 'application/json' },
       params: params
     });
@@ -62,17 +63,23 @@ export class MealHttpService {
 
 
     return this.http.put(this.host + "/single-meal/update", body,  {
+      responseType: "text",       
       headers: { 'Content-Type': 'application/json' },
       params: params
     });
   }
 
-  deleteSingleMeal(singleMealId: number){
+  deleteSingleMeal(singleMealId: number, clientUsername: string, trainerUsername: string){
     
     let params = new HttpParams()
+    .set("clientUsername", clientUsername)
+    .set("trainerUsername", trainerUsername)
     .set("singleMealId", String(singleMealId));
 
-    return this.http.delete(this.host + "/single-meal/delete", {params})
+    return this.http.delete(this.host + "/single-meal/delete", {
+      responseType: "text", 
+      params
+    })
   }
 
 }

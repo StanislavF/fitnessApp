@@ -52,6 +52,12 @@ export class MealPlanComponent implements OnInit {
 
   onDateChange(date: string) {
     this.date = date;
+
+    if(this.isMyClientsclicked){
+      this.getSingleMeals(this.date, this.username, localStorage.getItem("username"));
+    } else {
+      this.getSingleMeals(this.date, localStorage.getItem("username"), this.username);
+    }
   }
 
   getSingleMeals(date: string, clientUsername: string, trainerUsername: string){

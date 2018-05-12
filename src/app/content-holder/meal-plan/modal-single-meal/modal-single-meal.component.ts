@@ -72,7 +72,7 @@ export class ModalSingleMealComponent implements OnInit {
     this.singleMealCopy.foodRows=this.foodRows;
     this.singleMealCopy.date = this.dateFromDatepicker;
 
-    if (this.singleMeal.id == null || this.singleMeal.id == undefined) {
+    if (this.singleMealCopy.id == null || this.singleMealCopy.id == undefined) {
       this.mealHttpService.createSingleMeal(this.singleMealCopy, this.clientUsername, this.trainerUsername).subscribe(
         data => {
           this.hideModal();

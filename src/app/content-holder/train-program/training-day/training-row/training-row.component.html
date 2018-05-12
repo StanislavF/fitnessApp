@@ -15,6 +15,7 @@
     <label #weight>{{exerciseRow.weight}}</label>
   </div>
   <div class="col-md-4">
-    <label class="comment" #comment contenteditable="true">{{exerciseRow.comment}}</label>
+    <label *ngIf="!isMyClientsClicked" class="comment comment-border" #comment contenteditable="true" (blur)="createComment() " [textContent]="exerciseRow.comment" (input)="exerciseRow.comment=$event.target.textContent"></label>
+    <label *ngIf="isMyClientsClicked" class="comment" #comment >{{exerciseRow.comment}}</label>
   </div>
 </div>

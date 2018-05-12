@@ -2,9 +2,9 @@
   <div class="header">
     <label>{{singleMeal.no}}.</label>
     <label>{{singleMeal.title}}</label>
-    <div *ngIf="isTrainer">
+    <div *ngIf="isMyClientsClicked">
       <button class="btn my-btn" (click)="openModal()">Change</button>
-      <button class="btn my-btn">Delete</button>
+      <button class="btn my-btn"  (click)="deleteSingleMeal()">Delete</button>
     </div>
   </div>
 
@@ -49,16 +49,16 @@
         <label>Calories and macros for the day</label>
       </div>
       <div class="col-md-1">
-        <label>3000</label>
+        <label>{{singleMeal.calories}}</label>
       </div>
       <div class="col-md-1">
-        <label>140</label>
+        <label>{{singleMeal.proteins}}</label>
       </div>
       <div class="col-md-1">
-        <label>302</label>
+        <label>{{singleMeal.carbs}}</label>
       </div>
       <div class="col-md-1">
-        <label>102</label>
+        <label>{{singleMeal.fats}}</label>
       </div>
       <div class="col-md-1">
 

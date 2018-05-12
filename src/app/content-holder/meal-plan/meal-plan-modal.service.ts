@@ -19,7 +19,9 @@ export class MealPlanModalService {
       class: 'modal-lg', 
       backdrop: "static" , 
       initialState: {
-        singleMeal: singleMeal
+        singleMeal: singleMeal,
+        dateFromDatepicker: dateFromDatepicker,
+        clientUsername: clientUsername
       }
     });
   }

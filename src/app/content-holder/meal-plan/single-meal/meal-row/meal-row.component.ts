@@ -1,5 +1,7 @@
 import { Food } from './../../../../shared/models/food.model';
 import { Component, OnInit, Input } from '@angular/core';
+import { UtilsService } from '../../../../shared/services/utils-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-meal-row',
@@ -9,9 +11,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MealRowComponent implements OnInit {
 
   @Input() food: Food;
+  public isMyClientsClicked;
   
 
-  constructor() { }
+  constructor(
+    private utilsService: UtilsService,
+    private router: Router
+  ) {
+    this.isMyClientsClicked = this.utilsService.isMyClientsClicked(this.router.url);
+   }
 
   ngOnInit() {
   }

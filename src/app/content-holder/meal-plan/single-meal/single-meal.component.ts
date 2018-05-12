@@ -23,14 +23,15 @@ export class SingleMealComponent implements OnInit {
   @Input() dateFromDatepicker: string;
 
 
-  public isTrainer: boolean;
+  public isMyClientsClicked: boolean;
 
   constructor(
     private router: Router ,
     private modalService: MealPlanModalService,
-    private mealHttpService: MealHttpService
+    private mealHttpService: MealHttpService,
+    private utilsService: UtilsService
   ) { 
-    this.isTrainer=localStorage.getItem("isTrainer") == "true";
+    this.isMyClientsClicked=this.utilsService.isMyClientsClicked(this.router.url);
   }
 
   ngOnInit() {
@@ -43,7 +44,14 @@ export class SingleMealComponent implements OnInit {
 
   deleteSingleMeal(){
 
-    this.mealHttpService.deleteSingleMeal(this.singleMeal.id);
+    let clientUsername = this.clickedUsername;
+    let trainerUsername = localStorage.getItem("username");
+
+    this.mealHttpService.deleteSingleMeal(this.singleMeal.id, clientUsername,  trainerUsername).subscribe(
+      data => {
+        console.log("deleted");
+      }
+    );
   }
 
 }

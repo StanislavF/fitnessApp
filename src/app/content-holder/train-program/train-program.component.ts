@@ -55,6 +55,12 @@ export class TrainProgramComponent implements OnInit {
 
   onDateChange(date: string) {
     this.date = date;
+
+    if(this.isMyClientsclicked){
+      this.getTrainingDays(this.date, this.username, localStorage.getItem("username"));
+    } else {
+      this.getTrainingDays(this.date, localStorage.getItem("username"), this.username);
+    }
   }
 
   getTrainingDays(date: string, clientUsername: string, trainerUsername: string){

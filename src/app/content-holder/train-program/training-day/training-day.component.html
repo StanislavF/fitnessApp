@@ -4,7 +4,7 @@
     <label>{{trainingDay.title}}</label>
     <div *ngIf="isTrainer">
       <button class="btn my-btn" (click)="openModal()">Change</button>
-      <button class="btn my-btn">Delete</button>
+      <button class="btn my-btn" (click)="deleteTrainingDay()">Delete</button>
     </div>
   </div>
 

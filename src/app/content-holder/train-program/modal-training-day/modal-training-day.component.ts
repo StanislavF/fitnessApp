@@ -59,7 +59,7 @@ export class ModalTrainingDayComponent implements OnInit {
         }
       );
     } else {
-      this.trainingHttpService.updateSingleMeal(this.trainingDayCopy, this.trainingDayCopy.id, this.clientUsername, this.trainerUsername).subscribe(
+      this.trainingHttpService.updateTrainingDay(this.trainingDayCopy, this.trainingDayCopy.id, this.clientUsername, this.trainerUsername).subscribe(
         data => {
           this.hideModal();
         }
