@@ -1,6 +1,11 @@
 <div class="container" [ngClass]="{'marginBottomClass': isMarginNeeded}">
 
-  <h2 class="col-md-4 for-account" *ngIf="openedPage!='account' && openedPage!='search'">{{user.username}} Profile</h2>
+  <div *ngIf="openedPage!='account' && openedPage!='search'" class="row">
+    <h2 class="col-md-4 for-account">{{user.username}} Profile</h2>
+    <div class="col-md-6"></div>
+    <button *ngIf="trainerClientStatus==='ACCEPTED'" class="col-md-1 btn my-btn" (click)="cancelTrainerClient()">Cancel</button>
+    <button *ngIf="trainerClientStatus==='CANCELED'" class="col-md-1 btn my-btn"  (click)="deleteTrainerClient()">Delete</button>
+  </div>
   <div class="for-account row" *ngIf="openedPage==='account'">
     <h2 class="col-md-4">{{user.username}} Profile</h2>
     <div class="col-md-6"></div>

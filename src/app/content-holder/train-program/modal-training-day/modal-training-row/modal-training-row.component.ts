@@ -26,5 +26,4 @@ export class ModalTrainingRowComponent implements OnInit {
     this.exerciesChange.emit(this.exerciseRows);
   }
   
-
 }

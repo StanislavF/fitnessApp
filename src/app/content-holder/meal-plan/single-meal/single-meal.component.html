@@ -2,7 +2,7 @@
   <div class="header">
     <label>{{singleMeal.no}}.</label>
     <label>{{singleMeal.title}}</label>
-    <div *ngIf="isMyClientsClicked">
+    <div *ngIf="isMyClientsClicked && trainerClientStatus=='ACCEPTED'">
       <button class="btn my-btn" (click)="openModal()">Change</button>
       <button class="btn my-btn"  (click)="deleteSingleMeal()">Delete</button>
     </div>

@@ -21,6 +21,7 @@ export class SingleMealComponent implements OnInit {
   @Input() singleMeal: SingleMeal;  
   @Input() clickedUsername: string;
   @Input() dateFromDatepicker: string;
+  @Input() trainerClientStatus: string;
 
 
   public isMyClientsClicked: boolean;

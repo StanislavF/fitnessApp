@@ -7,10 +7,10 @@
     <app-datepicker (onDateChange)="onDateChange($event)"></app-datepicker>
 
     <div *ngFor="let singleMeal of singleMeals">
-      <app-single-meal [singleMeal]="singleMeal" [clickedUsername]="username" [dateFromDatepicker]="date"></app-single-meal>
+      <app-single-meal [singleMeal]="singleMeal" [clickedUsername]="username" [dateFromDatepicker]="date" [trainerClientStatus]="trainerClientStatus"></app-single-meal>
     </div>
 
-    <div class="add-button-div row">
+    <div class="add-button-div row" *ngIf="isMyClientsclicked && trainerClientStatus==='ACCEPTED'">
       <div class="col-md-5"></div>
       <button class="col-md-2 btn my-btn" (click)="openModal()">{{date}}</button>
       <div class="col-md-5"></div>

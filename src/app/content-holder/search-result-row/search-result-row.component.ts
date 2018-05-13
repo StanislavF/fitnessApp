@@ -45,6 +45,8 @@ export class SearchResultRowComponent implements OnInit {
             console.error(error);
           }
         );
+      } else {
+        this.isBodyOpened = true;
       }
       
     } else {

@@ -6,6 +6,7 @@ import { TrainingDayComponent } from './training-day/training-day.component';
 import { TrainingDay } from '../../shared/models/training-day.model';
 import { TrainProgramModalService } from './train-program-modal.service';
 import { DatePipe } from '@angular/common';
+import { UserHttpService } from '../../shared/services/http-services/user-http.service';
 
 @Component({
   selector: 'app-train-program',
@@ -19,6 +20,8 @@ export class TrainProgramComponent implements OnInit {
   public isMyClientsclicked: boolean;
   private username: string;
 
+  public trainerClientStatus: string;
+
   public date: string;
 
   constructor(
@@ -27,7 +30,8 @@ export class TrainProgramComponent implements OnInit {
     private trainingHttpService: TrainingHttpService,
     private router: Router,
     private route: ActivatedRoute,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private userHttpService: UserHttpService
   ) { 
     this.datePipe = new DatePipe("en-US");
     this.isTrainer=localStorage.getItem("isTrainer") == "true";
@@ -47,6 +51,15 @@ export class TrainProgramComponent implements OnInit {
         }
       }
     );
+
+    if (this.isMyClientsclicked) {
+      this.userHttpService.getTrainerClientStatus(this.username, localStorage.getItem("username")).subscribe(
+        data => {
+          this.trainerClientStatus = data;
+        }
+      );
+    }
+
   }
 
   openModal(){

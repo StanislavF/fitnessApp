@@ -25,7 +25,10 @@ export class MealHttpService {
       .set("clientUsername", clientUsername)
       .set("trainerUsername", trainerUsername);
 
-    return this.http.get(this.host + '/single-meal/get', { params });
+    return this.http.get(this.host + '/single-meal/get', {
+      params,
+      observe: "response"
+    })
   }
 
   createSingleMeal(singleMeal: SingleMeal, clientUsername: string, trainerUsername: string) {
@@ -33,11 +36,11 @@ export class MealHttpService {
     let body = JSON.stringify(singleMeal);
 
     let params = new HttpParams()
-    .set("clientUsername", clientUsername)
-    .set("trainerUsername", trainerUsername);
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername);
 
     return this.http.post(this.host + "/single-meal/create", body, {
-      responseType: "text",       
+      responseType: "text",
       headers: { 'Content-Type': 'application/json' },
       params: params
     });
@@ -50,37 +53,37 @@ export class MealHttpService {
       .set("foodRowId", String(foodRowId))
       .set("clientUsername", clientUsername);
 
-      return this.http.put(this.host + "/single-meal/comment/create", null, {
-        responseType: "text", 
-        params: params
-      });
+    return this.http.put(this.host + "/single-meal/comment/create", null, {
+      responseType: "text",
+      params: params
+    });
   }
 
-  updateSingleMeal(singleMeal: SingleMeal, oldSingleMealId:number, clientUsername: string, trainerUsername: string) {
+  updateSingleMeal(singleMeal: SingleMeal, oldSingleMealId: number, clientUsername: string, trainerUsername: string) {
     let body = JSON.stringify(singleMeal);
 
     let params = new HttpParams()
-    .set("clientUsername", clientUsername)
-    .set("trainerUsername", trainerUsername)
-    .set("oldSingleMealId", String(oldSingleMealId));
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername)
+      .set("oldSingleMealId", String(oldSingleMealId));
 
 
-    return this.http.put(this.host + "/single-meal/update", body,  {
-      responseType: "text",       
+    return this.http.put(this.host + "/single-meal/update", body, {
+      responseType: "text",
       headers: { 'Content-Type': 'application/json' },
       params: params
     });
   }
 
-  deleteSingleMeal(singleMealId: number, clientUsername: string, trainerUsername: string){
-    
+  deleteSingleMeal(singleMealId: number, clientUsername: string, trainerUsername: string) {
+
     let params = new HttpParams()
-    .set("clientUsername", clientUsername)
-    .set("trainerUsername", trainerUsername)
-    .set("singleMealId", String(singleMealId));
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername)
+      .set("singleMealId", String(singleMealId));
 
     return this.http.delete(this.host + "/single-meal/delete", {
-      responseType: "text", 
+      responseType: "text",
       params
     })
   }

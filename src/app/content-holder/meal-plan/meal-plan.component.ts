@@ -6,6 +6,7 @@ import { MealPlanModalService } from './meal-plan-modal.service';
 import { Component, OnInit } from '@angular/core';
 import { SingleMeal } from '../../shared/models/single-meal.model';
 import { DatePipe } from '@angular/common';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-meal-plan',
@@ -20,12 +21,15 @@ export class MealPlanComponent implements OnInit {
   private username: string;
   private datePipe: DatePipe;
 
+  public trainerClientStatus: string;
+
   constructor(
     private modalService: MealPlanModalService,
     private utilsService: UtilsService,
     private mealHttpService: MealHttpService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userHttpService: UserHttpService
   ) {
     this.datePipe = new DatePipe("en-US");
     this.isMyClientsclicked = this.utilsService.isMyClientsClicked(this.router.url);
@@ -44,6 +48,15 @@ export class MealPlanComponent implements OnInit {
         }
       }
     );
+
+    if (this.isMyClientsclicked) {
+      this.userHttpService.getTrainerClientStatus(this.username, localStorage.getItem("username")).subscribe(
+        data => {
+          this.trainerClientStatus = data;
+        }
+      );
+    }
+
   }
 
   openModal() {
@@ -62,8 +75,12 @@ export class MealPlanComponent implements OnInit {
 
   getSingleMeals(date: string, clientUsername: string, trainerUsername: string){
     this.mealHttpService.getSingleMeals(date, clientUsername, trainerUsername).subscribe(
-      (data: SingleMeal[]) => {
-        this.singleMeals = data;
+      (data:  any) => {
+        this.singleMeals = data.body;
+        let status = data.headers.get("customStatus");
+      },
+      error => {
+        let status = error;
       }
     );  
   }

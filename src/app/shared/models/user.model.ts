@@ -1,18 +1,18 @@
 import { GoalEnum } from './enums/goalEnum.enum';
 import { SexSearchEnum } from './enums/sexSearchEnum.enum';
 export class User {
-    username: String;
-    password: String;
-    firstName: String;
-    lastName: String;
+    username: string;
+    password: string;
+    firstName: string;
+    lastName: string;
     age: Number;
     sex: SexSearchEnum;
-    email: String;
-    phone: String;
+    email: string;
+    phone: string;
     wheight: Number;
     height: Number;
     goal: GoalEnum;
-    description: String;
+    description: string;
     image: File;
     isTrainer: boolean;
 }

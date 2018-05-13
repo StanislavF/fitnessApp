@@ -2,7 +2,7 @@
   <div class="header">
     <label>{{trainingDay.no}}.</label>
     <label>{{trainingDay.title}}</label>
-    <div *ngIf="isMyClientsClicked">
+    <div *ngIf="isMyClientsClicked && trainerClientStatus==='ACCEPTED'">
       <button class="btn my-btn" (click)="openModal()">Change</button>
       <button class="btn my-btn" (click)="deleteTrainingDay()">Delete</button>
     </div>

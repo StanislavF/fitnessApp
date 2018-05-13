@@ -16,6 +16,7 @@ export class TrainingDayComponent implements OnInit {
   @Input() trainingDay: TrainingDay;
   @Input() clickedUsername: string;
   @Input() dateFromDatepicker: string;
+  @Input() trainerClientStatus: string;
 
   public isMyClientsClicked: boolean;
 
