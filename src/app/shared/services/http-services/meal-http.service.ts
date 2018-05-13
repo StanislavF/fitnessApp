@@ -50,7 +50,10 @@ export class MealHttpService {
       .set("foodRowId", String(foodRowId))
       .set("clientUsername", clientUsername);
 
-    return this.http.post(this.host + "singleMeal/create-comment", params)
+      return this.http.put(this.host + "/single-meal/comment/create", null, {
+        responseType: "text", 
+        params: params
+      });
   }
 
   updateSingleMeal(singleMeal: SingleMeal, oldSingleMealId:number, clientUsername: string, trainerUsername: string) {
