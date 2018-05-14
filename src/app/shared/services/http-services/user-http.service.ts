@@ -153,4 +153,12 @@ export class UserHttpService {
     });
   }
 
+  updateUser(user: User) {
+
+    return this.http.put(this.host + "/update-user", user, {
+      responseType: 'text',
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
 }

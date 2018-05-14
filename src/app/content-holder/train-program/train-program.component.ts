@@ -60,10 +60,21 @@ export class TrainProgramComponent implements OnInit {
       );
     }
 
+    this.modalService.onSave.subscribe(
+      (result: TrainingDay) => {
+        // this.trainingDays = this.trainingDays.filter( trainingDay => {
+        //   trainingDay.id == result.id;
+        // }).map( (trainingDay: TrainingDay) => {
+        //   trainingDay = result;
+        // });
+            }
+    );
+
   }
 
   openModal(){
     this.modalService.openModal(null, this.username, this.date);
+
   }
 
   onDateChange(date: string) {

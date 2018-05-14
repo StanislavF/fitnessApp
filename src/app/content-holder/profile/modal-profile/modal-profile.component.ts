@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../shared/models/user.model';
 import { BsModalRef } from 'ngx-bootstrap';
+import { UserHttpService } from '../../../shared/services/http-services/user-http.service';
 
 @Component({
   selector: 'app-modal-profile',
@@ -12,7 +13,8 @@ export class ModalProfileComponent implements OnInit {
   public user: User;
 
   constructor(
-    public bsModalRef: BsModalRef
+    public bsModalRef: BsModalRef,
+    private userHttpService: UserHttpService
   ) { }
 
   ngOnInit() {
@@ -20,6 +22,16 @@ export class ModalProfileComponent implements OnInit {
 
   hideModal() {
     this.bsModalRef.hide();
+  }
+
+  onSave(){
+    if(window.confirm("Are yo?")){
+      this.userHttpService.updateUser(this.user).subscribe(
+        result => {
+          console.log(result);
+        }
+      );
+    }
   }
 
 

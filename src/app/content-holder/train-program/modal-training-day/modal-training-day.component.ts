@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { TrainingDay } from '../../../shared/models/training-day.model';
 import { ExerciseRow } from '../../../shared/models/exercise-row.model';
 import { BsModalRef } from 'ngx-bootstrap';
 import { TrainingHttpService } from '../../../shared/services/http-services/training-http.service';
 import { Exercise } from '../../../shared/models/exercise.model';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-modal-training-day',
@@ -21,6 +22,8 @@ export class ModalTrainingDayComponent implements OnInit {
   public trainingDayCopy: TrainingDay;
   public exerciseRows: ExerciseRow[];
 
+  public onSave: Subject<TrainingDay>;
+
   constructor(
     public bsModalRef: BsModalRef,
     private trainingHttpService: TrainingHttpService
@@ -28,6 +31,7 @@ export class ModalTrainingDayComponent implements OnInit {
     this.trainingDayCopy = new TrainingDay();
     this.exerciseRows = new Array();
     this.trainerUsername = localStorage.getItem("username");
+    this.onSave = new Subject();
   }
 
   ngOnInit() {
@@ -68,6 +72,7 @@ export class ModalTrainingDayComponent implements OnInit {
   }
 
   hideModal() {
+    this.onSave.next(this.trainingDayCopy);
     this.bsModalRef.hide();
   }
 
