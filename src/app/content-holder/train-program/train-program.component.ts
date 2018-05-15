@@ -32,9 +32,9 @@ export class TrainProgramComponent implements OnInit {
     private route: ActivatedRoute,
     private datePipe: DatePipe,
     private userHttpService: UserHttpService
-  ) { 
+  ) {
     this.datePipe = new DatePipe("en-US");
-    this.isTrainer=localStorage.getItem("isTrainer") == "true";
+    this.isTrainer = localStorage.getItem("isTrainer") == "true";
     this.isMyClientsclicked = this.utilsService.isMyClientsClicked(this.router.url);
     this.date = this.datePipe.transform(new Date(), "yyyy-ww");
   }
@@ -44,7 +44,7 @@ export class TrainProgramComponent implements OnInit {
     this.route.paramMap.subscribe(
       (data: ParamMap) => {
         this.username = data.get('username');
-        if(this.isMyClientsclicked){
+        if (this.isMyClientsclicked) {
           this.getTrainingDays(this.date, this.username, localStorage.getItem("username"));
         } else {
           this.getTrainingDays(this.date, localStorage.getItem("username"), this.username);
@@ -62,17 +62,15 @@ export class TrainProgramComponent implements OnInit {
 
     this.modalService.onSave.subscribe(
       (result: TrainingDay) => {
-        // this.trainingDays = this.trainingDays.filter( trainingDay => {
-        //   trainingDay.id == result.id;
-        // }).map( (trainingDay: TrainingDay) => {
-        //   trainingDay = result;
-        // });
-            }
+        let newTrainingDay = this.trainingDays.find((trainingDay: TrainingDay) =>
+          trainingDay.id == result.id
+        );
+      }
     );
 
   }
 
-  openModal(){
+  openModal() {
     this.modalService.openModal(null, this.username, this.date);
 
   }
@@ -80,19 +78,23 @@ export class TrainProgramComponent implements OnInit {
   onDateChange(date: string) {
     this.date = date;
 
-    if(this.isMyClientsclicked){
+    if (this.isMyClientsclicked) {
       this.getTrainingDays(this.date, this.username, localStorage.getItem("username"));
     } else {
       this.getTrainingDays(this.date, localStorage.getItem("username"), this.username);
     }
   }
 
-  getTrainingDays(date: string, clientUsername: string, trainerUsername: string){
+  getTrainingDays(date: string, clientUsername: string, trainerUsername: string) {
     this.trainingHttpService.getTrainingDays(date, clientUsername, trainerUsername).subscribe(
       (data: TrainingDay[]) => {
         this.trainingDays = data;
       }
     );
+  }
+
+  onDelete(trainingDayId: number) {
+    console.log(trainingDayId);
   }
 
 }

@@ -1,5 +1,5 @@
 import { ExerciseRow } from './../../../shared/models/exercise-row.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { TrainingDay } from '../../../shared/models/training-day.model';
 import { Router } from '@angular/router';
 import { TrainProgramModalService } from '../train-program-modal.service';
@@ -17,6 +17,7 @@ export class TrainingDayComponent implements OnInit {
   @Input() clickedUsername: string;
   @Input() dateFromDatepicker: string;
   @Input() trainerClientStatus: string;
+  @Output() onDelete: EventEmitter<number>;
 
   public isMyClientsClicked: boolean;
 
@@ -25,7 +26,9 @@ export class TrainingDayComponent implements OnInit {
     private modalService: TrainProgramModalService,
     private trainingHttService: TrainingHttpService,
     private utilsService: UtilsService
-  ) { }
+  ) {
+    this.onDelete = new EventEmitter();
+   }
 
   ngOnInit() {
     this.isMyClientsClicked = this.utilsService.isMyClientsClicked(this.router.url);
@@ -42,6 +45,7 @@ export class TrainingDayComponent implements OnInit {
     this.trainingHttService.deleteTrainingDay(this.trainingDay.id, clientUsername, trainerUsername).subscribe(
       data => {
         console.log(data);
+        this.onDelete.emit(this.trainingDay.id);
       }
     );
   }

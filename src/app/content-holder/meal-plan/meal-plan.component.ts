@@ -92,5 +92,9 @@ export class MealPlanComponent implements OnInit {
     );  
   }
 
+  onDelete(singleMealId: number){
+    console.log(singleMealId);
+  }
+
 
 }

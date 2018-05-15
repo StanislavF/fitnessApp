@@ -4,7 +4,7 @@ import { MealPlanModalService } from './../meal-plan-modal.service';
 import { Router } from '@angular/router';
 import { ModalSingleMealComponent } from './../modal-single-meal/modal-single-meal.component';
 import { FoodRow } from './../../../shared/models/food-row.model';
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { SingleMeal } from '../../../shared/models/single-meal.model';
 
 
@@ -22,6 +22,7 @@ export class SingleMealComponent implements OnInit {
   @Input() clickedUsername: string;
   @Input() dateFromDatepicker: string;
   @Input() trainerClientStatus: string;
+  @Output() onDelete: EventEmitter<number>;
 
 
   public isMyClientsClicked: boolean;
@@ -33,6 +34,7 @@ export class SingleMealComponent implements OnInit {
     private utilsService: UtilsService
   ) { 
     this.isMyClientsClicked=this.utilsService.isMyClientsClicked(this.router.url);
+    this.onDelete = new EventEmitter();
   }
 
   ngOnInit() {
@@ -51,6 +53,7 @@ export class SingleMealComponent implements OnInit {
     this.mealHttpService.deleteSingleMeal(this.singleMeal.id, clientUsername,  trainerUsername).subscribe(
       data => {
         console.log("deleted");
+        this.onDelete.emit(this.singleMeal.id);
       }
     );
   }
