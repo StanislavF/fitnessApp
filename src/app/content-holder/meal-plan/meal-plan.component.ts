@@ -57,10 +57,17 @@ export class MealPlanComponent implements OnInit {
       );
     }
 
+    this.modalService.onModalClose.subscribe(
+      (result: SingleMeal) => {
+        console.log(result);
+      }
+    );
+
   }
 
   openModal() {
     this.modalService.openModal(null, this.username, this.date);
+
   }
 
   onDateChange(date: string) {

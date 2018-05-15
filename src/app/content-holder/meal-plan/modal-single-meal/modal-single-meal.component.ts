@@ -5,7 +5,8 @@ import { SingleMeal } from './../../../shared/models/single-meal.model';
 import { element } from 'protractor';
 import { FoodRow } from './../../../shared/models/food-row.model';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ModalSingleMealComponent implements OnInit {
   public singleMealCopy: SingleMeal;
   public foodRows: FoodRow[];
 
-  action: ActionEnum;
+  public onClose: Subject<SingleMeal>;
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -33,6 +34,7 @@ export class ModalSingleMealComponent implements OnInit {
     this.singleMealCopy = new SingleMeal();
     this.foodRows = new Array();
     this.trainerUsername = localStorage.getItem("username");
+    this.onClose = new Subject();
   }
 
   ngOnInit() {
@@ -85,10 +87,10 @@ export class ModalSingleMealComponent implements OnInit {
         }
       );
     }
-
   }
 
   hideModal() {
+    this.onClose.next(this.singleMealCopy);
     this.bsModalRef.hide();
   }
 
