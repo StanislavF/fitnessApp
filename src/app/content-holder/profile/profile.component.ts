@@ -61,15 +61,18 @@ export class ProfileComponent implements OnInit {
 
   cancelTrainerClient() {
 
-    if(window.confirm("Are you sure")){
-      if (this.openedPage === NavigationEnum.MY_CLIENTS) {
+
+    if (this.openedPage === NavigationEnum.MY_CLIENTS) {
+      if (window.confirm("Are you sure you want to cancel the connection with this client? You will be able to see his data, but not to edit it")) {
         this.userHttpService.cancelTrainerClient(this.user.username, localStorage.getItem("username")).subscribe(
           data => {
             console.log(data);
             this.trainerClientStatus = "CANCELED";
           }
         );
-      } else if (this.openedPage === NavigationEnum.MY_TRAINERS) {
+      }
+    } else if (this.openedPage === NavigationEnum.MY_TRAINERS) {
+      if (window.confirm("Are you sure you want to cancel the connection with this trainer? You will be able to see his data, but not to recieve new data")) {
         this.userHttpService.cancelTrainerClient(localStorage.getItem("username"), this.user.username).subscribe(
           data => {
             console.log(data);
@@ -79,6 +82,7 @@ export class ProfileComponent implements OnInit {
       }
     }
 
+
   }
 
   getTrainerClientStatus() {
@@ -86,9 +90,9 @@ export class ProfileComponent implements OnInit {
       this.userHttpService.getTrainerClientStatus(this.user.username, localStorage.getItem("username")).subscribe(
         data => {
           this.trainerClientStatus = data;
-        } 
+        }
       );
-    } else if (this.openedPage === NavigationEnum.MY_TRAINERS ) {
+    } else if (this.openedPage === NavigationEnum.MY_TRAINERS) {
       this.userHttpService.getTrainerClientStatus(localStorage.getItem("username"), this.user.username).subscribe(
         data => {
           this.trainerClientStatus = data;
@@ -97,19 +101,24 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  deleteTrainerClient(){
+  deleteTrainerClient() {
+
     if (this.openedPage === NavigationEnum.MY_CLIENTS && this.segments[1].path === "profile") {
-      this.userHttpService.deleteClientFromTrainer(this.user.username, localStorage.getItem("username")).subscribe(
-        data => {
-          console.log(data);
-        } 
-      );
-    } else if (this.openedPage === NavigationEnum.MY_TRAINERS ) {
-      this.userHttpService.deleteTrainerFromClient(localStorage.getItem("username"), this.user.username).subscribe(
-        data => {
-         console.log(data);
-        }
-      );
+      if (window.confirm("Are you sure you want to delete this client. You won't see his data anymore.")) {
+        this.userHttpService.deleteClientFromTrainer(this.user.username, localStorage.getItem("username")).subscribe(
+          data => {
+            console.log(data);
+          }
+        );
+      }
+    } else if (this.openedPage === NavigationEnum.MY_TRAINERS) {
+      if (window.confirm("Are you sure you want to delete this trainer. You won't see his data anymore.")) {
+        this.userHttpService.deleteTrainerFromClient(localStorage.getItem("username"), this.user.username).subscribe(
+          data => {
+            console.log(data);
+          }
+        );
+      }
     }
   }
 

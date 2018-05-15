@@ -3,7 +3,7 @@
     <input #foodNo [(ngModel)]="foodRows[index].no">
   </div>
   <div class="col-md-3">
-    <input #foodName [(ngModel)]="foodRows[index].food.name">
+    <input #foodName [(ngModel)]="foodRows[index].food.name" list="foodsDataList">
   </div>
   <div class="col-md-2">
     <input #foodWeight [(ngModel)]="foodRows[index].weight">
@@ -22,5 +22,9 @@
   </div>
 
   <button class="btn my-btn col-md-1" (click)="deleteFoodRow()"><i class="fa fa-trash"></i></button>
+
+  <datalist id="foodsDataList">
+    <option *ngFor="let food of foods" [value]="food.name">
+  </datalist>
 
 </div>

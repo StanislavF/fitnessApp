@@ -37,7 +37,18 @@ export class ModalTrainingDayComponent implements OnInit {
   ngOnInit() {
     if (this.trainingDay != undefined) {
       Object.assign(this.trainingDayCopy, this.trainingDay);
-      Object.assign(this.exerciseRows, this.trainingDay.exerciseRows);
+
+      let exercise=this.trainingDay.exerciseRows;
+      for(let index=0; index < exercise.length ; index++){
+        this.exerciseRows[index] = new ExerciseRow();
+        this.exerciseRows[index].comment = exercise[index].comment;
+        this.exerciseRows[index].exercise = exercise[index].exercise;
+        this.exerciseRows[index].exerciseNo = exercise[index].exerciseNo;
+        this.exerciseRows[index].id = exercise[index].id;
+        this.exerciseRows[index].reps = exercise[index].reps;
+        this.exerciseRows[index].sets = exercise[index].sets;
+        this.exerciseRows[index].weight = exercise[index].weight;
+      }
     }
   }
 
@@ -59,20 +70,24 @@ export class ModalTrainingDayComponent implements OnInit {
     if (this.trainingDayCopy.id == null || this.trainingDayCopy.id == null) {
       this.trainingHttpService.createTrainingDay(this.trainingDayCopy, this.clientUsername, this.trainerUsername).subscribe(
         data => {
+          this.onSave.next(this.trainingDayCopy);
           this.hideModal();
         }
       );
     } else {
-      this.trainingHttpService.updateTrainingDay(this.trainingDayCopy, this.trainingDayCopy.id, this.clientUsername, this.trainerUsername).subscribe(
-        data => {
-          this.hideModal();
-        }
-      );
+      if (window.confirm("Are you sure you want to update this training day?")) {
+        this.trainingHttpService.updateTrainingDay(this.trainingDayCopy, this.trainingDayCopy.id, this.clientUsername, this.trainerUsername).subscribe(
+          data => {
+            this.onSave.next(this.trainingDayCopy);
+            this.hideModal();
+          }
+        );
+      }
     }
   }
 
   hideModal() {
-    this.onSave.next(this.trainingDayCopy);
+    
     this.bsModalRef.hide();
   }
 

@@ -31,7 +31,6 @@ export class TrainProgramModalService {
     });
     this.bsModalRef.content.onSave.subscribe(
       result => {
-        console.log(result);
         this.onSave.next(result);
       }
     );

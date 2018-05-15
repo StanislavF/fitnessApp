@@ -84,4 +84,9 @@ export class TrainingHttpService {
     })
   }
 
+  getAllExercises(){
+
+    return this.http.get(this.host + "/training-day/exercises/get");
+  }
+
 }

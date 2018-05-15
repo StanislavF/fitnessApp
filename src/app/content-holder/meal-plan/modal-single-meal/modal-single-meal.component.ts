@@ -39,8 +39,21 @@ export class ModalSingleMealComponent implements OnInit {
 
   ngOnInit() {
     if (this.singleMeal != undefined) {
-      Object.assign(this.foodRows, this.singleMeal.foodRows);
       Object.assign(this.singleMealCopy, this.singleMeal);
+
+      let foods=this.singleMeal.foodRows;
+      for(let index=0; index < foods.length ; index++){
+        this.foodRows[index] = new FoodRow();
+        this.foodRows[index].comment = foods[index].comment;
+        this.foodRows[index].calories = foods[index].calories;
+        this.foodRows[index].carbs = foods[index].carbs;
+        this.foodRows[index].id = foods[index].id;
+        this.foodRows[index].fats = foods[index].fats;
+        this.foodRows[index].food = foods[index].food;
+        this.foodRows[index].weight = foods[index].weight;
+        this.foodRows[index].proteins = foods[index].proteins;
+        this.foodRows[index].no = foods[index].weight;
+      }
     }
   }
 
@@ -77,12 +90,14 @@ export class ModalSingleMealComponent implements OnInit {
     if (this.singleMealCopy.id == null || this.singleMealCopy.id == undefined) {
       this.mealHttpService.createSingleMeal(this.singleMealCopy, this.clientUsername, this.trainerUsername).subscribe(
         data => {
+          this.onClose.next(this.singleMealCopy);
           this.hideModal();
         }
       );
     } else {
       this.mealHttpService.updateSingleMeal(this.singleMealCopy, this.singleMealCopy.id, this.clientUsername, this.trainerUsername).subscribe(
         data => {
+          this.onClose.next(this.singleMealCopy);
           this.hideModal();
         }
       );
@@ -90,7 +105,7 @@ export class ModalSingleMealComponent implements OnInit {
   }
 
   hideModal() {
-    this.onClose.next(this.singleMealCopy);
+    
     this.bsModalRef.hide();
   }
 

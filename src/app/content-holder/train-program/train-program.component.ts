@@ -58,13 +58,14 @@ export class TrainProgramComponent implements OnInit {
           this.trainerClientStatus = data;
         }
       );
-    }
+    } 
 
     this.modalService.onSave.subscribe(
       (result: TrainingDay) => {
-        let newTrainingDay = this.trainingDays.find((trainingDay: TrainingDay) =>
+        let oldTrainingDay = this.trainingDays.find((trainingDay: TrainingDay) =>
           trainingDay.id == result.id
         );
+        this.getTrainingDays(this.date, this.username, localStorage.getItem("username"));
       }
     );
 
@@ -94,7 +95,8 @@ export class TrainProgramComponent implements OnInit {
   }
 
   onDelete(trainingDayId: number) {
-    console.log(trainingDayId);
+    //console.log(trainingDayId);
+    this.getTrainingDays(this.date, this.username, localStorage.getItem("username"));
   }
 
 }

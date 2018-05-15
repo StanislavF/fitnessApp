@@ -28,26 +28,28 @@ export class TrainingDayComponent implements OnInit {
     private utilsService: UtilsService
   ) {
     this.onDelete = new EventEmitter();
-   }
+  }
 
   ngOnInit() {
     this.isMyClientsClicked = this.utilsService.isMyClientsClicked(this.router.url);
   }
 
-  openModal(){
+  openModal() {
     this.modalService.openModal(this.trainingDay, this.clickedUsername, this.dateFromDatepicker);
   }
 
-  deleteTrainingDay(){
+  deleteTrainingDay() {
     let clientUsername = this.clickedUsername;
     let trainerUsername = localStorage.getItem("username");
 
-    this.trainingHttService.deleteTrainingDay(this.trainingDay.id, clientUsername, trainerUsername).subscribe(
-      data => {
-        console.log(data);
-        this.onDelete.emit(this.trainingDay.id);
-      }
-    );
+    if (window.confirm("Are you sure you want to delete this Training Day?")) {
+      this.trainingHttService.deleteTrainingDay(this.trainingDay.id, clientUsername, trainerUsername).subscribe(
+        data => {
+          console.log(data);
+          this.onDelete.emit(this.trainingDay.id);
+        }
+      );
+    }
   }
 
 }

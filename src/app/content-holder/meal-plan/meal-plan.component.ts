@@ -59,7 +59,8 @@ export class MealPlanComponent implements OnInit {
 
     this.modalService.onModalClose.subscribe(
       (result: SingleMeal) => {
-        console.log(result);
+        //console.log(result);
+        this.getSingleMeals(this.date, this.username, localStorage.getItem("username"));
       }
     );
 
@@ -93,7 +94,8 @@ export class MealPlanComponent implements OnInit {
   }
 
   onDelete(singleMealId: number){
-    console.log(singleMealId);
+    //console.log(singleMealId);
+    this.getSingleMeals(this.date, this.username, localStorage.getItem("username"));
   }
 
 

@@ -88,4 +88,8 @@ export class MealHttpService {
     })
   }
 
+  getAllFoods() {
+    return this.http.get(this.host + "/single-meal/foods/get");
+  }
+
 }

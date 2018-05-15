@@ -1,5 +1,7 @@
 import { FoodRow } from './../../../../shared/models/food-row.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MealHttpService } from '../../../../shared/services/http-services/meal-http.service';
+import { Food } from '../../../../shared/models/food.model';
 
 @Component({
   selector: 'app-modal-single-meal-row',
@@ -12,11 +14,20 @@ export class ModalSingleMealRowComponent implements OnInit {
   @Input() index;
   @Output() foodRowsChange: EventEmitter<any>;
 
-  constructor() { 
+  public foods: Food[];
+
+  constructor(
+    private mealHttpService: MealHttpService
+  ) { 
     this.foodRowsChange = new EventEmitter();
   }
 
   ngOnInit() {
+    this.mealHttpService.getAllFoods().subscribe(
+      (result: Food[]) => {
+        this.foods = result;
+      }
+    );
   }
 
   deleteFoodRow(){
