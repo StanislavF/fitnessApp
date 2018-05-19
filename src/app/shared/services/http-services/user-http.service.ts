@@ -161,4 +161,34 @@ export class UserHttpService {
     });
   }
 
+  updateUserPassword(username: string, oldPassword: string, newPassword: string) {
+
+    let params = new HttpParams()
+      .set("username", username)
+      .set("oldPassword", oldPassword)
+      .set("newPassword", newPassword);
+
+
+    return this.http.put(this.host + "/update-user/password", null, {
+      responseType: 'text',
+      headers: { 'Content-Type': 'application/json' },
+      params
+    });
+  }
+
+  updateUserEmail(username: string, password: string, email: string) {
+
+    let params = new HttpParams()
+      .set("username", username)
+      .set("password", password)
+      .set("email", email);
+
+
+    return this.http.put(this.host + "/update-user/email", null, {
+      responseType: 'text',
+      headers: { 'Content-Type': 'application/json' },
+      params
+    });
+  }
+
 }

@@ -21,8 +21,10 @@ export class ProfileComponent implements OnInit {
   public trainerClientStatus: string;
 
   @Input() user: User;
+
   public isMarginNeeded: boolean;
-  bsModalRef: BsModalRef;
+  
+  bsProfileModalRef: BsModalRef;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,7 +52,7 @@ export class ProfileComponent implements OnInit {
   }
 
   openModal() {
-    this.bsModalRef = this.modalService.show(ModalProfileComponent, {
+    this.bsProfileModalRef = this.modalService.show(ModalProfileComponent, {
       class: 'modal-lg',
       backdrop: "static",
       initialState: {

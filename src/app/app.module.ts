@@ -15,6 +15,7 @@ import {
 } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {AccordionModule} from 'primeng/accordion';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -55,6 +56,8 @@ import { AuthGuard } from './shared/services/auth-guard.service';
 import { AccountComponent } from './content-holder/account/account.component';
 import { ModalProfileComponent } from './content-holder/profile/modal-profile/modal-profile.component';
 import { DatePipe } from '@angular/common';
+import { ChangePasswordComponent } from './content-holder/account/change-password/change-password.component';
+import { ChangeEmailComponent } from './content-holder/account/change-email/change-email.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,9 @@ import { DatePipe } from '@angular/common';
     ClientRequestsComponent,
     DatepickerComponent,
     AccountComponent,
-    ModalProfileComponent
+    ModalProfileComponent,
+    ChangePasswordComponent,
+    ChangeEmailComponent
   ],
   imports: [
     AlertModule.forRoot(),

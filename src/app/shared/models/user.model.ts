@@ -9,7 +9,7 @@ export class User {
     sex: SexSearchEnum;
     email: string;
     phone: string;
-    wheight: Number;
+    weight: Number;
     height: Number;
     goal: GoalEnum;
     description: string;

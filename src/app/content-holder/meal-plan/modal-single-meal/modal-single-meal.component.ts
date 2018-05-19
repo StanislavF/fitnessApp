@@ -38,7 +38,7 @@ export class ModalSingleMealComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.singleMeal != undefined) {
+    if (this.singleMeal != undefined) { 
       Object.assign(this.singleMealCopy, this.singleMeal);
 
       let foods=this.singleMeal.foodRows;

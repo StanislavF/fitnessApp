@@ -1,0 +1,18 @@
+body {
+    background-color: #FAFAFA;
+}
+
+.outer-div{
+    border: #536B6F solid 1px;
+    margin-left: 25%;
+    margin-top: 10%;
+    border-radius: 3%;
+    padding: 7px;
+    color: #536B6F;
+}
+
+
+.buttons{
+    margin-top: 14px;
+    float: right;
+}

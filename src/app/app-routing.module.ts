@@ -13,6 +13,8 @@ import { MyTrainersComponent } from './content-holder/my-trainers/my-trainers.co
 import { MyClientsComponent } from './content-holder/my-clients/my-clients.component';
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { AccountComponent } from './content-holder/account/account.component';
+import { ChangePasswordComponent } from './content-holder/account/change-password/change-password.component';
+import { ChangeEmailComponent } from './content-holder/account/change-email/change-email.component';
  
 const routes: Routes = [
 { path: '', redirectTo: 'log-in', pathMatch: 'full' },
@@ -26,6 +28,8 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'account', redirectTo: 'account/profile', pathMatch: 'full' },
     { path: 'account/profile', component: AccountComponent },
+    { path: 'account/change-password', component: ChangePasswordComponent },
+    { path: 'account/change-email', component: ChangeEmailComponent },
     { path: 'my-trainers', component: MyTrainersComponent },
     { path: 'my-trainers/training-program/:username', component: TrainProgramComponent },
     { path: 'my-trainers/meal-plan/:username', component: MealPlanComponent },
