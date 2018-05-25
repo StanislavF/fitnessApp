@@ -153,11 +153,18 @@ export class UserHttpService {
     });
   }
 
-  updateUser(user: User) {
+  updateUser(user: User, image: File) {
+    let formData = new FormData();
 
-    return this.http.put(this.host + "/update-user", user, {
+    formData.append("user", JSON.stringify(user));
+    if (image != undefined) {
+      formData.append("image", image);
+    } else {
+      formData.append("image", null, null);
+    }
+
+    return this.http.post(this.host + "/update-user", formData, {
       responseType: 'text',
-      headers: { 'Content-Type': 'application/json' }
     });
   }
 

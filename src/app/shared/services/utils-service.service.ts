@@ -24,4 +24,9 @@ export class UtilsService {
     return urlParts[2] == "my-clients";
   }
 
+  clearLocalStorage(){
+    localStorage.removeItem("username");
+    localStorage.removeItem("isTrainer");
+  }
+
 }

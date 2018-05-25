@@ -185,4 +185,9 @@ export class ContentComponent implements OnInit {
       }
     );
   }
+
+  logOut(){
+    this.utilsService.clearLocalStorage();
+    this.navigator.navigateToLogIn();
+  }
 }

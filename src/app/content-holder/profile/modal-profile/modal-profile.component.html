@@ -9,8 +9,9 @@
 
   <div class="row image-personalInfo">
 
-    <div class="col-md-3 profile-img">
-      <img class="" #profileImg>
+    <div class="col-md-4">
+      <img class="profile-img" [src]="imageUrl" #profileImg>
+      <input class="image-input form-control" type="file" (change)="onImageChanged($event)">
     </div>
 
     <div class="personal-info col-md-4">
@@ -23,19 +24,7 @@
       <div>
         <div class="row">
           <label class="col-md-6">Last Name:</label>
-          <input  class="form-control" [(ngModel)]="user.lastName">
-        </div>
-      </div>
-      <div>
-        <div class="row">
-          <label class="col-md-6">Age:</label>
-          <input class="form-control" [(ngModel)]="user.age" >
-        </div>
-      </div>
-      <div>
-        <div class="row">
-          <label class="col-md-6">Sex:</label>
-          <!-- <input #sex class="col-md-6" [(ngModel)]="user.sex"> -->
+          <input class="form-control" [(ngModel)]="user.lastName">
         </div>
       </div>
       <div>
@@ -55,6 +44,20 @@
     <div class="personal-info col-md-4">
       <div>
         <div class="row">
+          <label class="col-md-6">Age:</label>
+          <input class="form-control" [(ngModel)]="user.age">
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label class="col-md-6">Sex:</label>
+        </div>
+        <div class="sex-dropdown">
+          <p-dropdown [(ngModel)]="dropdownSelectedSexOption" [options]="dropdownOptionsSex"></p-dropdown>
+        </div>
+      </div>
+      <div>
+        <div class="row">
           <label class="col-md-6">Weight:</label>
           <input class="form-control" [(ngModel)]="user.weight">
         </div>
@@ -68,7 +71,9 @@
       <div>
         <div class="row">
           <label class="col-md-6">Goal:</label>
-          <!-- <input #goal class="col-md-6" [(ngModel)]="user.goal"> -->
+        </div>
+        <div class="sex-dropdown">
+          <p-dropdown [(ngModel)]="dropdownSelectedGoalOption" [options]="dropdownOptionsGoal"></p-dropdown>
         </div>
       </div>
     </div>

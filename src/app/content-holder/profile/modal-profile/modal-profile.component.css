@@ -26,10 +26,19 @@
     border: 1px solid black !important;
 }
 
+.image-personalInfo{
+    padding: 10px !important;
+}
+
 .profile-img {
-    margin-left: 5%;
-    height:13em;
-    border: 1px solid black;
+    margin-left: 2.5%;
+    height:16em;
+    width: inherit;
+}
+
+.image-input {
+    margin: 14px auto;
+    width: inherit;
 }
 
 .row{
@@ -41,6 +50,27 @@
     text-align: right;
 }
 
+:host >>> .ui-dropdown{
+    width: 100% !important;
+    text-align: center;
+  
+}
+
+:host >>> .ui-state-default {
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem !important;
+}
+
+:host >>> .ui-state-default:hover {
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem !important;
+}
+
+.sex-dropdown {
+    padding: 0;
+    margin:-8px 10px 10px 10px !important;
+}
+
 .user-description{
     border: 1px solid black;
     margin-top:14px;
@@ -49,4 +79,8 @@
 
 .isTrainerPart{
     margin: 12px 0;
+}
+
+.enums-margin {
+    margin-bottom: -6px;
 }

@@ -4,7 +4,7 @@
     <h2 class="col-md-4 for-account">{{user.username}} Profile</h2>
     <div class="col-md-6"></div>
     <button *ngIf="trainerClientStatus==='ACCEPTED'" class="col-md-1 btn my-btn" (click)="cancelTrainerClient()">Cancel</button>
-    <button *ngIf="trainerClientStatus==='CANCELED'" class="col-md-1 btn my-btn"  (click)="deleteTrainerClient()">Delete</button>
+    <button *ngIf="trainerClientStatus==='CANCELED'" class="col-md-1 btn my-btn" (click)="deleteTrainerClient()">Delete</button>
   </div>
   <div class="for-account row" *ngIf="openedPage==='account'">
     <h2 class="col-md-4">{{user.username}} Profile</h2>
@@ -14,8 +14,8 @@
 
   <div class="row image-personalInfo">
 
-    <div class="col-md-3 profile-img">
-      <img class="" #profileImg>
+    <div class="col-md-3">
+      <img class="profile-img" [src]="user.image" #profileImg>
     </div>
 
     <div class="personal-info col-md-3">

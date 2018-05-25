@@ -16,7 +16,7 @@
       <a routerLink="/app/account/profile">Profile</a>
       <a routerLink="/app/account/change-password">Change Password</a>
       <a routerLink="/app/account/change-email">Change Email</a>
-      <a href="/app/technologies">Logout</a>
+      <a  (click)="logOut()" routerLink="" >Logout</a>
     </div>
 
     <div class="sidenav col-md-2" *ngIf="opendPage=='my-trainers'">

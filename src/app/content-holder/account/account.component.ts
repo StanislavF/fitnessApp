@@ -41,6 +41,7 @@ export class AccountComponent implements OnInit {
     this.userHttpService.getUserData(this.username).subscribe(
       (data: User) => {
         this.user = data;
+        this.user.image = "data:image/png;base64," + data.image;
       },
       err => {
         console.error(err);

@@ -16,4 +16,8 @@ export class NavigService {
     this.router.navigate(["/app/my-clients/clients-requests"]);
   }
 
+  navigateToLogIn(){
+    this.router.navigate(["/log-in"]);
+  }
+
 }

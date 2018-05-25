@@ -13,6 +13,6 @@ export class User {
     height: Number;
     goal: GoalEnum;
     description: string;
-    image: File;
+    image: string;
     isTrainer: boolean;
 }
