@@ -20,4 +20,8 @@ export class NavigService {
     this.router.navigate(["/log-in"]);
   }
 
+  goToAccProfile(){
+    this.router.navigate(["app/account/profile"]);
+  }
+
 }

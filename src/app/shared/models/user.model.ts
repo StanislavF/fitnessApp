@@ -6,12 +6,12 @@ export class User {
     firstName: string;
     lastName: string;
     age: Number;
-    sex: SexSearchEnum;
+    sex: string;
     email: string;
     phone: string;
     weight: Number;
     height: Number;
-    goal: GoalEnum;
+    goal: string;
     description: string;
     image: string;
     isTrainer: boolean;

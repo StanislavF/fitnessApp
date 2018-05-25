@@ -18,25 +18,25 @@
       <div>
         <div class="row">
           <label class="col-md-6">First Name:</label>
-          <input class="form-control" [(ngModel)]="user.firstName">
+          <input class="form-control" [(ngModel)]="userCopy.firstName">
         </div>
       </div>
       <div>
         <div class="row">
           <label class="col-md-6">Last Name:</label>
-          <input class="form-control" [(ngModel)]="user.lastName">
+          <input class="form-control" [(ngModel)]="userCopy.lastName">
         </div>
       </div>
       <div>
         <div class="row">
           <label class="col-md-6">E-mail:</label>
-          <input class="form-control" [(ngModel)]="user.email">
+          <input class="form-control" [(ngModel)]="userCopy.email">
         </div>
       </div>
       <div>
         <div class="row">
           <label class="col-md-6">Phone:</label>
-          <input class="form-control" [(ngModel)]="user.phone">
+          <input class="form-control" [(ngModel)]="userCopy.phone">
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
       <div>
         <div class="row">
           <label class="col-md-6">Age:</label>
-          <input class="form-control" [(ngModel)]="user.age">
+          <input class="form-control" [(ngModel)]="userCopy.age">
         </div>
       </div>
       <div>
@@ -59,13 +59,13 @@
       <div>
         <div class="row">
           <label class="col-md-6">Weight:</label>
-          <input class="form-control" [(ngModel)]="user.weight">
+          <input class="form-control" [(ngModel)]="userCopy.weight">
         </div>
       </div>
       <div>
         <div class="row">
           <label class="col-md-6">Height:</label>
-          <input class="form-control" [(ngModel)]="user.height">
+          <input class="form-control" [(ngModel)]="userCopy.height">
         </div>
       </div>
       <div>
@@ -82,10 +82,10 @@
 
   <div clss="isTrainerPart">
     <label class="is-trainer" #isTrainer>Are you a trainer</label>
-    <!-- <p-toggleButton class="is-trainer-btn" onIcon="fa-check-square" offIcon="fa-square" [(ngModel)]="user.isTrainer"></p-toggleButton> -->
+    <p-toggleButton class="is-trainer-btn" onIcon="fa-check-square" offIcon="fa-square" [(ngModel)]="userCopy.isTrainer"></p-toggleButton>
   </div>
 
-  <div class="col-md-12 user-description form-control" contenteditable="true" [textContent]="user.description" (input)="user.description=$event.target.textContent">
+  <div class="col-md-12 user-description form-control" contenteditable="true" [textContent]="userCopy.description" (input)="userCopy.description=$event.target.textContent">
 
   </div>
 

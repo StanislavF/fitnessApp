@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
 import { SexSearchEnum } from '../../../shared/models/enums/sexSearchEnum.enum';
 import { GoalEnum } from '../../../shared/models/enums/goalEnum.enum';
+import { UtilsService } from '../../../shared/services/utils-service.service';
+import { NavigService } from '../../../shared/services/navig-service.service';
 
 @Component({
   selector: 'app-modal-profile',
@@ -16,6 +18,7 @@ import { GoalEnum } from '../../../shared/models/enums/goalEnum.enum';
 export class ModalProfileComponent implements OnInit {
 
   public user: User;
+  public userCopy: User;
   public image: File;
   public imageUrl;
 
@@ -27,8 +30,12 @@ export class ModalProfileComponent implements OnInit {
 
   constructor(
     public bsProfileModalRef: BsModalRef,
-    private userHttpService: UserHttpService
+    private userHttpService: UserHttpService,
+    private utilsService: UtilsService,
+    private navigService: NavigService
   ) {
+    this.userCopy = new User();
+
     this.dropdownOptionsSex = [
       { label: SexSearchEnum.BOTH, value: SexSearchEnum.BOTH },
       { label: SexSearchEnum.FEMALE, value: SexSearchEnum.FEMALE },
@@ -45,19 +52,34 @@ export class ModalProfileComponent implements OnInit {
 
   ngOnInit() {
     this.imageUrl = this.user.image;
+    this.dropdownSelectedGoalOption = this.user.goal!=null ? this.user.goal : GoalEnum.MAINTENANCE;
+    this.dropdownSelectedSexOption = this.user.sex!=null ? this.user.sex : SexSearchEnum.BOTH;
+
+    Object.assign(this.userCopy, this.user);
   }
 
   hideModalProfileModal() {
     this.bsProfileModalRef.hide();
+    this.navigService.goToAccProfile();
   }
 
   onSave() {
     if (window.confirm("Are you sure?")) {
-      this.user.sex = SexSearchEnum[this.dropdownSelectedSexOption];
-      this.user.goal = GoalEnum[this.dropdownSelectedGoalOption]; 
-      this.userHttpService.updateUser(this.user, this.image).subscribe(
+      this.userCopy.sex = this.dropdownSelectedSexOption;
+      this.userCopy.goal = this.dropdownSelectedGoalOption; 
+      this.userCopy.image="";
+      this.userHttpService.updateUser(this.userCopy, this.image).subscribe(
         result => {
-          console.log(result);
+          this.hideModalProfileModal();
+          Object.assign(this.user, this.userCopy);
+          this.user.image = this.imageUrl;
+        },
+        errorResponse => {
+          if(errorResponse.error === "CLIENTS_EXIST"){
+            window.alert("You can't change your trainer status, before removing all your clients");
+          } else if (errorResponse.error === "CLIENTS_REQUESTS_EXIST"){
+            window.alert("You can't change your trainer status, while still having pending client requests");
+          }
         }
       );
     }
