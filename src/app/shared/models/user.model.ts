@@ -1,5 +1,4 @@
-import { GoalEnum } from './enums/goalEnum.enum';
-import { SexSearchEnum } from './enums/sexSearchEnum.enum';
+
 export class User {
     username: string;
     password: string;

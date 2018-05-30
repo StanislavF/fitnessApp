@@ -6,6 +6,8 @@ import { NavigationEnum } from '../../shared/models/enums/navigationEnum.enum';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ModalProfileComponent } from './modal-profile/modal-profile.component';
 import { UserHttpService } from '../../shared/services/http-services/user-http.service';
+import { ClientRequestService } from '../client-requests.service';
+import { NavigService } from '../../shared/services/navig-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -29,7 +31,9 @@ export class ProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private modalService: BsModalService,
-    private userHttpService: UserHttpService
+    private userHttpService: UserHttpService,
+    private clientRequestService: ClientRequestService,
+    private navigationService: NavigService
   ) {
     this.segments = this.route.snapshot.url;
     this.openedPage = this.segments[0].path;
@@ -110,6 +114,8 @@ export class ProfileComponent implements OnInit {
         this.userHttpService.deleteClientFromTrainer(this.user.username, localStorage.getItem("username")).subscribe(
           data => {
             console.log(data);
+            this.clientRequestService.trainersClientsArr = this.clientRequestService.trainersClientsArr.filter( (item) => item != this.user.username);
+            this.navigationService.navigateToMainPage(NavigationEnum.MY_CLIENTS);
           }
         );
       }
@@ -118,6 +124,8 @@ export class ProfileComponent implements OnInit {
         this.userHttpService.deleteTrainerFromClient(localStorage.getItem("username"), this.user.username).subscribe(
           data => {
             console.log(data);
+            this.clientRequestService.trainersClientsArr = this.clientRequestService.trainersClientsArr.filter( item => item!=this.user.username);
+            this.navigationService.navigateToMainPage(NavigationEnum.MY_TRAINERS);
           }
         );
       }

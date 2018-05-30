@@ -29,7 +29,7 @@ export class ContentComponent implements OnInit {
   public opendPage: String;
   public isLoggedUserTrainer: boolean;
 
-  public trainersClientsArr: User[];
+ 
   public clickedTrainerClientIndex;
 
   public dropdownOptionsSex: SelectItem[];
@@ -90,8 +90,8 @@ export class ContentComponent implements OnInit {
     this.navigator.navigateToMainPage(this.opendPage);
 
     this.userHttpService.getAllTrainers(this.loggedUser).subscribe(
-      (data: User[]) => {
-        this.trainersClientsArr = data;
+      (data: string[]) => {
+        this.clientRequestService.trainersClientsArr = data;
       },
       err => console.error(err)
     );
@@ -103,8 +103,8 @@ export class ContentComponent implements OnInit {
     this.navigator.navigateToMainPage(this.opendPage);
 
     this.userHttpService.getAllClients(this.loggedUser).subscribe(
-      (data: User[]) => {
-        this.trainersClientsArr = data;
+      (data: string[]) => {
+        this.clientRequestService.trainersClientsArr = data;
       },
       err => console.error(err)
     );

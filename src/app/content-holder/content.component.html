@@ -1,6 +1,6 @@
 <div>
   <div class="header">
-    <h1>Example Page Header</h1>
+    <h1>The fitness app</h1>
   </div>
   <div class="top-nav row">
     <div class="col-md-2" (click)="homeClicked()" [ngClass]="{'top-nav-clicked':opendPage=='home'}">Home</div>
@@ -21,7 +21,7 @@
 
     <div class="sidenav col-md-2" *ngIf="opendPage=='my-trainers'">
       <p-accordion styleClass="accordion"  (onOpen)="onTabOpen($event)">
-        <div *ngFor="let trainer of trainersClientsArr">
+        <div *ngFor="let trainer of clientRequestService.trainersClientsArr">
           <p-accordionTab>
             <p-header>
               {{trainer}}
@@ -38,7 +38,7 @@
       <a [routerLink]="" (click)="getClientRequests()" class="client-requests">Client requests</a>
 
       <p-accordion styleClass="accordion" (onOpen)="onTabOpen($event)">
-        <div *ngFor="let client of trainersClientsArr">
+        <div *ngFor="let client of clientRequestService.trainersClientsArr">
           <p-accordionTab>
             <p-header>
               {{client}}
