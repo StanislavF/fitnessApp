@@ -88,6 +88,18 @@ export class MealHttpService {
     })
   }
 
+  copySmFromPrevWeek(date: string, clientUsername: string, trainerUsername: string) {
+
+    let params = new HttpParams()
+      .set("date", date)
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername);
+
+    return this.http.post(this.host + '/single-meal/copy-prev-week', null, {
+      params
+    })
+  }
+
   getAllFoods() {
     return this.http.get(this.host + "/single-meal/foods/get");
   }

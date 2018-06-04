@@ -84,6 +84,18 @@ export class TrainingHttpService {
     })
   }
 
+  copyTdFromPrevWeek(date: string, clientUsername: string, trainerUsername: string) {
+
+    let params = new HttpParams()
+      .set("date", date)
+      .set("clientUsername", clientUsername)
+      .set("trainerUsername", trainerUsername);
+
+    return this.http.post(this.host + '/training-day/copy-prev-week', null, {
+      params
+    })
+  }
+
   getAllExercises(){
 
     return this.http.get(this.host + "/training-day/exercises/get");

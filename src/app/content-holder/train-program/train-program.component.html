@@ -7,15 +7,21 @@
     <app-datepicker (onDateChange)="onDateChange($event)"></app-datepicker>
 
     <div *ngFor="let trainingDay of trainingDays">
-      <app-training-day [trainingDay]="trainingDay" [clickedUsername]="username" [dateFromDatepicker]="date" [trainerClientStatus]="trainerClientStatus" (onDelete)="onDelete($event)"></app-training-day>
+      <app-training-day [trainingDay]="trainingDay" [clickedUsername]="username" [dateFromDatepicker]="date" [trainerClientStatus]="trainerClientStatus"
+        (onDelete)="onDelete($event)"></app-training-day>
     </div>
-  </div>
 
-  <div class="add-button-div row" *ngIf="isMyClientsclicked &&  trainerClientStatus=='ACCEPTED'">
-    <div class="col-md-5"></div>
-    <button class="col-md-2 btn my-btn" (click)="openModal()">Add</button>
-    <div class="col-md-5"></div>
-  </div>
+    <div class="add-button-div row" *ngIf="isMyClientsclicked &&  trainerClientStatus=='ACCEPTED'">
+      <div class="col-md-5"></div>
+      <button class="col-md-2 btn my-btn" (click)="openModal()">Add</button>
+      <div class="col-md-5"></div>
+    </div>
+    <div class="add-button-div row" *ngIf="isMyClientsclicked &&  trainerClientStatus=='ACCEPTED'">
+      <div class="col-md-5"></div>
+      <button class="col-md-2 btn my-btn" (click)="copyTdFromPrevWeek()">Copy previous</button>
+      <div class="col-md-5"></div>
+    </div>
 
+  </div>
 
 </div>

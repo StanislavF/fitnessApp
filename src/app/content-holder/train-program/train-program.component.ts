@@ -99,4 +99,12 @@ export class TrainProgramComponent implements OnInit {
     this.getTrainingDays(this.date, this.username, localStorage.getItem("username"));
   }
 
+  copyTdFromPrevWeek(){
+    this.trainingHttpService.copyTdFromPrevWeek(this.date, this.username, localStorage.getItem("username")).subscribe(
+      (result: TrainingDay[])=> {
+       this.trainingDays = result;
+      }
+    );
+  }
+
 }

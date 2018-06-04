@@ -18,10 +18,10 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 })
 export class SingleMealComponent implements OnInit {
 
-  @Input() singleMeal: SingleMeal;
-  @Input() clickedUsername: string;
-  @Input() dateFromDatepicker: string;
-  @Input() trainerClientStatus: string;
+    @Input() singleMeal: SingleMeal;
+    @Input() clickedUsername: string;
+    @Input() dateFromDatepicker: string;
+    @Input() trainerClientStatus: string;
   @Output() onDelete: EventEmitter<number>;
 
 

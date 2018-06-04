@@ -98,5 +98,13 @@ export class MealPlanComponent implements OnInit {
     this.getSingleMeals(this.date, this.username, localStorage.getItem("username"));
   }
 
+  copySmFromPrevWeek(){
+    this.mealHttpService.copySmFromPrevWeek(this.date, this.username, localStorage.getItem("username")).subscribe(
+      (result: SingleMeal[])=> {
+       this.singleMeals = result;
+      }
+    );
+  }
+
 
 }

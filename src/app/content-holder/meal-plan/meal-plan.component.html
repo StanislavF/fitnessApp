@@ -7,12 +7,18 @@
     <app-datepicker (onDateChange)="onDateChange($event)"></app-datepicker>
 
     <div *ngFor="let singleMeal of singleMeals">
-      <app-single-meal [singleMeal]="singleMeal" [clickedUsername]="username" [dateFromDatepicker]="date" [trainerClientStatus]="trainerClientStatus" (onDelete)="onDelete($event)"></app-single-meal>
+      <app-single-meal [singleMeal]="singleMeal" [clickedUsername]="username" [dateFromDatepicker]="date" [trainerClientStatus]="trainerClientStatus"
+        (onDelete)="onDelete($event)"></app-single-meal>
     </div>
 
     <div class="add-button-div row" *ngIf="isMyClientsclicked && trainerClientStatus==='ACCEPTED'">
       <div class="col-md-5"></div>
-      <button class="col-md-2 btn my-btn" (click)="openModal()">{{date}}</button>
+      <button class="col-md-2 btn my-btn" (click)="openModal()">Add</button>
+      <div class="col-md-5"></div>
+    </div>
+    <div class="add-button-div row" *ngIf="isMyClientsclicked && trainerClientStatus==='ACCEPTED'">
+      <div class="col-md-5"></div>
+      <button class="col-md-2 btn my-btn" (click)="copySmFromPrevWeek()">Copy previous</button>
       <div class="col-md-5"></div>
     </div>
 
