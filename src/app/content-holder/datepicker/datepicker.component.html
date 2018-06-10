@@ -1,7 +1,7 @@
 <div class="row datepicker">
   <div class="col-xs-12 col-md-5 col-lg-4 form-group">
     <input class="form-control" [minDate]="minDate" [maxDate]="maxDate" #dpYMD="bsDatepicker" bsDatepicker
-      [bsConfig]="{ dateInputFormat: 'YYYY-ww'}"  (bsValueChange)="onValueChange($event)">
+      [bsConfig]="{ dateInputFormat: 'YYYY-ww'}"  [(ngModel)]="bsValue" (bsValueChange)="onValueChange($event)">
   </div>
   <div class="col-xs-12 col-12 col-md-3 form-group">
     <button class="btn btn-success" (click)="dpYMD.toggle()" [attr.aria-expanded]="dpYMD.isOpen">Date Picker</button>

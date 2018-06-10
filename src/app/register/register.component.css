@@ -1,3 +1,7 @@
+.form-group {
+    margin-bottom: 2px !important;
+}
+
 body {
     background-color: #FAFAFA;
 }
@@ -22,4 +26,5 @@ body {
 
 .buttons{
     float: right;
+    margin-top: 7px;
 }

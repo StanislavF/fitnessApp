@@ -16,13 +16,14 @@ body{
 }
 
 .my-btn{
-    color:#FAFAFA;
-    background-color: #536B6F;
+    color:#FFFFFF;
+    background-color: #28a745;
 }
 
 .my-btn:hover{
     color:black;
-    background-color: #9DB8BD;
+    background-color: #21c447;
+    border: 1px solid #28a745;
 }
 
 .add-btn{

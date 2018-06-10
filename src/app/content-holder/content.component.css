@@ -13,7 +13,7 @@
     height: 100%;
     position: fixed;
     min-height: 100%;
-    background-color: #97999C;
+    background-color: #20ee55;
     padding-top: 20px;
     z-index: 1;
     overflow: auto;
@@ -24,15 +24,15 @@
     padding: 12px;
     text-decoration: none;
     font-size: 20px;
-    color: #FAFAFA;
+    color: black;
     display: block;
     margin-left: -15px;
     margin-right: -15px;
 }
 
 .sidenav a:hover {
-    color: black;
-    background-color: #b1b1b1;
+    color: white;
+    background-color: #28a745;
 }
 
 .sidenav .client-requests{
@@ -40,13 +40,13 @@
 }
 
 .header {
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     text-align: center;
     height: 10%;
-    color: #536B6F;
+    color: #28a745;
 }
 .top-nav {
-    background-color: #536B6F;
+    background-color: #28a745;
     height: 2.5em;
 }
 
@@ -54,37 +54,38 @@
     padding: 6px;
     z-index: 1;
     text-align: center;
-    color: #FAFAFA;
+    color: #FFFFFF;
 }
 
 .top-nav div:hover,
 .top-nav-clicked {
-    background-color: #9DB8BD;
+    background-color: #20ee55;
     color: black !important;
     cursor: pointer;
+    border: 1px solid #28a745;
 }
 
 :host >>> .ui-accordion{
-    background: #97999C !important;
+    background: #28a745 !important;
 }
 
 :host >>> .ui-accordion-header {
-    background: #97999C !important;
+    background: #28a745 !important;
 }
 
 :host >>> .ui-accordion-header a {
-    color: #FAFAFA  !important;
+    color: #FFFFFF  !important;
     font-size: 20px;
 }
 
 :host >>> .ui-accordion-header a:hover {
     text-decoration: none;
-    background: #b1b1b1 !important;
+    background: #21c447 !important;
     color: black !important;
 }
 
 :host >>> .ui-widget-content {
-    background: #b1b1b1 !important;
+    background: #21c447 !important;
 }
 
 :host >>> .ui-widget-content a{
@@ -92,7 +93,7 @@
 }
 
 :host >>> .ui-accordion-content {
-    background: #b1b1b1 !important;
+    background: #21c447 !important;
     padding:0 1em;
 }
 
@@ -103,8 +104,8 @@
 }
 
 :host >>> .ui-accordion-content a:hover{
-    background: #536B6F !important;
-    color: #FAFAFA !important;
+    background: #28a745 !important;
+    color: #FFFFFF !important;
 }
 
 :host >>> .ui-state-default {
@@ -112,7 +113,7 @@
 }
 
 :host >>> .ui-state-active {
-    background: #b1b1b1 !important;
+    background: #21c447 !important;
     color: black;
 }
 
@@ -126,11 +127,11 @@
 }
 
 :host >>> .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active p-header:hover {
-    background: #536B6F !important;
+    background: #21c447 !important;
 }
 
 :host >>> .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active  p-header:hover {
-    color: #FAFAFA !important;
+    color: #ffffff !important;
 }
 
 .search-form{
@@ -138,7 +139,7 @@
 }
 
 .search-form label {
-    color: #FAFAFA;
+    color: #FFFFFF;
 }
 
 .title-label {
@@ -165,6 +166,6 @@
 
 :host >>> .ui-button {
     color:black !important;
-    background-color: #FAFAFA !important;
+    background-color: #FFFFFF !important;
     border: 1px solid black !important;
 }

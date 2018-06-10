@@ -39,6 +39,7 @@ export class SearchResultRowComponent implements OnInit {
         this.userHttpService.getUserData(this.searchUser.username).subscribe(
           (data: User) => {
             this.user = data;
+            this.user.image = "data:image/png;base64," + this.user.image;
             this.isBodyOpened = true;
           },
           error => {
