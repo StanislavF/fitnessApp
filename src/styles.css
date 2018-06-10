@@ -17,13 +17,14 @@ body{
 
 .my-btn{
     color:#FFFFFF;
-    background-color: #28a745;
+    background-color: #406647;
+    border: 1px solid #000;
 }
 
 .my-btn:hover{
-    color:black;
-    background-color: #21c447;
-    border: 1px solid #28a745;
+    color:#FFF;
+    background-color: #315237;
+    border: 1px solid #000;
 }
 
 .add-btn{

@@ -13,7 +13,7 @@
     height: 100%;
     position: fixed;
     min-height: 100%;
-    background-color: #20ee55;
+    background-color: #a4dcaf;
     padding-top: 20px;
     z-index: 1;
     overflow: auto;
@@ -31,8 +31,8 @@
 }
 
 .sidenav a:hover {
-    color: white;
-    background-color: #28a745;
+    color: #000;
+    background-color: #81af89;
 }
 
 .sidenav .client-requests{
@@ -43,10 +43,10 @@
     background-color: #FFFFFF;
     text-align: center;
     height: 10%;
-    color: #28a745;
+    color: #000;
 }
 .top-nav {
-    background-color: #28a745;
+    background-color: #000;
     height: 2.5em;
 }
 
@@ -59,33 +59,33 @@
 
 .top-nav div:hover,
 .top-nav-clicked {
-    background-color: #20ee55;
-    color: black !important;
+    background-color: #3a3a3a;
+    color: #FFF !important;
     cursor: pointer;
-    border: 1px solid #28a745;
+    border: 1px solid #000;
 }
 
 :host >>> .ui-accordion{
-    background: #28a745 !important;
+    background: #9cd0a5cd !important;
 }
 
 :host >>> .ui-accordion-header {
-    background: #28a745 !important;
+    background: #9cd0a5cd !important;
 }
 
 :host >>> .ui-accordion-header a {
-    color: #FFFFFF  !important;
+    color: #000  !important;
     font-size: 20px;
 }
 
 :host >>> .ui-accordion-header a:hover {
     text-decoration: none;
-    background: #21c447 !important;
+    background: #81af89 !important;
     color: black !important;
 }
 
 :host >>> .ui-widget-content {
-    background: #21c447 !important;
+    background: #9cd0a5cd !important;
 }
 
 :host >>> .ui-widget-content a{
@@ -93,7 +93,7 @@
 }
 
 :host >>> .ui-accordion-content {
-    background: #21c447 !important;
+    background: #81af89 !important;
     padding:0 1em;
 }
 
@@ -104,8 +104,9 @@
 }
 
 :host >>> .ui-accordion-content a:hover{
-    background: #28a745 !important;
-    color: #FFFFFF !important;
+    background: #9cd0a5cd !important;
+    color: #000 !important;
+    text-decoration: underline;
 }
 
 :host >>> .ui-state-default {
@@ -113,7 +114,7 @@
 }
 
 :host >>> .ui-state-active {
-    background: #21c447 !important;
+    background: #81af89 !important;
     color: black;
 }
 
@@ -127,7 +128,7 @@
 }
 
 :host >>> .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active p-header:hover {
-    background: #21c447 !important;
+    background: #81af89 !important;
 }
 
 :host >>> .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active  p-header:hover {
@@ -139,7 +140,7 @@
 }
 
 .search-form label {
-    color: #FFFFFF;
+    color: #000;
 }
 
 .title-label {
