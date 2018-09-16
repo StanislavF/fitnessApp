@@ -62,7 +62,7 @@ export class SearchResultRowComponent implements OnInit {
     this.userHttpService.requestUserForTrainer(localStorage.getItem("username"), this.searchUser.username)
       .subscribe(
         data => {
-          alert("Already" + data);
+          alert(data == "CREATED" ? "Trainer requested" : "Already " + data);
         },
         error => {
           alert(error);

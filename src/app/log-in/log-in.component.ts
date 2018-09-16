@@ -49,10 +49,16 @@ export class LogInComponent implements OnInit {
 
     this.userHttpService.logIn(logInData).subscribe(
       (data: LogInData) => {
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("isTrainer", String(data.isTrainer));
-
+        if (data == null) {
+          alert("Wrong username and/or password");
+        } else {
+          localStorage.setItem("username", data.username);
+          localStorage.setItem("isTrainer", String(data.isTrainer));
+        }
         this.navigService.navigateToMainPage(NavigationEnum.HOME);
+      },
+      error => {
+        alert("Wrong username and/or password");
       }
     );
   }
